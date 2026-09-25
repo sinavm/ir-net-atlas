@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   probe:
@@ -27,16 +25,3 @@ jobs:
           git add docs/status.json docs/history.json docs/badge.svg
           git commit -m "chore: refresh atlas snapshot" || echo nochange
           git push
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs
-  pages:
-    needs: probe
-    if: success()
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
