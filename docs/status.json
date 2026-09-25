@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T06:24:40Z",
+  "generated_at": "2026-09-25T06:27:05Z",
   "probe_from": "github-actions",
   "disclaimer": "This run is from GitHub-hosted runners (outside Iran). Iran-user reports live in reports/iran.json.",
   "summary": {
@@ -16,7 +16,7 @@
       "group": "global",
       "ok": true,
       "status": 204,
-      "ms": 52,
+      "ms": 70,
       "error": null,
       "bytes": 0
     },
@@ -27,7 +27,7 @@
       "group": "media",
       "ok": true,
       "status": 200,
-      "ms": 151,
+      "ms": 196,
       "error": null,
       "bytes": 256
     },
@@ -38,7 +38,7 @@
       "group": "chat",
       "ok": true,
       "status": 200,
-      "ms": 553,
+      "ms": 502,
       "error": null,
       "bytes": 256
     },
@@ -49,7 +49,7 @@
       "group": "chat",
       "ok": true,
       "status": 200,
-      "ms": 529,
+      "ms": 408,
       "error": null,
       "bytes": 256
     },
@@ -60,7 +60,7 @@
       "group": "media",
       "ok": true,
       "status": 200,
-      "ms": 260,
+      "ms": 423,
       "error": null,
       "bytes": 256
     },
@@ -71,7 +71,7 @@
       "group": "chat",
       "ok": true,
       "status": 200,
-      "ms": 520,
+      "ms": 385,
       "error": null,
       "bytes": 256
     },
@@ -82,7 +82,7 @@
       "group": "media",
       "ok": true,
       "status": 200,
-      "ms": 193,
+      "ms": 414,
       "error": null,
       "bytes": 256
     },
@@ -93,7 +93,7 @@
       "group": "dev",
       "ok": true,
       "status": 200,
-      "ms": 30,
+      "ms": 156,
       "error": null,
       "bytes": 256
     },
@@ -104,7 +104,7 @@
       "group": "dev",
       "ok": true,
       "status": 200,
-      "ms": 172,
+      "ms": 179,
       "error": null,
       "bytes": 256
     },
@@ -115,7 +115,7 @@
       "group": "infra",
       "ok": true,
       "status": 200,
-      "ms": 135,
+      "ms": 254,
       "error": null,
       "bytes": 256
     },
@@ -126,7 +126,7 @@
       "group": "info",
       "ok": true,
       "status": 200,
-      "ms": 129,
+      "ms": 210,
       "error": null,
       "bytes": 256
     },
@@ -137,7 +137,7 @@
       "group": "iran",
       "ok": true,
       "status": 200,
-      "ms": 1011,
+      "ms": 941,
       "error": null,
       "bytes": 256
     },
@@ -148,7 +148,7 @@
       "group": "iran",
       "ok": true,
       "status": 200,
-      "ms": 744,
+      "ms": 3040,
       "error": null,
       "bytes": 256
     },
@@ -159,7 +159,7 @@
       "group": "iran",
       "ok": true,
       "status": 200,
-      "ms": 906,
+      "ms": 800,
       "error": null,
       "bytes": 256
     },
@@ -170,7 +170,7 @@
       "group": "dev",
       "ok": true,
       "status": 200,
-      "ms": 147,
+      "ms": 170,
       "error": null,
       "bytes": 256
     }
