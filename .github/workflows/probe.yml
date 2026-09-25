@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '7 * * * *'
+    - cron: '18 */3 * * *'
 
 permissions:
   contents: write
@@ -16,12 +17,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run probe
+      - name: Outside probe
         run: python probe.py
+      - name: Inside-Iran ingest
+        run: python fetch_inside.py || true
       - name: Commit snapshots
         run: |
           git config user.name ir-net-atlas-bot
           git config user.email sina.bb2006@gmail.com
-          git add docs/status.json docs/history.json docs/badge.svg
+          git add docs/status.json docs/history.json docs/badge.svg docs/inside.json
           git commit -m "chore: refresh atlas snapshot" || echo nochange
           git push
