@@ -1,1 +1,113 @@
-<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>IR Net Atlas</title><style>:root{--bg:#070b16;--card:#121a2b;--line:#243049;--text:#e8eefc;--mute:#93a0bb;--up:#4ade80;--down:#f87171}*{box-sizing:border-box}body{margin:0;font-family:Tahoma,sans-serif;background:radial-gradient(circle at top,#152038,var(--bg) 42%);color:var(--text)}main{max-width:980px;margin:0 auto;padding:28px 16px 60px}h1{margin:0 0 8px}.sub{color:var(--mute);line-height:1.8}.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0}.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}.stat b{display:block;font-size:1.5rem;margin-top:6px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}.ok{color:var(--up)}.bad{color:var(--down)}.meta{color:var(--mute);font-size:.82rem;margin-top:6px}a{color:#93c5fd}footer{margin-top:28px;color:var(--mute);font-size:.85rem}</style></head><body><main><h1>IR Net Atlas</h1><p class="sub">رصدخانه دسترسی سرویس‌های عمومی. پروب از رانر گیتهاب است؛ گزارش داخل ایران جدا است.</p><div class="hero"><div class="stat">آنلاین<b id="up">—</b></div><div class="stat">آفلاین<b id="down">—</b></div><div class="stat">سلامت<b id="ratio">—</b></div><div class="stat">آخرین پروب<b id="when" style="font-size:1rem">—</b></div></div><div class="grid" id="grid"></div><footer>API: <a href="./status.json">status.json</a> · Badge: <a href="./badge.svg">badge.svg</a> · <a href="https://github.com/sinavm/ir-net-atlas">کد</a></footer></main><script>fetch('./status.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{document.getElementById('up').textContent=data.summary.up;document.getElementById('down').textContent=data.summary.down;document.getElementById('ratio').textContent=data.summary.ratio+'%';document.getElementById('when').textContent=(data.generated_at||'').replace('T',' ').replace('Z',' UTC');document.getElementById('grid').innerHTML=(data.targets||[]).map(t=>'<article class="card"><div>'+t.name+'</div><div class="'+(t.ok?'ok':'bad')+'">'+(t.ok?'UP':'DOWN')+' · '+t.ms+'ms</div><div class="meta">'+t.group+' · '+(t.error||t.status)+'</div></article>').join('');}).catch(()=>{document.getElementById('when').textContent='status pending';});</script></body></html>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IR Net Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --text: #e2e8f0;
+      --mute: #94a3b8;
+      --line: rgba(255,255,255,.1);
+      --up: #4ade80;
+      --down: #f87171;
+      --slow: #fbbf24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Vazirmatn, Tahoma, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% -10%, rgba(99,102,241,.28), transparent 32%),
+        radial-gradient(circle at 90% 10%, rgba(14,165,233,.16), transparent 28%),
+        var(--bg);
+      min-height: 100vh;
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 28px 16px 70px; }
+    .hero {
+      background: rgba(15,23,42,.55);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px 20px;
+      backdrop-filter: blur(16px);
+    }
+    h1 { margin: 0 0 8px; font-size: 1.7rem; }
+    .sub { color: var(--mute); line-height: 1.9; margin: 0; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 26px; }
+    .stat, .card, .layer {
+      background: rgba(15,23,42,.62);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      backdrop-filter: blur(14px);
+    }
+    .stat { padding: 14px; }
+    .stat span { color: var(--mute); font-size: .82rem; }
+    .stat b { display: block; margin-top: 6px; font-size: 1.35rem; }
+    h2 { font-size: 1rem; margin: 22px 0 10px; color: #cbd5e1; }
+    .layers, .grid { display: grid; gap: 10px; }
+    .layers { grid-template-columns: repeat(3, 1fr); }
+    .layer { padding: 14px; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+    .card { padding: 14px; min-height: 118px; }
+    .name { font-weight: 700; }
+    .row { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; font-size: .9rem; }
+    .pill { font-size: .75rem; color: var(--mute); }
+    .bar { height: 6px; background: rgba(255,255,255,.08); border-radius: 99px; margin-top: 10px; overflow: hidden; }
+    .bar > i { display: block; height: 100%; border-radius: 99px; }
+    .fast { color: var(--up); } .ok { color: #93c5fd; } .slow { color: var(--slow); } .down { color: var(--down); }
+    footer { margin-top: 28px; color: var(--mute); font-size: .85rem; line-height: 1.8; }
+    a { color: #93c5fd; text-decoration: none; }
+    @media (max-width: 800px) {
+      .stats, .layers { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <h1>IR Net Atlas</h1>
+    <p class="sub">نقشه زنده دسترسی، تأخیر و لایه شبکه. پروب خودکار از خارج از ایران است؛ گزارش‌های داخل کشور جدا ثبت می‌شود.</p>
+  </section>
+  <div class="stats">
+    <div class="stat"><span>آنلاین</span><b id="up">—</b></div>
+    <div class="stat"><span>قطع</span><b id="down">—</b></div>
+    <div class="stat"><span>میانگین تأخیر</span><b id="avg">—</b></div>
+    <div class="stat"><span>آخرین بررسی</span><b id="when" style="font-size:.95rem">—</b></div>
+  </div>
+  <h2>لایه‌های اتصال</h2>
+  <div class="layers" id="layers"></div>
+  <h2>سرویس‌ها</h2>
+  <div class="grid" id="grid"></div>
+  <footer>
+    تأخیر کمتر از ۲۰۰ میلی‌ثانیه = سریع · تا ۸۰۰ = عادی · بالاتر = کند.
+    <br>داده: <a href="./status.json">status.json</a> · <a href="https://github.com/sinavm/ir-net-atlas">کد منبع</a>
+  </footer>
+</main>
+<script>
+const LAYER_FA = {international:'شبکه جهانی', domestic:'شبکه داخلی', infra:'زیرساخت'};
+const QFA = {fast:'سریع', ok:'عادی', slow:'کند', down:'قطع'};
+function barWidth(ms){ return Math.max(8, Math.min(100, Math.round((ms||0)/12))); }
+function barColor(q){ return q==='fast'?'#4ade80':q==='ok'?'#60a5fa':q==='slow'?'#fbbf24':'#f87171'; }
+fetch('./status.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
+  document.getElementById('up').textContent = data.summary.up;
+  document.getElementById('down').textContent = data.summary.down;
+  document.getElementById('avg').textContent = (data.summary.avg_ms ?? '—') + 'ms';
+  document.getElementById('when').textContent = (data.generated_at||'').replace('T',' ').replace('Z','');
+  document.getElementById('layers').innerHTML = Object.entries(data.layers||{}).map(([k,v])=>
+    `<article class="layer"><div>${LAYER_FA[k]||k}</div><div class="row"><b>${v.ratio}%</b><span class="pill">${v.avg_ms ?? '—'}ms</span></div></article>`
+  ).join('');
+  document.getElementById('grid').innerHTML = (data.targets||[]).map(t=>`
+    <article class="card">
+      <div class="name">${t.name}</div>
+      <div class="row ${t.quality|| (t.ok?'ok':'down')}"><span>${QFA[t.quality]|| (t.ok?'بالا':'قطع')}</span><span>${t.ms}ms</span></div>
+      <div class="pill">DNS ${t.dns_ms ?? '—'}ms · ${t.group||''}</div>
+      <div class="bar"><i style="width:${barWidth(t.ms)}%;background:${barColor(t.quality)}"></i></div>
+    </article>`).join('');
+}).catch(()=>{ document.getElementById('when').textContent = 'در حال بروزرسانی'; });
+</script>
+</body>
+</html>
