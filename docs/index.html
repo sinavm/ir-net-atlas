@@ -7,84 +7,55 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #020617;
-      --text: #e2e8f0;
-      --mute: #94a3b8;
-      --line: rgba(255,255,255,.1);
-      --up: #4ade80;
-      --down: #f87171;
-      --slow: #fbbf24;
-    }
+    :root { --bg:#020617; --text:#e2e8f0; --mute:#94a3b8; --line:rgba(255,255,255,.1); --up:#4ade80; --down:#f87171; --slow:#fbbf24; }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Vazirmatn, Tahoma, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 20% -10%, rgba(99,102,241,.28), transparent 32%),
-        radial-gradient(circle at 90% 10%, rgba(14,165,233,.16), transparent 28%),
-        var(--bg);
-      min-height: 100vh;
-    }
-    main { max-width: 1080px; margin: 0 auto; padding: 28px 16px 70px; }
-    .hero {
-      background: rgba(15,23,42,.55);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 22px 20px;
-      backdrop-filter: blur(16px);
-    }
-    h1 { margin: 0 0 8px; font-size: 1.7rem; }
-    .sub { color: var(--mute); line-height: 1.9; margin: 0; }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 26px; }
-    .stat, .card, .layer {
-      background: rgba(15,23,42,.62);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      backdrop-filter: blur(14px);
-    }
-    .stat { padding: 14px; }
-    .stat span { color: var(--mute); font-size: .82rem; }
-    .stat b { display: block; margin-top: 6px; font-size: 1.35rem; }
-    h2 { font-size: 1rem; margin: 22px 0 10px; color: #cbd5e1; }
-    .layers, .grid { display: grid; gap: 10px; }
-    .layers { grid-template-columns: repeat(3, 1fr); }
-    .layer { padding: 14px; }
-    .grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
-    .card { padding: 14px; min-height: 118px; }
-    .name { font-weight: 700; }
-    .row { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; font-size: .9rem; }
-    .pill { font-size: .75rem; color: var(--mute); }
-    .bar { height: 6px; background: rgba(255,255,255,.08); border-radius: 99px; margin-top: 10px; overflow: hidden; }
-    .bar > i { display: block; height: 100%; border-radius: 99px; }
-    .fast { color: var(--up); } .ok { color: #93c5fd; } .slow { color: var(--slow); } .down { color: var(--down); }
-    footer { margin-top: 28px; color: var(--mute); font-size: .85rem; line-height: 1.8; }
-    a { color: #93c5fd; text-decoration: none; }
-    @media (max-width: 800px) {
-      .stats, .layers { grid-template-columns: 1fr 1fr; }
-    }
+    body { margin:0; font-family:Vazirmatn,Tahoma,sans-serif; color:var(--text); background:radial-gradient(circle at 20% -10%, rgba(99,102,241,.28), transparent 32%), radial-gradient(circle at 90% 10%, rgba(14,165,233,.16), transparent 28%), var(--bg); min-height:100vh; }
+    main { max-width:1080px; margin:0 auto; padding:28px 16px 70px; }
+    .hero,.stat,.card,.layer { background:rgba(15,23,42,.62); border:1px solid var(--line); border-radius:20px; backdrop-filter:blur(14px); }
+    .hero { border-radius:28px; padding:22px 20px; }
+    h1 { margin:0 0 8px; font-size:1.7rem; }
+    .sub { color:var(--mute); line-height:1.9; margin:0; }
+    .stats,.layers,.grid { display:grid; gap:10px; }
+    .stats { grid-template-columns:repeat(4,1fr); margin:18px 0 26px; }
+    .stat { padding:14px; }
+    .stat span { color:var(--mute); font-size:.82rem; }
+    .stat b { display:block; margin-top:6px; font-size:1.35rem; }
+    h2 { font-size:1rem; margin:22px 0 10px; color:#cbd5e1; }
+    .layers { grid-template-columns:repeat(3,1fr); }
+    .layer,.card { padding:14px; }
+    .grid { grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); }
+    .name { font-weight:700; }
+    .row { display:flex; justify-content:space-between; gap:8px; margin-top:8px; font-size:.9rem; }
+    .pill { font-size:.75rem; color:var(--mute); }
+    .bar { height:6px; background:rgba(255,255,255,.08); border-radius:99px; margin-top:10px; overflow:hidden; }
+    .bar > i { display:block; height:100%; }
+    .fast { color:var(--up);} .ok{color:#93c5fd;} .slow{color:var(--slow);} .down{color:var(--down);}
+    footer { margin-top:28px; color:var(--mute); font-size:.85rem; line-height:1.8; }
+    a { color:#93c5fd; text-decoration:none; }
+    @media (max-width:800px){ .stats,.layers{grid-template-columns:1fr 1fr;} }
   </style>
 </head>
 <body>
 <main>
   <section class="hero">
     <h1>IR Net Atlas</h1>
-    <p class="sub">نقشه زنده دسترسی، تأخیر و لایه شبکه. پروب خودکار از خارج از ایران است؛ گزارش‌های داخل کشور جدا ثبت می‌شود.</p>
+    <p class="sub">نقشه زنده دسترسی. یک لایه از خارج است، یک لایه از پروب‌های داخل کشور.</p>
   </section>
   <div class="stats">
-    <div class="stat"><span>آنلاین</span><b id="up">—</b></div>
-    <div class="stat"><span>قطع</span><b id="down">—</b></div>
+    <div class="stat"><span>آنلاین خارج</span><b id="up">—</b></div>
+    <div class="stat"><span>قطع خارج</span><b id="down">—</b></div>
     <div class="stat"><span>میانگین تأخیر</span><b id="avg">—</b></div>
     <div class="stat"><span>آخرین بررسی</span><b id="when" style="font-size:.95rem">—</b></div>
   </div>
-  <h2>لایه‌های اتصال</h2>
+  <h2>پروب از داخل ایران</h2>
+  <div class="layers" id="inside"></div>
+  <h2>لایه‌های اتصال از خارج</h2>
   <div class="layers" id="layers"></div>
   <h2>سرویس‌ها</h2>
   <div class="grid" id="grid"></div>
   <footer>
     تأخیر کمتر از ۲۰۰ میلی‌ثانیه = سریع · تا ۸۰۰ = عادی · بالاتر = کند.
-    <br>داده: <a href="./status.json">status.json</a> · <a href="https://github.com/sinavm/ir-net-atlas">کد منبع</a>
+    <br><a href="./status.json">status.json</a> · <a href="./inside.json">inside.json</a>
   </footer>
 </main>
 <script>
@@ -101,13 +72,24 @@ fetch('./status.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
     `<article class="layer"><div>${LAYER_FA[k]||k}</div><div class="row"><b>${v.ratio}%</b><span class="pill">${v.avg_ms ?? '—'}ms</span></div></article>`
   ).join('');
   document.getElementById('grid').innerHTML = (data.targets||[]).map(t=>`
-    <article class="card">
-      <div class="name">${t.name}</div>
-      <div class="row ${t.quality|| (t.ok?'ok':'down')}"><span>${QFA[t.quality]|| (t.ok?'بالا':'قطع')}</span><span>${t.ms}ms</span></div>
-      <div class="pill">DNS ${t.dns_ms ?? '—'}ms · ${t.group||''}</div>
-      <div class="bar"><i style="width:${barWidth(t.ms)}%;background:${barColor(t.quality)}"></i></div>
-    </article>`).join('');
-}).catch(()=>{ document.getElementById('when').textContent = 'در حال بروزرسانی'; });
+    <article class="card"><div class="name">${t.name}</div>
+    <div class="row ${t.quality||(t.ok?'ok':'down')}"><span>${QFA[t.quality]||(t.ok?'بالا':'قطع')}</span><span>${t.ms}ms</span></div>
+    <div class="pill">DNS ${t.dns_ms ?? '—'}ms · ${t.group||''}</div>
+    <div class="bar"><i style="width:${barWidth(t.ms)}%;background:${barColor(t.quality)}"></i></div></article>`).join('');
+});
+fetch('./inside.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
+  const box = document.getElementById('inside');
+  const isps = data.isps || [];
+  if (!isps.length) {
+    box.innerHTML = '<article class="layer"><div>هنوز داده داخل کشور نرسیده</div><div class="pill">در چرخه بعدی دوباره گرفته می‌شود</div></article>';
+    return;
+  }
+  box.innerHTML = isps.slice(0,6).map(isp=>{
+    const list = isp.services || [];
+    const up = list.filter(s=>s.ok).length;
+    return `<article class="layer"><div>${isp.title||isp.isp}</div><div class="row"><b>${up}/${list.length}</b><span class="pill">${data.generated_at?data.generated_at.replace('T',' ').replace('Z',''):''}</span></div></article>`;
+  }).join('');
+}).catch(()=>{});
 </script>
 </body>
 </html>
