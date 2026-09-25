@@ -1,0 +1,19 @@
+{
+  "targets": [
+    {"id": "google", "name": "Google", "url": "https://www.google.com/generate_204", "group": "global"},
+    {"id": "youtube", "name": "YouTube", "url": "https://www.youtube.com", "group": "media"},
+    {"id": "telegram", "name": "Telegram", "url": "https://telegram.org", "group": "chat"},
+    {"id": "tg-web", "name": "Telegram Web", "url": "https://web.telegram.org", "group": "chat"},
+    {"id": "instagram", "name": "Instagram", "url": "https://www.instagram.com", "group": "media"},
+    {"id": "whatsapp", "name": "WhatsApp", "url": "https://www.whatsapp.com", "group": "chat"},
+    {"id": "x", "name": "X", "url": "https://x.com", "group": "media"},
+    {"id": "github", "name": "GitHub", "url": "https://github.com", "group": "dev"},
+    {"id": "gh-raw", "name": "GitHub Raw", "url": "https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/README.md", "group": "dev"},
+    {"id": "cloudflare", "name": "Cloudflare", "url": "https://www.cloudflare.com", "group": "infra"},
+    {"id": "wikipedia", "name": "Wikipedia", "url": "https://www.wikipedia.org", "group": "info"},
+    {"id": "aparat", "name": "آپارات", "url": "https://www.aparat.com", "group": "iran"},
+    {"id": "divar", "name": "دیوار", "url": "https://divar.ir", "group": "iran"},
+    {"id": "digikala", "name": "دیجی‌کالا", "url": "https://www.digikala.com", "group": "iran"},
+    {"id": "sinavm", "name": "SiNAVM Pages", "url": "https://sinavm.github.io/sinavm/", "group": "dev"}
+  ]
+}

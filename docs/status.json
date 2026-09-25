@@ -1,0 +1,8 @@
+{
+  "generated_at": "1970-01-01T00:00:00Z",
+  "probe_from": "github-actions",
+  "disclaimer": "Placeholder until first Actions run.",
+  "summary": {"up": 0, "down": 0, "total": 0, "ratio": 0},
+  "targets": [],
+  "iran_reports": []
+}
