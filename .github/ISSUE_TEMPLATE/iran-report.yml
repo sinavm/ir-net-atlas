@@ -1,0 +1,30 @@
+name: گزارش از داخل ایران
+description: قطعی یا اختلال یک سرویس را از ISP خودت ثبت کن
+title: "[iran] "
+labels: ["iran-report"]
+body:
+  - type: dropdown
+    id: isp
+    attributes:
+      label: اپراتور
+      options: [mci, irancell, shatel, other]
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: سرویس
+      placeholder: youtube
+    validations:
+      required: true
+  - type: dropdown
+    id: ok
+    attributes:
+      label: وضعیت
+      options: ["down", "up", "slow"]
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: توضیح
