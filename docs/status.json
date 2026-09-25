@@ -1,8 +1,179 @@
 {
-  "generated_at": "1970-01-01T00:00:00Z",
+  "generated_at": "2026-09-25T06:24:40Z",
   "probe_from": "github-actions",
-  "disclaimer": "Placeholder until first Actions run.",
-  "summary": {"up": 0, "down": 0, "total": 0, "ratio": 0},
-  "targets": [],
+  "disclaimer": "This run is from GitHub-hosted runners (outside Iran). Iran-user reports live in reports/iran.json.",
+  "summary": {
+    "up": 15,
+    "down": 0,
+    "total": 15,
+    "ratio": 100.0
+  },
+  "targets": [
+    {
+      "id": "google",
+      "name": "Google",
+      "url": "https://www.google.com/generate_204",
+      "group": "global",
+      "ok": true,
+      "status": 204,
+      "ms": 52,
+      "error": null,
+      "bytes": 0
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "url": "https://www.youtube.com",
+      "group": "media",
+      "ok": true,
+      "status": 200,
+      "ms": 151,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "url": "https://telegram.org",
+      "group": "chat",
+      "ok": true,
+      "status": 200,
+      "ms": 553,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "tg-web",
+      "name": "Telegram Web",
+      "url": "https://web.telegram.org",
+      "group": "chat",
+      "ok": true,
+      "status": 200,
+      "ms": 529,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "url": "https://www.instagram.com",
+      "group": "media",
+      "ok": true,
+      "status": 200,
+      "ms": 260,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp",
+      "url": "https://www.whatsapp.com",
+      "group": "chat",
+      "ok": true,
+      "status": 200,
+      "ms": 520,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "x",
+      "name": "X",
+      "url": "https://x.com",
+      "group": "media",
+      "ok": true,
+      "status": 200,
+      "ms": 193,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "url": "https://github.com",
+      "group": "dev",
+      "ok": true,
+      "status": 200,
+      "ms": 30,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "gh-raw",
+      "name": "GitHub Raw",
+      "url": "https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/README.md",
+      "group": "dev",
+      "ok": true,
+      "status": 200,
+      "ms": 172,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "url": "https://www.cloudflare.com",
+      "group": "infra",
+      "ok": true,
+      "status": 200,
+      "ms": 135,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipedia",
+      "url": "https://www.wikipedia.org",
+      "group": "info",
+      "ok": true,
+      "status": 200,
+      "ms": 129,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "aparat",
+      "name": "آپارات",
+      "url": "https://www.aparat.com",
+      "group": "iran",
+      "ok": true,
+      "status": 200,
+      "ms": 1011,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "divar",
+      "name": "دیوار",
+      "url": "https://divar.ir",
+      "group": "iran",
+      "ok": true,
+      "status": 200,
+      "ms": 744,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "digikala",
+      "name": "دیجی‌کالا",
+      "url": "https://www.digikala.com",
+      "group": "iran",
+      "ok": true,
+      "status": 200,
+      "ms": 906,
+      "error": null,
+      "bytes": 256
+    },
+    {
+      "id": "sinavm",
+      "name": "SiNAVM Pages",
+      "url": "https://sinavm.github.io/sinavm/",
+      "group": "dev",
+      "ok": true,
+      "status": 200,
+      "ms": 147,
+      "error": null,
+      "bytes": 256
+    }
+  ],
   "iran_reports": []
 }
