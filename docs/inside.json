@@ -28,7 +28,7 @@
         },
         {
           "id": "github",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
@@ -40,6 +40,11 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
+        },
+        {
+          "id": "digikala",
+          "score": 0.0,
+          "ok": true
         }
       ]
     },
@@ -49,12 +54,12 @@
       "services": [
         {
           "id": "playstation",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
           "id": "wikipedia",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
@@ -69,7 +74,7 @@
         },
         {
           "id": "github",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
@@ -81,10 +86,15 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
+        },
+        {
+          "id": "digikala",
+          "score": 0.0,
+          "ok": true
         }
       ]
     }
   ],
-  "generated_at": "2026-09-29T09:47:29Z",
+  "generated_at": "2026-09-29T15:44:53Z",
   "label": "پروب از داخل ایران"
 }
