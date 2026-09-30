@@ -54,12 +54,12 @@
         },
         {
           "id": "wikipedia",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "bing",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -85,6 +85,6 @@
       ]
     }
   ],
-  "generated_at": "2026-09-30T12:31:46Z",
+  "generated_at": "2026-09-30T13:38:55Z",
   "label": "پروب از داخل ایران"
 }
