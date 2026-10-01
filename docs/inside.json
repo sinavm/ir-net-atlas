@@ -28,7 +28,7 @@
         },
         {
           "id": "github",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -49,7 +49,7 @@
       "services": [
         {
           "id": "playstation",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -69,7 +69,7 @@
         },
         {
           "id": "github",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -85,6 +85,6 @@
       ]
     }
   ],
-  "generated_at": "2026-10-01T05:45:06Z",
+  "generated_at": "2026-10-01T10:06:07Z",
   "label": "پروب از داخل ایران"
 }
