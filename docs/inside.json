@@ -54,7 +54,7 @@
         },
         {
           "id": "wikipedia",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
@@ -69,7 +69,7 @@
         },
         {
           "id": "github",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -85,6 +85,6 @@
       ]
     }
   ],
-  "generated_at": "2026-10-03T23:46:42Z",
+  "generated_at": "2026-10-04T00:34:10Z",
   "label": "پروب از داخل ایران"
 }
