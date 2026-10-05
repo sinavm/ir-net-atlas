@@ -28,7 +28,7 @@
         },
         {
           "id": "github",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -38,11 +38,6 @@
         },
         {
           "id": "divar",
-          "score": 0.0,
-          "ok": true
-        },
-        {
-          "id": "digikala",
           "score": 0.0,
           "ok": true
         }
@@ -74,7 +69,7 @@
         },
         {
           "id": "github",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -86,15 +81,10 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
-        },
-        {
-          "id": "digikala",
-          "score": 0.0,
-          "ok": true
         }
       ]
     }
   ],
-  "generated_at": "2026-10-05T05:36:09Z",
+  "generated_at": "2026-10-05T08:55:13Z",
   "label": "پروب از داخل ایران"
 }
