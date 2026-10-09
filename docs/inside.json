@@ -49,7 +49,7 @@
       "services": [
         {
           "id": "playstation",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
@@ -69,7 +69,7 @@
         },
         {
           "id": "github",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
@@ -81,10 +81,15 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
+        },
+        {
+          "id": "digikala",
+          "score": 0.0,
+          "ok": true
         }
       ]
     }
   ],
-  "generated_at": "2026-10-09T18:21:03Z",
+  "generated_at": "2026-10-09T21:39:11Z",
   "label": "پروب از داخل ایران"
 }
