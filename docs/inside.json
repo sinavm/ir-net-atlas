@@ -8,27 +8,27 @@
       "services": [
         {
           "id": "playstation",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "wikipedia",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "bing",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "google",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "github",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -49,27 +49,27 @@
       "services": [
         {
           "id": "playstation",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "wikipedia",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "bing",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "google",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
           "id": "github",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -85,6 +85,6 @@
       ]
     }
   ],
-  "generated_at": "2026-10-19T15:33:27Z",
+  "generated_at": "2026-10-19T20:35:22Z",
   "label": "پروب از داخل ایران"
 }
