@@ -1,90 +1,220 @@
 {
-  "source": "in-country-radar",
+  "source": "in-country-measurements",
   "ok": true,
   "isps": [
     {
-      "isp": "mci",
-      "title": "همراه اول",
+      "isp": "AS206065",
+      "title": "AS206065",
       "services": [
         {
-          "id": "playstation",
-          "score": 0.0,
-          "ok": true
+          "id": "www.wikidata.org",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "wikipedia",
-          "score": 0.0,
-          "ok": true
+          "id": "www.debian.org",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "bing",
-          "score": 0.0,
-          "ok": true
+          "id": "ubuntu.com",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "google",
-          "score": 0.0,
-          "ok": true
+          "id": "thehiddenwiki.org",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "github",
-          "score": 0.0,
-          "ok": true
+          "id": "openwrt.org",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "aparat",
-          "score": 0.0,
-          "ok": true
+          "id": "linktr.ee",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "divar",
-          "score": 0.0,
-          "ok": true
+          "id": "getpocket.com",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "defcad.com",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "www.youtube.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.bbc.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "theintercept.com",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "www.instagram.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.facebook.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "abc.go.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "twitter.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.nbc.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.dw.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.urduvoa.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.aljazeera.com",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "www.nbcnews.com",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "www.theatlantic.com",
+          "ok": true,
+          "score": 5
         }
       ]
     },
     {
-      "isp": "irancell",
-      "title": "ایرانسل",
+      "isp": "AS58224",
+      "title": "AS58224",
       "services": [
         {
-          "id": "playstation",
-          "score": 0.0,
-          "ok": true
+          "id": "www.youtube.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "wikipedia",
-          "score": 0.0,
-          "ok": true
+          "id": "onionshare.org",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "bing",
-          "score": 0.0,
-          "ok": true
+          "id": "iranfocus.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "google",
-          "score": 0.0,
-          "ok": true
+          "id": "iranefardanews.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "github",
-          "score": 0.0,
-          "ok": true
+          "id": "observers.rfi.fr",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "aparat",
-          "score": 0.0,
-          "ok": true
+          "id": "iranefardalive.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "divar",
-          "score": 0.0,
-          "ok": true
+          "id": "numun.fund",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "nordvpn.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "multiproxy.org",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "iranacademia.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "iran.outrightinternational.org",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "mullvad.net",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "iran-safe.cf",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "msmagazine.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "moscow.rtrs.ru",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "ir.voanews.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "ir.mondediplo.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "internationalfamilyequalityday.org",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "mizankhabar.net",
+          "ok": false,
+          "score": 80
         }
       ]
     }
   ],
-  "generated_at": "2026-10-21T20:07:02Z",
+  "generated_at": "2026-10-21T21:41:41Z",
   "label": "پروب از داخل ایران"
 }
