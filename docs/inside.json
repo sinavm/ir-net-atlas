@@ -40,11 +40,6 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
-        },
-        {
-          "id": "digikala",
-          "score": 0.0,
-          "ok": true
         }
       ]
     },
@@ -86,15 +81,10 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
-        },
-        {
-          "id": "digikala",
-          "score": 0.0,
-          "ok": true
         }
       ]
     }
   ],
-  "generated_at": "2026-10-28T15:59:04Z",
+  "generated_at": "2026-10-28T20:15:55Z",
   "label": "پروب از داخل ایران"
 }
