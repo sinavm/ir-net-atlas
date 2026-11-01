@@ -1,96 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>وضعیت اینترنت</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#020617;--text:#e2e8f0;--mute:#94a3b8;--line:rgba(255,255,255,.1);--good:#4ade80;--mid:#fbbf24;--bad:#f87171}
-    *{box-sizing:border-box}body{margin:0;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--text);background:radial-gradient(circle at 15% -10%,rgba(99,102,241,.3),transparent 34%),#020617;min-height:100vh}
-    main{max-width:1040px;margin:0 auto;padding:24px 14px 72px}
-    .box{background:rgba(15,23,42,.62);border:1px solid var(--line);border-radius:22px;backdrop-filter:blur(14px);padding:16px}
-    h1{margin:0 0 6px;font-size:1.55rem}h2{margin:26px 0 10px;font-size:1.05rem}
-    .sub{color:var(--mute);line-height:1.9;margin:0}
-    .row4,.row3,.list{display:grid;gap:10px}.row4{grid-template-columns:repeat(4,1fr);margin:16px 0}.row3{grid-template-columns:repeat(3,1fr)}.list{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
-    .num{display:block;font-size:1.4rem;margin-top:4px}
-    .good{color:var(--good)}.mid{color:var(--mid)}.bad{color:var(--bad)}
-    .muted{color:var(--mute);font-size:.8rem}
-    .bar{height:7px;background:rgba(255,255,255,.08);border-radius:99px;margin-top:10px;overflow:hidden}.bar>i{display:block;height:100%}
-    button{width:100%;margin-top:10px;border:0;border-radius:14px;padding:10px;font:inherit;font-weight:700;cursor:pointer;background:#e2e8f0;color:#0f172a}
-    footer{margin-top:28px;color:var(--mute);font-size:.84rem;line-height:1.8}
-    @media(max-width:800px){.row4,.row3{grid-template-columns:1fr 1fr}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18"><meta name="description" content="رصدخانه زنده کیفیت اینترنت ایران؛ پایش سرویس‌ها، اپراتورها، تاریخچه اختلال و تست سرعت واقعی از مرورگر.">
+<title>IR Net Atlas — رصدخانه اینترنت ایران</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#080d18;--panel:#101827;--panel2:#141f30;--line:#263449;--muted:#8c9bb0;--text:#edf4ff;--cyan:#57e1d0;--blue:#73a7ff;--green:#57d69a;--amber:#f4bd62;--red:#ff7185;--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% -10%,#173b4c 0,transparent 35%),radial-gradient(ellipse at 0% 28%,#172542 0,transparent 32%),var(--bg);color:var(--text);font-family:Vazirmatn,Tahoma,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}button,select,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:wait}.wrap{width:min(1240px,calc(100% - 36px));margin:auto}
+.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.5px}.brandmark{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#70f0d6,#368dba);display:grid;place-items:center;color:#07131c;font-size:22px;box-shadow:0 8px 30px #46c9c044}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:1.6px;direction:ltr;text-align:right}.nav{display:flex;gap:22px;color:#aab8cb;font-size:13px}.nav a:hover{color:var(--cyan)}.topright{display:flex;align-items:center;gap:12px}.live{display:flex;align-items:center;gap:8px;color:#b5c7d7;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 14px #57d69a}.iconbtn{border:1px solid var(--line);background:#ffffff08;color:#d9e7f7;border-radius:12px;padding:9px 12px}
+.hero{padding:58px 0 30px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #57e1d044;background:#57e1d00c;color:var(--cyan);padding:7px 12px;border-radius:999px;font-size:11px;font-weight:700}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.28;letter-spacing:-1.8px;margin:18px 0 12px;font-weight:900}.hero h1 span{color:var(--cyan)}.hero p{color:#9aabc0;line-height:2.1;font-size:14px;max-width:680px;margin:0}.hero-side{border:1px solid #ffffff14;border-radius:26px;padding:22px;background:linear-gradient(145deg,#142437cc,#0c1422dd);position:relative;overflow:hidden}.hero-side:before{content:"";position:absolute;width:210px;height:210px;border:1px solid #57e1d025;border-radius:50%;left:-65px;top:-95px;box-shadow:0 0 0 22px #57e1d008,0 0 0 48px #57e1d006}.orbrow{display:flex;justify-content:space-between;align-items:center;position:relative}.orb{width:94px;height:94px;border-radius:50%;border:1px solid #57e1d055;display:grid;place-items:center;background:radial-gradient(circle,#57e1d022,#57e1d005 65%);box-shadow:0 0 40px #57e1d01c}.orb b{font-size:27px;color:var(--cyan)}.orb small{display:block;color:var(--muted);font-size:9px;text-align:center}.hero-stat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.hero-stat div{background:#ffffff07;border:1px solid #ffffff0c;border-radius:15px;padding:12px}.hero-stat small{display:block;color:var(--muted);font-size:10px}.hero-stat strong{display:block;font-size:20px;margin-top:3px}
+.section{margin-top:30px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:14px}.sectionhead h2{margin:0;font-size:20px;font-weight:800}.sectionhead p{margin:4px 0 0;color:var(--muted);font-size:11px}.tiny{font-size:10px;color:var(--muted)}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.panel{background:linear-gradient(145deg,#121d2dF2,#0e1725f2);border:1px solid var(--line);border-radius:var(--radius);padding:19px;box-shadow:0 16px 40px #00000016}.metric{position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:#57e1d009;left:-30px;bottom:-48px}.metric .label{color:#9aabc0;font-size:11px}.metric strong{display:block;font-size:30px;line-height:1.5;margin-top:4px;font-weight:800;direction:ltr;text-align:right}.metric .hint{font-size:10px;color:var(--muted)}.metric .micon{float:left;color:var(--cyan);font-size:20px}.good{color:var(--green)!important}.warn{color:var(--amber)!important}.bad{color:var(--red)!important}.blue{color:var(--blue)!important}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #ffffff16;background:#ffffff08;border-radius:999px;padding:5px 9px;font-size:10px;color:#bdcadd}.pill .dot{width:6px;height:6px}.tabs{display:flex;gap:7px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:#ffffff05;color:#a9b8cc;border-radius:12px;padding:8px 13px;font-size:11px}.tab.active{color:#06151a;background:var(--cyan);border-color:var(--cyan);font-weight:800}
+.speedlayout{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.speedpanel{background:linear-gradient(145deg,#122334,#101827);border:1px solid #2b5360;border-radius:25px;padding:23px;position:relative;overflow:hidden}.speedpanel:after{content:"";position:absolute;width:270px;height:270px;border-radius:50%;border:1px solid #57e1d015;left:-110px;top:-130px;box-shadow:0 0 0 25px #57e1d008,0 0 0 55px #57e1d005;pointer-events:none}.speedtop{display:flex;justify-content:space-between;align-items:center;position:relative}.speedtop h3{margin:0;font-size:18px}.speedtop small{color:var(--muted);font-size:10px}.speedform{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 14px;position:relative}.field label{display:block;color:#9bacc1;font-size:10px;margin-bottom:7px}.field select{width:100%;background:#0a1421;border:1px solid #2a3b50;color:var(--text);padding:11px 12px;border-radius:12px;outline:none}.field select:focus{border-color:var(--cyan)}.runbtn{border:0;border-radius:14px;padding:13px 18px;background:linear-gradient(100deg,#65ead4,#72b7ed);color:#07141c;font-weight:900;width:100%;position:relative;box-shadow:0 8px 25px #57e1d020}.runbtn:hover{filter:brightness(1.07);transform:translateY(-1px)}.speedresults{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px;position:relative}.speedresult{background:#07132188;border:1px solid #ffffff12;border-radius:15px;padding:13px}.speedresult small{display:block;color:#8fa2b8;font-size:10px}.speedresult strong{display:block;font-size:22px;margin-top:5px;direction:ltr;text-align:right}.speedresult em{font-size:9px;color:#8fa2b8;font-style:normal}.speednote{font-size:10px;line-height:1.9;color:#91a4b9;margin:14px 0 0;position:relative}.speedvisual{display:flex;flex-direction:column;justify-content:space-between;min-height:310px}.gauge{width:170px;height:170px;border-radius:50%;margin:8px auto 4px;display:grid;place-items:center;background:conic-gradient(var(--cyan) 0deg,#244357 0deg 360deg);position:relative}.gauge:before{content:"";position:absolute;inset:9px;border-radius:50%;background:#111d2c}.gaugeinner{position:relative;text-align:center}.gaugeinner b{font-size:35px;display:block;direction:ltr}.gaugeinner small{color:var(--muted);font-size:10px}.phase{display:flex;justify-content:space-between;color:#9badc2;font-size:10px;margin:6px 0}.progress{height:5px;background:#ffffff10;border-radius:9px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .3s}
+.filters{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.search{background:#0e1826;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:9px 12px;width:210px;outline:none;font-size:11px}.servicegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.service{padding:15px;border:1px solid var(--line);background:#111b2a;border-radius:17px;transition:.2s}.service:hover{transform:translateY(-2px);border-color:#57e1d055}.servicetop{display:flex;justify-content:space-between;align-items:center;gap:8px}.service b{font-size:13px}.service .lat{font-size:11px;color:#b9c8d8;margin-top:10px;direction:ltr;text-align:right}.service .subline{font-size:9px;color:var(--muted);margin-top:3px}.state{font-size:9px;border-radius:99px;padding:4px 8px;background:#ffffff0a}.state.up{color:var(--green)}.state.down{color:var(--red)}.state.slow{color:var(--amber)}.spark{height:3px;border-radius:5px;background:#ffffff0c;margin-top:12px;overflow:hidden}.spark i{display:block;height:100%;background:var(--cyan)}
+.operator{display:flex;align-items:center;gap:14px}.opicon{width:42px;height:42px;border-radius:14px;background:#57e1d012;color:var(--cyan);display:grid;place-items:center;font-size:19px}.operator strong{font-size:14px}.operator small{display:block;color:var(--muted);font-size:10px}.opscore{margin-right:auto;font-size:22px;font-weight:800;direction:ltr}.opbar{height:6px;background:#ffffff10;border-radius:9px;margin-top:15px;overflow:hidden}.opbar i{height:100%;display:block;background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.chartbox{padding:20px}.charthead{display:flex;justify-content:space-between;align-items:center}.charthead h3{font-size:14px;margin:0}.chart{width:100%;height:190px;display:block;margin-top:12px}.legend{display:flex;gap:14px;color:var(--muted);font-size:10px}.legend span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-left:6px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.source{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #ffffff0c}.source:last-child{border:0}.source b{font-size:12px}.source small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.source a{font-size:10px;color:var(--cyan)}
+.insight{display:flex;gap:12px;align-items:flex-start}.insighticon{width:34px;height:34px;flex:none;border-radius:11px;background:#f4bd6212;color:var(--amber);display:grid;place-items:center}.insight b{font-size:12px}.insight p{font-size:10px;line-height:1.9;color:#91a3b9;margin:5px 0 0}
+.footer{margin:45px 0 25px;border-top:1px solid #ffffff12;padding-top:20px;display:flex;justify-content:space-between;gap:15px;color:#71839a;font-size:10px;line-height:2}.footer a{color:#a7bdcf}.toast{position:fixed;bottom:20px;left:20px;max-width:min(420px,calc(100% - 40px));padding:12px 16px;background:#18283a;border:1px solid #36536a;border-radius:13px;color:#dceaf6;font-size:11px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;z-index:9}.toast.show{opacity:1;transform:none}.empty{color:var(--muted);font-size:11px;padding:20px;text-align:center}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-side{max-width:none}.grid4{grid-template-columns:repeat(2,1fr)}.servicegrid{grid-template-columns:repeat(3,1fr)}.speedlayout{grid-template-columns:1fr}.speedvisual{min-height:260px}.nav{display:none}}
+@media(max-width:600px){.wrap{width:min(100% - 24px,1240px)}.topbar{height:64px}.brandmark{width:37px;height:37px}.topright .live{display:none}.hero{padding:38px 0 20px}.hero h1{font-size:36px}.grid4{gap:8px}.panel{padding:14px;border-radius:17px}.metric strong{font-size:25px}.grid3,.twocol{grid-template-columns:1fr}.servicegrid{grid-template-columns:repeat(2,1fr);gap:8px}.service{padding:12px}.speedpanel{padding:16px}.speedform{grid-template-columns:1fr}.speedresults{gap:6px}.speedresult{padding:10px}.speedresult strong{font-size:18px}.sectionhead{align-items:flex-start;flex-direction:column}.search{width:100%}.footer{flex-direction:column}.orb{width:78px;height:78px}}
+</style>
 </head>
 <body>
-<main>
-  <section class="box">
-    <h1>اینترنت الان چطوره؟</h1>
-    <p class="sub">اینجا می‌بینی سایت‌های ایرانی و خارجی وصلن یا نه. همین‌طور وضعیت نت همراه‌اول و ایرانسل از داخل کشور.</p>
-  </section>
-  <div class="row4">
-    <div class="box"><span class="muted">سایت‌های وصل</span><b class="num" id="up">—</b></div>
-    <div class="box"><span class="muted">سایت‌های قطع</span><b class="num" id="down">—</b></div>
-    <div class="box"><span class="muted">سرعت نت خودت</span><b class="num" id="mine">—</b><button id="speedBtn" type="button">الان بسنج</button></div>
-    <div class="box"><span class="muted">ساعت بررسی</span><b class="num" id="when" style="font-size:1rem">—</b></div>
+<header class="wrap topbar">
+ <a class="brand" href="#"><span class="brandmark">⌁</span><span>IR NET ATLAS<small>INTERNET INTELLIGENCE · IRAN</small></span></a>
+ <nav class="nav"><a href="#overview">نمای کلی</a><a href="#speedtest">تست سرعت</a><a href="#services">سرویس‌ها</a><a href="#operators">اپراتورها</a><a href="#history">تاریخچه</a></nav>
+ <div class="topright"><span class="live"><i class="dot"></i> رصد خودکار فعال</span><button class="iconbtn" id="refreshBtn" title="به‌روزرسانی داده‌ها">↻</button></div>
+</header>
+<main class="wrap">
+<section class="hero">
+ <div><span class="eyebrow"><i class="dot"></i> رصدخانه مستقل کیفیت اینترنت</span><h1>نبض اینترنت ایران،<br><span>بدون فیلتر و تعارف.</span></h1><p>وضعیت دسترسی به سرویس‌های داخلی و جهانی، کیفیت مسیر ارتباطی، گزارش اپراتورها و تست سرعت اتصال خودت را در یک نمای زنده ببین. داده‌ها از چند منبع جمع می‌شوند؛ نه حدس و گمان.</p></div>
+ <aside class="hero-side"><div class="orbrow"><div><div class="tiny">شاخص دسترسی سرویس‌ها</div><div style="font-size:13px;color:#c7d7e7;margin-top:6px">آخرین snapshot ثبت‌شده</div></div><div class="orb"><div><b id="heroRatio">—%</b><small>UPTIME</small></div></div></div><div class="hero-stat"><div><small>آخرین بروزرسانی</small><strong id="heroTime">در انتظار داده</strong></div><div><small>منبع پایش جهانی</small><strong style="font-size:14px">GitHub Actions</strong></div></div></aside>
+</section>
+<section id="overview" class="section">
+ <div class="sectionhead"><div><h2>وضعیت در یک نگاه</h2><p>آخرین اندازه‌گیری ثبت‌شده از بیرون ایران</p></div><span class="pill"><i class="dot"></i><span id="snapshotLabel">در حال دریافت داده</span></span></div>
+ <div class="grid4">
+  <article class="panel metric"><span class="micon">◉</span><div class="label">سرویس‌های در دسترس</div><strong class="good" id="up">—</strong><div class="hint">از مجموع سرویس‌های بررسی‌شده</div></article>
+  <article class="panel metric"><span class="micon">⌁</span><div class="label">سرویس‌های با اختلال</div><strong id="down" class="bad">—</strong><div class="hint">عدم پاسخ در زمان پایش</div></article>
+  <article class="panel metric"><span class="micon">◷</span><div class="label">میانگین زمان پاسخ</div><strong id="avg">—</strong><div class="hint">میلی‌ثانیه · فقط پاسخ‌های موفق</div></article>
+  <article class="panel metric"><span class="micon">▦</span><div class="label">کل سرویس‌های پایش‌شده</div><strong id="total">—</strong><div class="hint">داخلی، جهانی و زیرساخت</div></article>
+ </div>
+</section>
+<section id="speedtest" class="section">
+ <div class="sectionhead"><div><h2>آزمایشگاه سرعت اتصال</h2><p>اندازه‌گیری مستقیم از مرورگر فعلی؛ نتیجه مخصوص همین دستگاه و همین شبکه است.</p></div><span class="pill">BROWSER-BASED TEST</span></div>
+ <div class="speedlayout">
+  <div class="speedpanel">
+   <div class="speedtop"><div><h3>تست اتصال خودت</h3><small>مقصد مسیر و نوع اندازه‌گیری را انتخاب کن</small></div><span class="pill">LIVE TEST</span></div>
+   <div class="speedform">
+    <div class="field"><label for="targetSelect">مقصد تست latency</label><select id="targetSelect"><option value="https://www.google.com">Google</option><option value="https://www.youtube.com">YouTube</option><option value="https://www.instagram.com">Instagram</option><option value="https://www.aparat.com">آپارات</option><option value="https://www.digikala.com">دیجی‌کالا</option><option value="https://divar.ir">دیوار</option><option value="https://github.com">GitHub</option><option value="https://www.cloudflare.com">Cloudflare</option><option value="https://www.wikipedia.org">Wikipedia</option><option value="https://www.tiktok.com">TikTok</option><option value="https://telegram.org">Telegram</option><option value="https://www.netflix.com">Netflix</option><option value="https://openai.com">OpenAI</option></select></div>
+    <div class="field"><label for="testMode">نوع آزمایش</label><select id="testMode"><option value="full">کامل · latency + دانلود + آپلود</option><option value="latency">فقط latency مقصد انتخابی</option><option value="download">فقط دانلود</option><option value="upload">فقط آپلود</option></select></div>
+   </div>
+   <button class="runbtn" id="runTest">▶ شروع تست سرعت</button>
+   <div class="speedresults">
+    <div class="speedresult"><small>Latency مقصد</small><strong id="latencyValue">—</strong><em>ms · میانه ۵ درخواست</em></div>
+    <div class="speedresult"><small>دانلود</small><strong id="downloadValue">—</strong><em>Mbps · Cloudflare Edge</em></div>
+    <div class="speedresult"><small>آپلود</small><strong id="uploadValue">—</strong><em>Mbps · Cloudflare Edge</em></div>
+   </div>
+   <p class="speednote">توجه: latency به سایت انتخابی سنجیده می‌شود؛ دانلود و آپلود از سرور لبه Cloudflare انجام می‌شود، نه از سرور YouTube یا Instagram. برای سنجش throughput اختصاصی هر سرویس، آن سرویس باید endpoint تست عمومی و مجاز ارائه کند. حجم تقریبی تبادل داده در تست کامل تا حدود ۱۵ مگابایت است.</p>
   </div>
-  <h2>نت اپراتورها از داخل ایران</h2>
-  <div class="row3" id="ops"></div>
-  <h2>سایت‌های ایرانی</h2>
-  <div class="list" id="ir"></div>
-  <h2>سایت‌های خارجی</h2>
-  <div class="list" id="out"></div>
-  <footer>اگر سایت ایرانی وصله ولی یوتیوب و اینستاگرام قطعه، معمولا نت ملی یا فیلتر فعاله.</footer>
+  <div class="panel speedvisual">
+   <div class="speedtop"><div><h3>وضعیت آزمایش</h3><small id="testStatus">آماده شروع</small></div><span class="pill" id="testBadge">IDLE</span></div>
+   <div class="gauge" id="gauge"><div class="gaugeinner"><b id="gaugeNumber">—</b><small id="gaugeUnit">Mbps</small></div></div>
+   <div><div class="phase"><span id="phaseLabel">منتظر شروع آزمایش</span><span id="phasePct">۰٪</span></div><div class="progress"><i id="progressBar"></i></div><div class="tiny" style="margin-top:10px">نتایج فقط در همین صفحه نمایش داده می‌شوند و در مخزن ذخیره نمی‌شوند.</div></div>
+  </div>
+ </div>
+</section>
+<section id="services" class="section">
+ <div class="sectionhead"><div><h2>نقشه دسترسی سرویس‌ها</h2><p>پروب خودکار از محیط GitHub Actions اجرا می‌شود؛ نه از داخل ایران.</p></div><div class="filters"><input class="search" id="searchInput" placeholder="جست‌وجوی سرویس…"><div class="tabs" id="serviceTabs"><button class="tab active" data-filter="all">همه</button><button class="tab" data-filter="domestic">ایرانی</button><button class="tab" data-filter="international">جهانی</button><button class="tab" data-filter="infra">زیرساخت</button></div></div></div>
+ <div class="servicegrid" id="serviceGrid"><div class="panel empty">در حال دریافت snapshot سرویس‌ها…</div></div>
+</section>
+<section id="operators" class="section">
+ <div class="sectionhead"><div><h2>کیفیت شبکه اپراتورها</h2><p>داده‌های رادار و اندازه‌گیری‌های داخل ایران؛ با برچسب منبع و زمان جمع‌آوری</p></div><span class="pill" id="insideSource">منبع: در حال بررسی</span></div>
+ <div class="grid3" id="operatorGrid"><div class="panel empty">در حال دریافت داده اپراتورها…</div></div>
+</section>
+<section id="history" class="section">
+ <div class="sectionhead"><div><h2>تاریخچه کیفیت اینترنت</h2><p>روند snapshotهای ثبت‌شده در پایش‌های قبلی</p></div><span class="pill">آخرین ۷۲ نمونه</span></div>
+ <div class="panel chartbox"><div class="charthead"><h3>درصد دسترسی سرویس‌ها</h3><div class="legend"><span>Availability</span></div></div><canvas class="chart" id="historyChart" aria-label="نمودار تاریخچه دسترسی"></canvas><div class="tiny" id="historyMeta">در حال دریافت تاریخچه…</div></div>
+</section>
+<section class="section twocol">
+ <article class="panel"><div class="sectionhead"><div><h2>منابع داده</h2><p>هر منبع چه چیزی را اندازه می‌گیرد؟</p></div></div>
+  <div class="source"><div><b>پروب اختصاصی Atlas</b><small>دسترسی، زمان پاسخ و DNS از runner خارج ایران</small></div><span class="pill">Hourly</span></div>
+  <div class="source"><div><b>ArvanCloud Radar</b><small>رصد کیفیت شبکه و ISPها؛ در صورت دسترسی API عمومی</small></div><a href="https://radar.arvancloud.ir/" target="_blank" rel="noopener">مشاهده رادار ↗</a></div>
+  <div class="source"><div><b>OONI</b><small>اندازه‌گیری‌های عمومی اختلال و دسترسی در ایران</small></div><a href="https://ooni.org/" target="_blank" rel="noopener">مشاهده OONI ↗</a></div>
+  <div class="source"><div><b>گزارش مردمی</b><small>گزارش کاربران داخل کشور؛ نیازمند نمونه‌های بیشتر</small></div><a href="https://github.com/sinavm/ir-net-atlas/issues/new/choose" target="_blank" rel="noopener">ثبت گزارش ↗</a></div>
+ </article>
+ <article class="panel"><div class="sectionhead"><div><h2>چطور این داده‌ها را بخوانیم؟</h2><p>تفکیک منبع، مسیر و نوع سنجش</p></div></div>
+  <div class="insight"><span class="insighticon">!</span><div><b>دسترسی با سرعت فرق دارد</b><p>پاسخ HTTP موفق فقط نشان می‌دهد مقصد پاسخ داده؛ به‌معنای سرعت بالای دانلود یا تجربه خوب کاربر نیست.</p></div></div>
+  <div class="insight" style="margin-top:16px"><span class="insighticon">⌁</span><div><b>پروب خارج ایران نماینده همه کاربران نیست</b><p>نتیجه GitHub Actions مسیر یک سرور خارجی تا مقصد را می‌سنجد. وضعیت داخل ایران باید با داده ISP، شهر و اپراتور جداگانه گزارش شود.</p></div></div>
+  <div class="insight" style="margin-top:16px"><span class="insighticon">◷</span><div><b>داده قدیمی را زنده فرض نکن</b><p>زمان تولید هر snapshot نمایش داده می‌شود. اگر منبع رادار در دسترس نباشد، داده قبلی ممکن است stale بماند.</p></div></div>
+ </article>
+</section>
+<footer class="footer"><div>IR NET ATLAS · رصدخانه مستقل اینترنت ایران<br>ساخته‌شده برای شفافیت، نه ادعای قطعیت.</div><div>داده‌ها ممکن است با محدودیت شبکه، CDN، DNS و موقعیت جغرافیایی تغییر کنند.<br><a href="https://github.com/sinavm/ir-net-atlas" target="_blank" rel="noopener">مشاهده کد منبع در GitHub ↗</a></div></footer>
 </main>
+<div class="toast" id="toast"></div>
 <script>
-function cls(q){return q==='fast'||q==='good'?'good':q==='slow'||q==='mid'?'mid':'bad'}
-function fa(q){return {fast:'روون',ok:'عادی',slow:'کند',down:'قطع',good:'خوب',mid:'متوسط',bad:'ضعیف'}[q]||q}
-function card(t){
-  const q=t.quality||(t.ok?'ok':'down');
-  const w=Math.max(10,Math.min(100,Math.round((t.ms||0)/12)));
-  const c=q==='fast'?'#4ade80':q==='ok'?'#60a5fa':q==='slow'?'#fbbf24':'#f87171';
-  return `<article class="box"><b>${t.name}</b><div class="${cls(q)}" style="margin-top:8px">${fa(q)} · ${t.ms||0} میلی</div><div class="muted">${t.ok?'وصله':'وصل نمیشه'}</div><div class="bar"><i style="width:${w}%;background:${c}"></i></div></article>`;
-}
-function grade(score, okRatio){
-  if (okRatio < 60) return {q:'bad', text:'نت ضعیفه'};
-  if (score > 20 || okRatio < 85) return {q:'mid', text:'نت متوسطه'};
-  return {q:'good', text:'نت روونه'};
-}
-fetch('./status.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
-  document.getElementById('up').textContent=data.summary.up;
-  document.getElementById('down').textContent=data.summary.down;
-  document.getElementById('when').textContent=(data.generated_at||'').replace('T',' ').slice(0,16);
-  const ir=(data.targets||[]).filter(t=>t.layer==='domestic');
-  const out=(data.targets||[]).filter(t=>t.layer!=='domestic');
-  document.getElementById('ir').innerHTML=ir.map(card).join('')||'<div class="box">هنوز چیزی نیست</div>';
-  document.getElementById('out').innerHTML=out.map(card).join('');
-});
-fetch('./inside.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
-  const box=document.getElementById('ops');
-  const isps=data.isps||[];
-  if(!isps.length){box.innerHTML='<div class="box">وضعیت اپراتورها هنوز نرسیده</div>';return;}
-  box.innerHTML=isps.map(isp=>{
-    const list=isp.services||[];
-    const up=list.filter(s=>s.ok).length;
-    const ratio=list.length?Math.round(100*up/list.length):0;
-    const avg=list.length?list.reduce((a,s)=>a+(Number(s.score)||0),0)/list.length:0;
-    const g=grade(avg,ratio);
-    return `<article class="box"><b>${isp.title||isp.isp}</b><div class="${g.q} num">${g.text}</div><div class="muted">${up} از ${list.length} سرویس وصله</div><div class="bar"><i style="width:${ratio}%;background:${g.q==='good'?'#4ade80':g.q==='mid'?'#fbbf24':'#f87171'}"></i></div></article>`;
-  }).join('');
-}).catch(()=>{document.getElementById('ops').innerHTML='<div class="box">بعدا دوباره سعی می‌کنیم</div>';});
-document.getElementById('speedBtn').onclick=async()=>{
-  const el=document.getElementById('mine');
-  el.textContent='داره می‌سنجه...';
-  const t0=performance.now();
-  try{
-    const r=await fetch('./status.json?t='+Date.now(),{cache:'no-store'});
-    const buf=await r.arrayBuffer();
-    const sec=(performance.now()-t0)/1000;
-    const mbps=((buf.byteLength*8)/1e6)/Math.max(sec,.05);
-    const ping=Math.round(performance.now()-t0);
-    el.innerHTML=(mbps<0.2?(ping+' میلی'):(mbps.toFixed(1)+' Mbps'));
-  }catch(e){el.textContent='نشد';}
-};
+const $=id=>document.getElementById(id);
+let snapshot=null,inside=null,activeFilter='all',testRunning=false;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const faNum=n=>new Intl.NumberFormat('fa-IR').format(n);
+const fmtTime=s=>{if(!s)return'—';const d=new Date(s);return isNaN(d)?s:new Intl.DateTimeFormat('fa-IR',{dateStyle:'medium',timeStyle:'short'}).format(d)};
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3600)}
+function quality(t){if(!t.ok)return['قطع','down'];if(t.ms<200)return['پاسخ سریع','up'];if(t.ms<800)return['پاسخ عادی','up'];return['پاسخ کند','slow']}
+function renderOverview(d){const s=d.summary||{},ratio=Number(s.ratio)||0;$('up').textContent=faNum(s.up??'—');$('down').textContent=faNum(s.down??'—');$('avg').textContent=s.avg_ms==null?'—':faNum(s.avg_ms)+' ms';$('total').textContent=faNum(s.total??(d.targets||[]).length);$('heroRatio').textContent=ratio.toFixed(1)+'%';$('heroTime').textContent=fmtTime(d.generated_at);$('snapshotLabel').textContent='آخرین بروزرسانی: '+fmtTime(d.generated_at)}
+function renderServices(){if(!snapshot)return;const q=$('searchInput').value.trim().toLowerCase();const rows=(snapshot.targets||[]).filter(t=>(activeFilter==='all'||t.layer===activeFilter)&&(!q||(t.name+' '+t.id+' '+t.group).toLowerCase().includes(q)));$('serviceGrid').innerHTML=rows.length?rows.map(t=>{const [label,state]=quality(t);const width=t.ok?Math.max(8,Math.min(100,100-(Number(t.ms)||0)/30)):4;return '<article class="service"><div class="servicetop"><b>'+esc(t.name)+'</b><span class="state '+state+'">'+label+'</span></div><div class="lat">'+(t.ms==null?'—':faNum(t.ms)+' ms')+'</div><div class="subline">'+esc(t.group||'')+' · '+(t.dns_ms==null?'DNS —':'DNS '+faNum(t.dns_ms)+' ms')+'</div><div class="spark"><i style="width:'+width+'%;background:'+(state==='down'?'var(--red)':state==='slow'?'var(--amber)':'var(--cyan)')+'"></i></div></article>'}).join(''):'<div class="panel empty">سرویسی با این فیلتر پیدا نشد.</div>'}
+function renderOperators(d){inside=d;const isps=d.isps||[];$('insideSource').textContent='منبع: '+(d.source==='in-country-radar'?'Arvan Radar':d.source==='in-country-measurements'?'OONI':'نامشخص')+(d.stale?' · داده قدیمی':'');$('operatorGrid').innerHTML=isps.length?isps.map(isp=>{const list=isp.services||[],up=list.filter(x=>x.ok).length,ratio=list.length?Math.round(up/list.length*100):0;return '<article class="panel"><div class="operator"><span class="opicon">⌁</span><div><strong>'+esc(isp.title||isp.isp)+'</strong><small>'+faNum(up)+' از '+faNum(list.length)+' مقصد پاسخ‌گو</small></div><span class="opscore '+(ratio>=85?'good':ratio>=60?'warn':'bad')+'">'+ratio+'%</span></div><div class="opbar"><i style="width:'+ratio+'%"></i></div><div class="tiny" style="margin-top:10px">بر اساس '+faNum(list.length)+' مقصد ثبت‌شده · '+(d.stale?'snapshot قدیمی':'snapshot جمع‌آوری‌شده')+'</div></article>'}).join(''):'<div class="panel empty">فعلاً داده قابل اتکایی از اپراتورها دریافت نشده است. آخرین منبع: '+esc(d.source||'نامشخص')+'</div>'}
+function drawHistory(rows){const c=$('historyChart'),ctx=c.getContext('2d'),w=c.clientWidth,h=c.clientHeight,dpr=window.devicePixelRatio||1;c.width=w*dpr;c.height=h*dpr;ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,h);if(!rows?.length){$('historyMeta').textContent='هنوز تاریخچه‌ای ثبت نشده است.';return}const data=rows.slice(-72),pad={l:12,r:12,t:16,b:24},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;ctx.strokeStyle='rgba(160,185,210,.13)';ctx.lineWidth=1;for(let i=0;i<5;i++){const y=pad.t+ch*i/4;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke()}const vals=data.map(x=>Math.max(0,Math.min(100,Number(x.ratio)||0)));const x=i=>pad.l+(data.length===1?cw/2:i*cw/(data.length-1));const y=v=>pad.t+ch-(v/100)*ch;const grad=ctx.createLinearGradient(0,pad.t,0,h);grad.addColorStop(0,'rgba(87,225,208,.28)');grad.addColorStop(1,'rgba(87,225,208,0)');ctx.beginPath();vals.forEach((v,i)=>i?ctx.lineTo(x(i),y(v)):ctx.moveTo(x(i),y(v)));ctx.lineTo(x(vals.length-1),h-pad.b);ctx.lineTo(x(0),h-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill();ctx.beginPath();vals.forEach((v,i)=>i?ctx.lineTo(x(i),y(v)):ctx.moveTo(x(i),y(v)));ctx.strokeStyle='#57e1d0';ctx.lineWidth=2.2;ctx.stroke();$('historyMeta').textContent=faNum(data.length)+' نمونه · از '+fmtTime(data[0].generated_at)+' تا '+fmtTime(data[data.length-1].generated_at)}
+async function loadData(){ $('refreshBtn').disabled=true;try{const [a,b,c]=await Promise.all(['./status.json','./inside.json','./history.json'].map(u=>fetch(u+'?t='+Date.now(),{cache:'no-store'})));if(!a.ok)throw Error('status unavailable');snapshot=await a.json();renderOverview(snapshot);renderServices();if(b.ok)renderOperators(await b.json());else renderOperators({isps:[],source:'unavailable'});if(c.ok)drawHistory(await c.json());}catch(e){toast('دریافت داده ناموفق بود؛ کمی بعد دوباره تلاش کن.')}finally{$('refreshBtn').disabled=false}}
+$('refreshBtn').addEventListener('click',loadData);$('searchInput').addEventListener('input',renderServices);$('serviceTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));renderServices()});
+function setProgress(p,label,status){$('progressBar').style.width=p+'%';$('phasePct').textContent=faNum(Math.round(p))+'٪';$('phaseLabel').textContent=label;$('testStatus').textContent=status}
+function setGauge(v){$('gaugeNumber').textContent=v==null?'—':Number(v).toFixed(1);$('gaugeUnit').textContent='Mbps';const deg=v==null?0:Math.max(0,Math.min(360,v/200*360));$('gauge').style.background='conic-gradient(var(--cyan) '+deg+'deg,#244357 '+deg+'deg 360deg)'}
+async function timedFetch(url,opts={},timeout=15000){const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),timeout);try{return await fetch(url,{...opts,signal:ctrl.signal})}finally{clearTimeout(timer)}}
+async function measureLatency(url){const samples=[];for(let i=0;i<5;i++){const start=performance.now();await timedFetch(url.replace(/\/$/,'')+'/favicon.ico?atlas='+Date.now()+'-'+i,{mode:'no-cors',cache:'no-store',credentials:'omit'},7000);samples.push(performance.now()-start)}samples.sort((a,b)=>a-b);return Math.round(samples[2])}
+async function measureDownload(){const sizes=[1000000,5000000,10000000];let best=0;for(const bytes of sizes){const start=performance.now();const r=await timedFetch('https://speed.cloudflare.com/__down?bytes='+bytes+'&atlas='+Date.now(),{cache:'no-store',mode:'cors',credentials:'omit'},18000);if(!r.ok)throw Error('Download endpoint returned '+r.status);const body=await r.arrayBuffer(),sec=(performance.now()-start)/1000;best=Math.max(best,(body.byteLength*8/1e6)/sec);if(sec>7)break}return best}
+async function measureUpload(){const sizes=[1000000,3000000,5000000];let best=0;for(const bytes of sizes){const payload=new Uint8Array(bytes);const start=performance.now();const r=await timedFetch('https://speed.cloudflare.com/__up?atlas='+Date.now(),{method:'POST',body:payload,mode:'cors',cache:'no-store',credentials:'omit'},18000);if(!r.ok)throw Error('Upload endpoint returned '+r.status);await r.arrayBuffer();const sec=(performance.now()-start)/1000;best=Math.max(best,(bytes*8/1e6)/sec);if(sec>7)break}return best}
+$('runTest').addEventListener('click',async()=>{if(testRunning)return;testRunning=true;const btn=$('runTest'),mode=$('testMode').value,url=$('targetSelect').value;btn.disabled=true;btn.textContent='در حال اندازه‌گیری…';$('testBadge').textContent='RUNNING';$('latencyValue').textContent='—';if(mode!=='upload')$('downloadValue').textContent='—';if(mode!=='download')$('uploadValue').textContent='—';setGauge(null);let phase=0;try{if(mode==='full'||mode==='latency'){setProgress(8,'اندازه‌گیری latency مقصد','در حال سنجش مسیر انتخابی');const ms=await measureLatency(url);$('latencyValue').textContent=faNum(ms);phase=mode==='full'?35:100;setProgress(phase,'Latency با موفقیت ثبت شد','پاسخ میانه: '+faNum(ms)+' ms')}if(mode==='full'||mode==='download'){setProgress(mode==='full'?42:8,'آزمایش دانلود از Cloudflare Edge','در حال دریافت داده آزمایشی');const d=await measureDownload();$('downloadValue').textContent=d.toFixed(1);setGauge(d);phase=mode==='full'?70:100;setProgress(phase,'آزمایش دانلود کامل شد',d.toFixed(1)+' Mbps')}if(mode==='full'||mode==='upload'){setProgress(mode==='full'?76:8,'آزمایش آپلود به Cloudflare Edge','در حال ارسال داده آزمایشی');const u=await measureUpload();$('uploadValue').textContent=u.toFixed(1);setGauge(u);phase=100;setProgress(100,'آزمایش کامل شد','آپلود: '+u.toFixed(1)+' Mbps')}if(mode==='latency'){$('gaugeNumber').textContent=$('latencyValue').textContent;$('gaugeUnit').textContent='ms'}$('testBadge').textContent='DONE';toast('اندازه‌گیری با موفقیت انجام شد.')}catch(e){$('testBadge').textContent='PARTIAL';setProgress(phase,'بخشی از آزمایش انجام نشد','اتصال یا endpoint در دسترس نبود');toast('بعضی از تست‌ها ناموفق بودند؛ ممکن است شبکه یا مرورگر دسترسی را محدود کرده باشد.')}finally{testRunning=false;btn.disabled=false;btn.textContent='↻ اجرای دوباره تست'}})
+window.addEventListener('resize',()=>{if(snapshot)fetch('./history.json').then(r=>r.json()).then(drawHistory).catch(()=>{})});
+loadData();
 </script>
-</body>
-</html>
+</body></html>
