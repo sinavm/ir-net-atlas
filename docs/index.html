@@ -48,7 +48,41 @@
 .dark .radar-summary .kpi strong{color:#f3f4ec}
 @media(max-width:900px){.radar-panels{grid-template-columns:1fr}}
 @media(max-width:560px){.radar-items{grid-template-columns:1fr}.radar-summary{gap:5px}.radar-summary .kpi{padding:9px}.radar-summary .kpi strong{font-size:17px}}
-</style>
+/* DEEP DARK THEME */\n
+:root{color-scheme:dark;--paper:#101512;--white:#1a211c;--ink:#edf2e8;--muted:#9aa596;--line:#303b32;--lime:#c7f36b;--green:#8fcf91;--red:#f07869;--amber:#e2b45f;--blue:#80a9d2;--shadow:0 18px 55px rgba(0,0,0,.22)}
+body{background:var(--paper);color:var(--ink)}
+.top{border-color:var(--line)}
+.crumb,.crumb b{color:var(--ink)}
+.eyebrow{color:#b3c0aa}
+.hero p,.textlink{color:#a6b0a2}
+.textlink:hover{color:var(--lime)}
+.primary{background:var(--lime);color:#182018}
+.primary:hover{background:#d5fa88}
+.kpi,.surface,.service,.operator,.source{background:var(--white);border-color:var(--line);color:var(--ink);box-shadow:0 14px 38px rgba(0,0,0,.14)}
+.kpihead,.kpi small,.surfacehead small,.servicebottom,.source p,.ophead small,.opmeta,.historyaside small,.disclaimer,.caption{color:#9aa596}
+.kpi strong,.servicebottom b,.historyaside b{color:var(--ink)}
+.field select,.search{background:#202a23;border-color:#3a473d;color:var(--ink)}
+.field label{color:#a6b0a2}
+.tag,.serviceicon,.oplogo{background:#2a362d;color:#d8e6d0}
+.filter{border-color:#39463b;color:#aeb9aa}
+.filter.active{background:var(--lime);border-color:var(--lime);color:#1a2419}
+.service:hover{border-color:#78964e}
+.servicebar,.opbar{background:#303b32}
+.servicebar i,.opbar i{background:var(--lime)}
+.source a{color:var(--lime)}
+.historyaside{border-color:var(--line)}
+.foot{border-color:var(--line);color:#899587}
+.foot a{color:var(--lime)}
+.radar-summary .kpi{background:#202a23;border-color:#39463b}
+.radar-item{background:#202a23;border-color:#39463b;color:var(--ink)}
+.radar-item small{color:#a6b0a2}
+.radar-progress{background:#303b32}
+.empty{color:#a0ab9c}
+.refresh{background:#202a23;border-color:#39463b;color:var(--ink)}
+.refresh:hover{background:var(--lime);color:#182018}
+.toast{background:#29372d;color:#f3f6ed}
+@media(prefers-color-scheme:light){:root{color-scheme:dark}}
+\n</style>
 </head>
 <body>
 <div class="shell">
