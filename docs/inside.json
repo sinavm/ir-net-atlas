@@ -49,7 +49,7 @@
       "services": [
         {
           "id": "playstation",
-          "score": 0.0,
+          "score": 0.5,
           "ok": true
         },
         {
@@ -85,6 +85,6 @@
       ]
     }
   ],
-  "generated_at": "2026-11-01T00:07:03Z",
+  "generated_at": "2026-11-01T01:05:10Z",
   "label": "پروب از داخل ایران"
 }
