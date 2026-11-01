@@ -2,9 +2,50 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f4f3ee">
-<meta name="description" content="IR Net Atlas؛ رصدخانه کیفیت اینترنت ایران، پایش سرویس‌ها و تست سرعت اتصال.">
-<title>IR Net Atlas — نبض شبکه</title>
+<meta name="theme-color" content="#101512">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="تست سرعت اینترنت و بررسی وضعیت دسترسی سرویس‌های ایرانی و خارجی؛ پینگ، دانلود و آپلود را بسنجید و ببینید از اینترنت شما کدام سایت‌ها در دسترس‌اند.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="googlebot" content="index,follow">
+<meta name="application-name" content="IR Net Atlas">
+<link rel="canonical" href="https://sinavm.github.io/ir-net-atlas/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:site_name" content="IR Net Atlas">
+<meta property="og:title" content="IR Net Atlas | تست سرعت و رادار وضعیت اینترنت ایران">
+<meta property="og:description" content="تست سرعت اینترنت، بررسی پینگ و دسترسی سرویس‌های ایرانی و جهانی از اتصال فعلی شما.">
+<meta property="og:url" content="https://sinavm.github.io/ir-net-atlas/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IR Net Atlas | رادار اینترنت ایران">
+<meta name="twitter:description" content="وضعیت دسترسی سرویس‌ها و کیفیت اینترنت را از اتصال فعلی خود بررسی کنید.">
+<title>IR Net Atlas | تست سرعت و رادار وضعیت اینترنت ایران</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sinavm.github.io/ir-net-atlas/#website",
+      "url": "https://sinavm.github.io/ir-net-atlas/",
+      "name": "IR Net Atlas",
+      "inLanguage": "fa-IR",
+      "description": "رصدخانه کیفیت اینترنت ایران، تست سرعت و بررسی دسترسی سرویس‌های ایرانی و جهانی."
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://sinavm.github.io/ir-net-atlas/#application",
+      "name": "IR Net Atlas",
+      "url": "https://sinavm.github.io/ir-net-atlas/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "مرورگر به‌روز با پشتیبانی از JavaScript",
+      "inLanguage": "fa-IR",
+      "isAccessibleForFree": true,
+      "description": "ابزار آنلاین تست سرعت اینترنت، سنجش تأخیر و بررسی دسترسی سرویس‌ها از مرورگر کاربر."
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -82,6 +123,15 @@ body{background:var(--paper);color:var(--ink)}
 .refresh{background:#202a23;border-color:#39463b;color:var(--ink)}
 .refresh:hover{background:var(--lime);color:#182018}
 .toast{background:#29372d;color:#f3f6ed}
+.hero h1 span{background:transparent;color:inherit;padding:0}
+.seo-section{margin-top:30px;padding:22px;border:1px solid var(--line);border-radius:18px;background:#1a211c}
+.seo-section h2{margin:0 0 10px;font-size:16px}
+.seo-section>p{margin:0;color:#a6b0a2;font-size:11px;line-height:2}
+.seo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:17px}
+.seo-item{padding:15px;border:1px solid #39463b;border-radius:13px;background:#202a23}
+.seo-item h3{margin:0 0 7px;color:#edf2e8;font-size:12px}
+.seo-item p{margin:0;color:#a6b0a2;font-size:10px;line-height:2}
+@media(max-width:700px){.seo-grid{grid-template-columns:1fr}.seo-section{padding:16px}}
 @media(prefers-color-scheme:light){:root{color-scheme:dark}}
 
 </style>
@@ -157,6 +207,16 @@ body{background:var(--paper);color:var(--ink)}
  </section>
  <section class="section"><div class="sectionhead"><div><h2>داده از کجا می‌آید؟</h2><p>شفافیت منبع، بخشی از خود محصول است.</p></div><span class="sectionnum">07 / SOURCES</span></div>
   <div class="sourcegrid"><article class="source"><b>پروب اختصاصی Atlas</b><p>پایش دوره‌ای مقصدها از runner خارج ایران؛ برای مقایسه پاسخ‌گویی و latency همان مسیر.</p><a href="https://github.com/sinavm/ir-net-atlas" target="_blank" rel="noopener">کد و داده‌ها ↗</a></article><article class="source"><b>ArvanCloud Radar</b><p>داده ISP و کیفیت شبکه در صورتی که منبع و snapshot معتبر در دسترس باشد.</p><a href="https://radar.arvancloud.ir/" target="_blank" rel="noopener">مشاهده رادار ↗</a></article><article class="source"><b>OONI Explorer</b><p>اندازه‌گیری‌های عمومی اختلال و دسترسی؛ منبع مکمل برای تحلیل سانسور و دسترسی.</p><a href="https://explorer.ooni.org/" target="_blank" rel="noopener">مشاهده داده‌ها ↗</a></article></div>
+ </section>
+ <section class="seo-section" aria-labelledby="network-guide-title">
+  <h2 id="network-guide-title">راهنمای بررسی وضعیت اینترنت و دسترسی سرویس‌ها</h2>
+  <p>IR Net Atlas ابزار آنلاین بررسی کیفیت اینترنت است. با تست سرعت اینترنت می‌توانید زمان پاسخ، سرعت دانلود و آپلود را اندازه بگیرید و با رادار دسترسی، وضعیت باز شدن سرویس‌های ایرانی و خارجی را از اتصال فعلی خود بررسی کنید. داده‌های پایش عمومی و نتایج مرورگر شخصی جداگانه نمایش داده می‌شوند تا وضعیت یک نقطه شبکه به‌جای وضعیت همه کاربران برداشت نشود.</p>
+  <div class="seo-grid">
+   <article class="seo-item"><h3>چطور بفهمم کدام سایت‌ها با اینترنت من باز می‌شوند؟</h3><p>در بخش «رادار دسترسی اینترنت»، اسکن مرورگر را اجرا کنید. نتیجه هر مقصد از اتصال فعلی دستگاه شما ثبت می‌شود. محدودیت‌های مرورگر ممکن است برای بعضی مقصدها نتیجه نامشخص ایجاد کند.</p></article>
+   <article class="seo-item"><h3>تست سرعت اینترنت چه چیزهایی را اندازه می‌گیرد؟</h3><p>آزمایشگاه سرعت، تأخیر مسیر انتخابی و سرعت دانلود و آپلود را اندازه می‌گیرد. نتیجه به اپراتور، شلوغی شبکه، دستگاه، وای‌فای و سرور مقصد وابسته است.</p></article>
+   <article class="seo-item"><h3>تفاوت وضعیت عمومی اینترنت ایران با اینترنت من چیست؟</h3><p>پایش عمومی از نقاط و اپراتورهای گزارش‌شده انجام می‌شود؛ تست شخصی از مرورگر شما. ممکن است یک سرویس برای یک اپراتور در دسترس و برای اتصال دیگری مختل باشد.</p></article>
+   <article class="seo-item"><h3>آیا خطای دسترسی همیشه به معنی فیلتر بودن سایت است؟</h3><p>خیر. خطای اتصال می‌تواند از DNS، گواهی امنیتی، CDN، محدودیت‌های مرورگر یا اختلال مسیر ناشی شود. Atlas وضعیت قابل مشاهده را گزارش می‌کند و بدون شواهد کافی علت قطعی اعلام نمی‌کند.</p></article>
+  </div>
  </section>
  <footer class="foot"><span>IR NET ATLAS · یک رصدخانه مستقل برای دیدن کیفیت شبکه<br>داده‌ها ممکن است تحت‌تأثیر موقعیت جغرافیایی، CDN، DNS و محدودیت مسیر باشند.</span><span><a href="https://github.com/sinavm/ir-net-atlas" target="_blank" rel="noopener">مشاهده مخزن در GitHub ↗</a><br>Designed for clarity · Built with open data</span></footer>
 </main>
