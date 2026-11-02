@@ -1,0 +1,165 @@
+{
+  "targets": [
+    {
+      "id": "digikala",
+      "name": "دیجی‌کالا",
+      "url": "https://www.digikala.com",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "digikala_api",
+      "name": "API دیجی‌کالا",
+      "url": "https://api.digikala.com/v1/",
+      "group": "API",
+      "layer": "domestic"
+    },
+    {
+      "id": "soft98",
+      "name": "سافت۹۸",
+      "url": "https://soft98.ir/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "cafebazaar",
+      "name": "بازار",
+      "url": "https://cafebazaar.ir/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "cafebazaar_api",
+      "name": "API بازار",
+      "url": "https://api.cafebazaar.ir/",
+      "group": "API",
+      "layer": "domestic"
+    },
+    {
+      "id": "snapp",
+      "name": "اسنپ",
+      "url": "https://snapp.ir/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "snapp_api",
+      "name": "API اسنپ",
+      "url": "https://api.snapp.ir/",
+      "group": "API",
+      "layer": "domestic"
+    },
+    {
+      "id": "divar",
+      "name": "دیوار",
+      "url": "https://divar.ir/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "divar_api",
+      "name": "API دیوار",
+      "url": "https://api.divar.ir/",
+      "group": "API",
+      "layer": "domestic"
+    },
+    {
+      "id": "aparat",
+      "name": "آپارات",
+      "url": "https://www.aparat.com/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "torob",
+      "name": "ترب",
+      "url": "https://torob.com/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "filimo",
+      "name": "فیلیمو",
+      "url": "https://www.filimo.com/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "namava",
+      "name": "نماوا",
+      "url": "https://www.namava.ir/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "tapsi",
+      "name": "تپسی",
+      "url": "https://tapsi.ir/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "sheypoor",
+      "name": "شیپور",
+      "url": "https://www.sheypoor.com/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "varzesh3",
+      "name": "ورزش سه",
+      "url": "https://www.varzesh3.com/",
+      "group": "وب‌سایت",
+      "layer": "domestic"
+    },
+    {
+      "id": "zarinpal",
+      "name": "زرین‌پال",
+      "url": "https://www.zarinpal.com/",
+      "group": "پرداخت",
+      "layer": "domestic"
+    },
+    {
+      "id": "shaparak",
+      "name": "شاپرک",
+      "url": "https://shaparak.ir/",
+      "group": "پرداخت",
+      "layer": "domestic"
+    },
+    {
+      "id": "mci",
+      "name": "همراه اول",
+      "url": "https://www.mci.ir/",
+      "group": "اپراتور",
+      "layer": "domestic"
+    },
+    {
+      "id": "irancell",
+      "name": "ایرانسل",
+      "url": "https://irancell.ir/",
+      "group": "اپراتور",
+      "layer": "domestic"
+    },
+    {
+      "id": "myket",
+      "name": "مایکت",
+      "url": "https://myket.ir/",
+      "group": "اپلیکیشن",
+      "layer": "domestic"
+    },
+    {
+      "id": "bale",
+      "name": "بله",
+      "url": "https://bale.ai/",
+      "group": "پیام‌رسان",
+      "layer": "domestic"
+    },
+    {
+      "id": "eitaa",
+      "name": "ایتا",
+      "url": "https://eitaa.com/",
+      "group": "پیام‌رسان",
+      "layer": "domestic"
+    }
+  ]
+}
