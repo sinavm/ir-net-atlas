@@ -298,7 +298,7 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
   <div class="split test-layout">
    <article class="surface test-surface">
     <div class="start-wrap"><button class="testbutton start-ring" id="run" type="button" aria-label="شروع تست اینترنت"><span id="startNum">START</span><small id="startLabel">SPEED TEST</small></button></div>
-    <div class="speedvalues"><div class="speedvalue"><small>LATENCY</small><b id="latency">—</b><em>ms · Google</em></div><div class="speedvalue"><small>DOWNLOAD</small><b id="download">—</b><em>Mbps · Speed Test</em></div><div class="speedvalue"><small>UPLOAD</small><b id="upload">—</b><em>Mbps · Cloudflare</em></div></div>
+    <div class="speedvalues"><div class="speedvalue"><small>LATENCY</small><b id="latency">—</b><em>ms · Google</em></div><div class="speedvalue"><small>DOWNLOAD</small><b id="download">—</b><em>Mbps · Speed Test</em></div><div class="speedvalue"><small>UPLOAD</small><b id="upload">—</b><em>Mbps · Speed Test</em></div></div>
     <div class="test-details"><span><i class="test-dot"></i><b id="phase">Ready</b></span><span id="pct">0%</span><div class="progressline" id="testProgress" role="progressbar" aria-label="Test progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progress"></i></div></div>
    </article>
   </div>
@@ -521,7 +521,7 @@ function showPersonalHistory(){
 async function runCloudflareClientTest(mode='quality'){
  const gaming=mode==='gaming';
  openNetworkModal(gaming?'تست گیمینگ واقعی‌تر':'کیفیت مسیر و اتصال',gaming?'کیفیت اتصال و پایداری اینترنت شما برای بازی آنلاین سنجیده می‌شود.':'کیفیت اتصال اینترنت شما مستقیماً از همین مرورگر اندازه‌گیری می‌شود.');
- networkContent.innerHTML='<div class="network-result"><small>آزمون کیفیت اتصال</small><b>Network Quality Test</b><p id="cfTestPhase">در حال بارگذاری موتور تست…</p></div><div class="network-result-grid" id="cfTestMetrics">'+resultCard('تأخیر اتصال','در حال اندازه‌گیری')+resultCard('Jitter','—')+resultCard('دانلود','—')+resultCard('آپلود','—')+resultCard('تأخیر هنگام دانلود','—')+resultCard('تأخیر هنگام آپلود','—')+'</div><p class="network-note" id="cfTestNote">آزمون به‌صورت مستقیم از مرورگر شما به Cloudflare انجام می‌شود. ممکن است چند ده مگابایت ترافیک مصرف شود.</p>';
+ networkContent.innerHTML='<div class="network-result"><small>آزمون کیفیت اتصال</small><b>Network Quality Test</b><p id="cfTestPhase">در حال بارگذاری موتور تست…</p></div><div class="network-result-grid" id="cfTestMetrics">'+resultCard('تأخیر اتصال','در حال اندازه‌گیری')+resultCard('Jitter','—')+resultCard('دانلود','—')+resultCard('آپلود','—')+resultCard('تأخیر هنگام دانلود','—')+resultCard('تأخیر هنگام آپلود','—')+'</div><p class="network-note" id="cfTestNote">اندازه‌گیری از طریق اتصال فعلی مرورگر شما انجام می‌شود.</p>';
  const phase=$('cfTestPhase'),metrics=$('cfTestMetrics'),note=$('cfTestNote');
  const fmt=(v)=>Number.isFinite(v)?Math.round(v)+' ms':'—';
  const mbps=(v)=>Number.isFinite(v)&&v>0?(v/1e6).toFixed(2)+' Mbps':'—';
