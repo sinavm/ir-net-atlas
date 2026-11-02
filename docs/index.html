@@ -288,7 +288,13 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
   </div>
  </section>
  
- <section class="section" id="my-radar"><div class="sectionhead"><div><h2>با اینترنت شما این سایت‌ها باز می‌شوند</h2></div></div>
+ <section class="section" id="my-radar">
+   <div class="network-tools" aria-label="ابزارهای پیشرفته شبکه">
+    <button class="network-tool" id="openQuality" type="button"><span class="tool-glyph">⌁</span><span>Jitter / Packet Loss</span></button>
+    <button class="network-tool" id="openDns" type="button"><span class="tool-glyph">⌘</span><span>تست DNS</span></button>
+    <button class="network-tool ip-tool" id="openIp" type="button" aria-label="اطلاعات اتصال" title="اطلاعات اتصال"><span id="ipFlag">🌐</span></button>
+   </div>
+  <div class="sectionhead"><div><h2>با اینترنت شما این سایت‌ها باز می‌شوند</h2></div></div>
   <div class="radar-panels">
    <article class="surface">
     <div class="caption" id="myScanState"></div>
@@ -303,11 +309,6 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
   <div class="sectionhead"><div><h2>روند دسترسی در گذر زمان</h2><p>تغییرات availability در snapshotهای ذخیره‌شده</p></div><span class="sectionnum">06 / HISTORY</span></div>
   <article class="surface history-surface">
    <div class="surfacehead"><h3>درصد دسترسی سرویس‌ها</h3><span class="tag">LAST 72 SAMPLES</span></div>
-   <div class="network-tools" aria-label="ابزارهای پیشرفته شبکه">
-    <button class="network-tool" id="openQuality" type="button"><span class="tool-glyph">⌁</span><span>Jitter / Packet Loss</span></button>
-    <button class="network-tool" id="openDns" type="button"><span class="tool-glyph">⌘</span><span>تست DNS</span></button>
-    <button class="network-tool ip-tool" id="openIp" type="button" aria-label="اطلاعات اتصال" title="اطلاعات اتصال"><span id="ipFlag">🌐</span></button>
-   </div>
    <div class="history-chart"><canvas id="historyChart" aria-label="نمودار درصد دسترسی سرویس‌ها در گذر زمان"></canvas></div><div class="history-legend"><span><i class="legacy-dot"></i>تاریخچه قبلی</span><span><i class="domestic-dot"></i>رصدخانه ایرانی</span></div>
    <div class="history-dates"><span id="historyStart">—</span><span id="historyEnd">—</span></div>
    <div class="history-metrics"><div><small>آخرین availability</small><b id="historyLatest">—</b></div><div><small>کمترین مقدار در نمونه‌ها</small><b id="historyMin">—</b></div></div>
