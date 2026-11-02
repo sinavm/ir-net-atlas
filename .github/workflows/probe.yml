@@ -25,6 +25,6 @@ jobs:
         run: |
           git config user.name ir-net-atlas-bot
           git config user.email sina.bb2006@gmail.com
-          git add docs/status.json docs/history.json docs/badge.svg docs/inside.json
+          git add docs/status.json docs/history.json docs/badge.svg docs/inside.json docs/targets.json
           git commit -m "chore: refresh atlas snapshot" || echo nochange
           git push
