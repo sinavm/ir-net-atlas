@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101512">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="تست سرعت اینترنت و بررسی وضعیت دسترسی سرویس‌های ایرانی و خارجی؛ پینگ، دانلود و آپلود را بسنجید و ببینید از اینترنت شما کدام سایت‌ها در دسترس‌اند.">
+<meta name="description" content="IR Net Atlas از SiNAVM؛ تست سرعت اینترنت، سنجش پینگ و دانلود و آپلود و بررسی دسترسی سرویس‌های ایرانی و جهانی از اینترنت فعلی شما.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="googlebot" content="index,follow">
 <meta name="application-name" content="IR Net Atlas">
@@ -12,13 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:site_name" content="IR Net Atlas">
-<meta property="og:title" content="IR Net Atlas | تست سرعت و رادار وضعیت اینترنت ایران">
+<meta property="og:title" content="IR Net Atlas از SiNAVM | تست سرعت و رادار اینترنت ایران">
 <meta property="og:description" content="تست سرعت اینترنت، بررسی پینگ و دسترسی سرویس‌های ایرانی و جهانی از اتصال فعلی شما.">
 <meta property="og:url" content="https://sinavm.github.io/ir-net-atlas/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IR Net Atlas | رادار اینترنت ایران">
+<meta name="twitter:title" content="IR Net Atlas از SiNAVM | تست اینترنت">
 <meta name="twitter:description" content="وضعیت دسترسی سرویس‌ها و کیفیت اینترنت را از اتصال فعلی خود بررسی کنید.">
-<title>IR Net Atlas | تست سرعت و رادار وضعیت اینترنت ایران</title>
+<title>IR Net Atlas از SiNAVM | تست سرعت و رادار اینترنت ایران</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,6 +28,7 @@
       "@id": "https://sinavm.github.io/ir-net-atlas/#website",
       "url": "https://sinavm.github.io/ir-net-atlas/",
       "name": "IR Net Atlas",
+      "alternateName": "اطلس اینترنت SiNAVM",
       "inLanguage": "fa-IR",
       "description": "رصدخانه کیفیت اینترنت ایران، تست سرعت و بررسی دسترسی سرویس‌های ایرانی و جهانی."
     },
@@ -147,7 +148,7 @@ body{background:var(--paper);color:var(--ink)}
 <main class="main">
  <header class="top"><div class="crumb">رصدخانه <span style="padding:0 7px;color:#c4c7bc">/</span> <b>نمای کلی شبکه</b></div><div class="topright"><span class="updated" id="updated">در حال دریافت داده…</span><button class="refresh" id="refresh" aria-label="تازه‌سازی">↻</button></div></header>
  <section class="hero">
-  <div class="hero-copy"><div class="eyebrow"><i></i> رصد زنده زیرساخت اینترنت ایران</div><h1>نبض شبکه را<br><span>واضح‌تر ببین.</span></h1><p>یک تصویر دقیق‌تر از دسترسی، کیفیت مسیر و سلامت سرویس‌ها. داده‌های پایش جهانی و گزارش‌های داخل ایران، جدا از هم و با منبع مشخص.</p><div class="hero-actions"><a class="primary" href="#speedtest">شروع تست سرعت ↙</a><a class="textlink" href="#services">بررسی سرویس‌ها ←</a></div></div>
+  <div class="hero-copy"><div class="eyebrow"><i></i> رصد زنده زیرساخت اینترنت ایران</div><h1>نبض شبکه را<br><span>واضح‌تر ببین.</span></h1><p>یک تصویر دقیق‌تر از دسترسی، کیفیت مسیر و سلامت سرویس‌ها. داده‌های پایش جهانی و گزارش‌های داخل ایران، جدا از هم و با منبع مشخص.</p><div class="hero-actions"><a class="primary" href="#speedtest">تست اینترنت من ↙</a><a class="textlink" href="https://sinavm.github.io/sinavm/" aria-label="رفتن به صفحه اصلی SiNAVM">صفحه اصلی ←</a><a class="textlink" href="#services">بررسی سرویس‌ها</a></div></div>
   <div class="mapcard"><div class="maphead"><div><b>نمای شماتیک اتصال شبکه</b><small>GLOBAL ROUTES · CONCEPTUAL VIEW</small></div><span class="maptag">ATLAS / LIVE</span></div>
    <svg class="mapart" viewBox="0 0 640 330" preserveAspectRatio="xMidYMid meet" aria-label="نمای شماتیک ارتباط شبکه">
     <defs><linearGradient id="route" x1="0" x2="1"><stop stop-color="#c7f36b" stop-opacity=".12"/><stop offset=".5" stop-color="#c7f36b"/><stop offset="1" stop-color="#c7f36b" stop-opacity=".12"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
@@ -160,15 +161,7 @@ body{background:var(--paper);color:var(--ink)}
    </svg><div class="mapfoot"><span>نمایش مسیرها شماتیک است؛ نه نقشه جغرافیایی دیتاسنترها</span><b id="mapRatio">—%</b></div>
   </div>
  </section>
- <section class="section" id="overview"><div class="sectionhead"><div><h2>وضعیت در یک نگاه</h2><p>آخرین نتیجه ثبت‌شده از پروب جهانی</p></div><span class="sectionnum">01 / OVERVIEW</span></div>
-  <div class="kpis">
-   <article class="kpi"><div class="kpihead">سرویس‌های در دسترس <i>↗</i></div><strong class="good" id="up">—</strong><small>پاسخ‌گو در آخرین بررسی</small></article>
-   <article class="kpi"><div class="kpihead">سرویس‌های دارای اختلال <i>↘</i></div><strong class="bad" id="down">—</strong><small>بدون پاسخ یا timeout</small></article>
-   <article class="kpi"><div class="kpihead">میانگین زمان پاسخ <i>◷</i></div><strong id="avg">—</strong><small>میلی‌ثانیه · پاسخ‌های موفق</small></article>
-   <article class="kpi"><div class="kpihead">کل مقصدهای پایش‌شده <i>⌘</i></div><strong id="total">—</strong><small>سرویس‌های داخلی و جهانی</small></article>
-  </div>
- </section>
- <section class="section" id="speedtest"><div class="sectionhead"><div><h2>آزمایشگاه سرعت</h2><p>کیفیت اتصال همین مرورگر را در چند سنجه مستقل اندازه بگیر.</p></div><span class="sectionnum">02 / SPEED LAB</span></div>
+ <section class="section" id="speedtest"><div class="sectionhead"><div><h2>آزمایشگاه سرعت</h2><p>کیفیت اتصال همین مرورگر را در چند سنجه مستقل اندازه بگیر.</p></div><span class="sectionnum">01 / SPEED LAB</span></div>
   <div class="split">
    <article class="surface"><div class="speedtop"><div><div style="font-size:13px;font-weight:900">یک تست واقعی اجرا کن.</div><div class="caption">مقصد latency را انتخاب کن؛ نوع تست را خودت تعیین کن.</div></div><span class="tag">BROWSER TEST</span></div>
     <div class="speed-controls"><div class="field"><label for="destination">مقصد سنجش تأخیر</label><select id="destination"><option value="https://www.google.com">Google</option><option value="https://www.youtube.com">YouTube</option><option value="https://www.instagram.com">Instagram</option><option value="https://www.aparat.com">آپارات</option><option value="https://www.digikala.com">دیجی‌کالا</option><option value="https://github.com">GitHub</option><option value="https://www.cloudflare.com">Cloudflare</option><option value="https://www.wikipedia.org">Wikipedia</option><option value="https://www.tiktok.com">TikTok</option><option value="https://telegram.org">Telegram</option><option value="https://www.netflix.com">Netflix</option></select></div><div class="field"><label for="mode">سنجه موردنظر</label><select id="mode"><option value="full">تست کامل</option><option value="latency">فقط latency</option><option value="download">فقط دانلود</option><option value="upload">فقط آپلود</option></select></div></div>
@@ -177,6 +170,15 @@ body{background:var(--paper);color:var(--ink)}
     <p class="disclaimer">محدودیت فنی مهم: latency به مقصد انتخابی سنجیده می‌شود؛ throughput دانلود و آپلود از Cloudflare Edge است، نه سرور اختصاصی YouTube یا Instagram. اجرای تست کامل حداکثر حدود ۲۵ مگابایت داده جابه‌جا می‌کند.</p>
    </article>
    <article class="surface dark"><div class="surfacehead"><h3>خروجی آزمایش</h3><span class="tag" id="testState">READY</span></div><div class="gaugewrap"><div class="gauge" id="gauge"><div class="gaugeinner"><b id="gaugeNum">—</b><small id="gaugeUnit">Mbps</small></div></div><div class="gaugecopy"><b id="phaseTitle">آماده اندازه‌گیری</b><p id="phaseDesc">با انتخاب مقصد و نوع آزمایش، سنجش را شروع کن. نتیجه روی همین دستگاه نمایش داده می‌شود.</p></div></div><div class="progressline"><i id="progress"></i></div><div class="progresscaption"><span id="phase">منتظر شروع</span><span id="pct">۰٪</span></div></article>
+  </div>
+ </section>
+ 
+ <section class="section" id="overview"><div class="sectionhead"><div><h2>وضعیت در یک نگاه</h2><p>آخرین نتیجه ثبت‌شده از پروب جهانی</p></div><span class="sectionnum">02 / OVERVIEW</span></div>
+  <div class="kpis">
+   <article class="kpi"><div class="kpihead">سرویس‌های در دسترس <i>↗</i></div><strong class="good" id="up">—</strong><small>پاسخ‌گو در آخرین بررسی</small></article>
+   <article class="kpi"><div class="kpihead">سرویس‌های دارای اختلال <i>↘</i></div><strong class="bad" id="down">—</strong><small>بدون پاسخ یا timeout</small></article>
+   <article class="kpi"><div class="kpihead">میانگین زمان پاسخ <i>◷</i></div><strong id="avg">—</strong><small>میلی‌ثانیه · پاسخ‌های موفق</small></article>
+   <article class="kpi"><div class="kpihead">کل مقصدهای پایش‌شده <i>⌘</i></div><strong id="total">—</strong><small>سرویس‌های داخلی و جهانی</small></article>
   </div>
  </section>
  <section class="section" id="my-radar"><div class="sectionhead"><div><h2>رادار دسترسی اینترنت</h2><p>بررسی سرویس‌ها از اتصال فعلی شما و مشاهده آخرین پایش شبکه‌های داخل ایران.</p></div><span class="sectionnum">03 / ACCESS RADAR</span></div>
@@ -210,7 +212,7 @@ body{background:var(--paper);color:var(--ink)}
  </section>
  <section class="seo-section" aria-labelledby="network-guide-title">
   <h2 id="network-guide-title">راهنمای بررسی وضعیت اینترنت و دسترسی سرویس‌ها</h2>
-  <p>IR Net Atlas ابزار آنلاین بررسی کیفیت اینترنت است. با تست سرعت اینترنت می‌توانید زمان پاسخ، سرعت دانلود و آپلود را اندازه بگیرید و با رادار دسترسی، وضعیت باز شدن سرویس‌های ایرانی و خارجی را از اتصال فعلی خود بررسی کنید. داده‌های پایش عمومی و نتایج مرورگر شخصی جداگانه نمایش داده می‌شوند تا وضعیت یک نقطه شبکه به‌جای وضعیت همه کاربران برداشت نشود.</p>
+  <p>IR Net Atlas ابزار آنلاین بررسی کیفیت اینترنت از مجموعه SiNAVM است. با تست سرعت اینترنت می‌توانید زمان پاسخ، سرعت دانلود و آپلود را اندازه بگیرید و با رادار دسترسی، وضعیت باز شدن سرویس‌های ایرانی و خارجی را از اتصال فعلی خود بررسی کنید. داده‌های پایش عمومی و نتایج مرورگر شخصی جداگانه نمایش داده می‌شوند تا وضعیت یک نقطه شبکه به‌جای وضعیت همه کاربران برداشت نشود. برای راهنماها و ابزارهای اینترنت آزاد، به <a href="https://sinavm.github.io/sinavm/">صفحه اصلی SiNAVM</a> بروید.</p>
   <div class="seo-grid">
    <article class="seo-item"><h3>چطور بفهمم کدام سایت‌ها با اینترنت من باز می‌شوند؟</h3><p>در بخش «رادار دسترسی اینترنت»، اسکن مرورگر را اجرا کنید. نتیجه هر مقصد از اتصال فعلی دستگاه شما ثبت می‌شود. محدودیت‌های مرورگر ممکن است برای بعضی مقصدها نتیجه نامشخص ایجاد کند.</p></article>
    <article class="seo-item"><h3>تست سرعت اینترنت چه چیزهایی را اندازه می‌گیرد؟</h3><p>آزمایشگاه سرعت، تأخیر مسیر انتخابی و سرعت دانلود و آپلود را اندازه می‌گیرد. نتیجه به اپراتور، شلوغی شبکه، دستگاه، وای‌فای و سرور مقصد وابسته است.</p></article>
