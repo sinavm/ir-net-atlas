@@ -513,7 +513,7 @@ async function runDns(){
 }
 async function loadIpDetails(){ $('ipFlag').textContent='🌐';try{const r=await req('https://ipwho.is/',{cache:'no-store',credentials:'omit'},8000);if(!r.ok)throw Error();const d=await r.json();if(!d.success)throw Error(d.message||'lookup failed');ipDetails=d;$('ipFlag').textContent=flagFor(d.country_code);$('openIp').title='اطلاعات اتصال · '+(d.country||'')}catch(e){ipDetails=null;$('ipFlag').textContent='🌐'}}
 function showIpDetails(){
- openNetworkModal('اطلاعات اتصال','اطلاعات IP عمومی که سرویس بیرونی تشخیص داده است. این داده‌ها فقط هنگام بازکردن این بخش دریافت می‌شوند.');
+ openNetworkModal('اطلاعات اتصال','اطلاعات IP عمومی و کشور اتصال که از سرویس تشخیص IP دریافت شده است.');
  if(!ipDetails){networkContent.innerHTML='<div class="network-result"><small>وضعیت</small><b>اطلاعات در دسترس نیست</b><p>اتصال سرویس تشخیص IP ناموفق بود؛ دوباره تلاش کنید.</p></div><button class="network-run" id="retryIp" type="button">تلاش دوباره</button>';$('retryIp').addEventListener('click',async()=>{networkState('در حال دریافت اطلاعات…');await loadIpDetails();showIpDetails()});networkState('سرویس اطلاعات IP پاسخ نداد',true);return}
  const d=ipDetails,c=d.connection||{},tz=d.timezone||{};
  networkContent.innerHTML='<div class="network-result-grid">'+resultCard('IP عمومی',d.ip)+resultCard('کشور',d.country,d.country_code||'')+resultCard('شهر / منطقه',[d.city,d.region].filter(Boolean).join('، ')||'—')+resultCard('ارائه‌دهنده اینترنت',c.isp||c.org||'—')+resultCard('سازمان / شبکه',c.org||'—')+resultCard('ASN',c.asn||'—')+resultCard('منطقه زمانی',tz.id||'—')+'</div><p class="network-note">موقعیت جغرافیایی تقریبی و مبتنی بر پایگاه داده IP است؛ لزوماً مکان واقعی شما نیست. برای حفظ حریم خصوصی، مختصات جغرافیایی نمایش داده نمی‌شود.</p>';
