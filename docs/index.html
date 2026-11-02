@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>if("scrollRestoration" in history)history.scrollRestoration="manual";const resetPageScroll=()=>window.scrollTo({top:0,left:0,behavior:"instant"});window.addEventListener("pageshow",resetPageScroll);window.addEventListener("load",resetPageScroll,{once:true});</script>
 <meta name="theme-color" content="#101512">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="IR Net Atlas از SiNAVM؛ ابزار رایگان تست سرعت اینترنت، پینگ، دانلود و آپلود، بررسی دسترسی سایت‌ها و رصد کیفیت اتصال. همراه با راهنماها و منابع VPN و اینترنت آزاد.">
@@ -297,7 +298,7 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
   <div class="split test-layout">
    <article class="surface test-surface">
     <div class="start-wrap"><button class="testbutton start-ring" id="run" type="button" aria-label="شروع تست اینترنت"><span id="startNum">START</span><small id="startLabel">SPEED TEST</small></button></div>
-    <div class="speedvalues"><div class="speedvalue"><small>LATENCY</small><b id="latency">—</b><em>ms · Google</em></div><div class="speedvalue"><small>DOWNLOAD</small><b id="download">—</b><em>Mbps · Cloudflare</em></div><div class="speedvalue"><small>UPLOAD</small><b id="upload">—</b><em>Mbps · Cloudflare</em></div></div>
+    <div class="speedvalues"><div class="speedvalue"><small>LATENCY</small><b id="latency">—</b><em>ms · Google</em></div><div class="speedvalue"><small>DOWNLOAD</small><b id="download">—</b><em>Mbps · Speed Test</em></div><div class="speedvalue"><small>UPLOAD</small><b id="upload">—</b><em>Mbps · Cloudflare</em></div></div>
     <div class="test-details"><span><i class="test-dot"></i><b id="phase">Ready</b></span><span id="pct">0%</span><div class="progressline" id="testProgress" role="progressbar" aria-label="Test progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progress"></i></div></div>
    </article>
   </div>
@@ -519,8 +520,8 @@ function showPersonalHistory(){
 }
 async function runCloudflareClientTest(mode='quality'){
  const gaming=mode==='gaming';
- openNetworkModal(gaming?'تست گیمینگ واقعی‌تر':'کیفیت مسیر و اتصال',gaming?'کیفیت اتصال خود دستگاه شما تا نزدیک‌ترین نقطه Cloudflare سنجیده می‌شود. نتیجه برای ارزیابی آمادگی اتصال جهت بازی است، نه پینگ اختصاصی سرور بازی.':'این آزمون مستقیماً از مرورگر و اینترنت همین دستگاه به شبکه Cloudflare اجرا می‌شود؛ سرور واسط یا سرور اختصاصی ما در کار نیست.');
- networkContent.innerHTML='<div class="network-result"><small>موتور آزمون</small><b>Cloudflare Network Quality</b><p id="cfTestPhase">در حال بارگذاری موتور تست…</p></div><div class="network-result-grid" id="cfTestMetrics">'+resultCard('تأخیر اتصال','در حال اندازه‌گیری')+resultCard('Jitter','—')+resultCard('دانلود','—')+resultCard('آپلود','—')+resultCard('تأخیر هنگام دانلود','—')+resultCard('تأخیر هنگام آپلود','—')+'</div><p class="network-note" id="cfTestNote">آزمون به‌صورت مستقیم از مرورگر شما به Cloudflare انجام می‌شود. ممکن است چند ده مگابایت ترافیک مصرف شود.</p>';
+ openNetworkModal(gaming?'تست گیمینگ واقعی‌تر':'کیفیت مسیر و اتصال',gaming?'کیفیت اتصال و پایداری اینترنت شما برای بازی آنلاین سنجیده می‌شود.':'کیفیت اتصال اینترنت شما مستقیماً از همین مرورگر اندازه‌گیری می‌شود.');
+ networkContent.innerHTML='<div class="network-result"><small>آزمون کیفیت اتصال</small><b>Network Quality Test</b><p id="cfTestPhase">در حال بارگذاری موتور تست…</p></div><div class="network-result-grid" id="cfTestMetrics">'+resultCard('تأخیر اتصال','در حال اندازه‌گیری')+resultCard('Jitter','—')+resultCard('دانلود','—')+resultCard('آپلود','—')+resultCard('تأخیر هنگام دانلود','—')+resultCard('تأخیر هنگام آپلود','—')+'</div><p class="network-note" id="cfTestNote">آزمون به‌صورت مستقیم از مرورگر شما به Cloudflare انجام می‌شود. ممکن است چند ده مگابایت ترافیک مصرف شود.</p>';
  const phase=$('cfTestPhase'),metrics=$('cfTestMetrics'),note=$('cfTestNote');
  const fmt=(v)=>Number.isFinite(v)?Math.round(v)+' ms':'—';
  const mbps=(v)=>Number.isFinite(v)&&v>0?(v/1e6).toFixed(2)+' Mbps':'—';
@@ -535,9 +536,9 @@ async function runCloudflareClientTest(mode='quality'){
     let grade='قابل ارزیابی نیست';
     if(Number.isFinite(latency)&&Number.isFinite(jitter)){const score=latency+jitter*2+(Number.isFinite(loaded)?Math.max(0,loaded-latency)*.5:0);grade=score<60?'مناسب بازی آنلاین':score<110?'متوسط؛ احتمال نوسان':'ضعیف برای بازی رقابتی'}
     phase.textContent='آزمون کامل شد · '+grade;
-    note.textContent='این ارزیابی بر پایه تأخیر، نوسان و تأخیر زیر بار تا نزدیک‌ترین نقطه Cloudflare است؛ پینگ واقعی سرورهای Valorant، کلش یا سایر بازی‌ها نیست. Packet Loss در این اجرا فعال نیست، چون برای آن به اعتبارنامه TURN نیاز است.';
-   }else{phase.textContent='اندازه‌گیری کامل شد';note.textContent='نتایج از اتصال فعلی شما تا نزدیک‌ترین نقطه Cloudflare به دست آمده‌اند. این ابزار traceroute روتر‌به‌روتر نیست؛ کیفیت واقعی اتصال مرورگر را اندازه می‌گیرد.'}
-   networkState('آزمون Cloudflare تکمیل شد');
+    note.textContent='این ارزیابی بر پایه تأخیر، نوسان و تأخیر زیر بار اتصال شماست؛ پینگ اختصاصی سرور بازی‌ها نیست.';
+   }else{phase.textContent='اندازه‌گیری کامل شد';note.textContent='نتایج از اتصال فعلی مرورگر شما به دست آمده‌اند. این ابزار مسیر روتر‌به‌روتر را نمایش نمی‌دهد و کیفیت اتصال را اندازه می‌گیرد.'}
+   networkState('آزمون کیفیت اتصال تکمیل شد');
   }
  };
  try{
@@ -547,11 +548,11 @@ async function runCloudflareClientTest(mode='quality'){
   const test=new SpeedTest({autoStart:true,measurements:[{type:'latency',numPackets:20},{type:'download',bytes:1e5,count:5},{type:'download',bytes:1e6,count:4},{type:'upload',bytes:1e5,count:4},{type:'upload',bytes:1e6,count:2}],bandwidthFinishRequestDuration:700,measureDownloadLoadedLatency:true,measureUploadLoadedLatency:true});
   test.onResultsChange=()=>render(test.results,false);
   test.onRunningChange=running=>{if(running){phase.textContent='در حال سنجش مستقیم اتصال شما…';networkState('در حال اندازه‌گیری کیفیت اتصال')}};
-  test.onError=err=>{phase.textContent='بخشی از اندازه‌گیری‌ها با خطا روبه‌رو شد';note.textContent='ممکن است شبکه یا مرورگر دسترسی به endpointهای Cloudflare را محدود کرده باشد. نتایج موفق همچنان نمایش داده می‌شوند.'};
+  test.onError=err=>{phase.textContent='بخشی از اندازه‌گیری‌ها با خطا روبه‌رو شد';note.textContent='ممکن است شبکه یا مرورگر بخشی از درخواست‌های اندازه‌گیری را مسدود کرده باشد. نتایج موفق همچنان نمایش داده می‌شوند.'};
   test.onFinish=results=>render(results,true);
  }catch(e){
   phase.textContent='بارگذاری موتور تست ناموفق بود';
-  note.textContent='ارتباط با موتور متن‌باز Cloudflare یا endpointهای آن برقرار نشد. اتصال اینترنت و محدودیت‌های مرورگر را بررسی کنید.';
+  note.textContent='بارگذاری ابزار اندازه‌گیری ناموفق بود. اتصال اینترنت و محدودیت‌های مرورگر را بررسی کنید.';
   networkState('اجرای آزمون ناموفق بود',true);
  }
 }
@@ -581,7 +582,7 @@ async function runQuality(){
 async function runDns(){
  openNetworkModal('بررسی DNS','پاسخ دامنه‌ها از دو سرویس DNS-over-HTTPS مقایسه می‌شود؛ زمان‌ها مربوط به مسیر مرورگر تا Resolver هستند.');
  networkContent.innerHTML='<div class="network-result"><small>وضعیت آزمون</small><b>در حال پرس‌وجو از Resolverها…</b></div>';
- const domains=['google.com','cloudflare.com','github.com'],providers=[{name:'Cloudflare DNS',url:d=>'https://cloudflare-dns.com/dns-query?name='+encodeURIComponent(d)+'&type=A'},{name:'Google DNS',url:d=>'https://dns.google/resolve?name='+encodeURIComponent(d)+'&type=A'}],rows=[];
+ const domains=['google.com','cloudflare.com','github.com'],providers=[{name:'DNS Resolver 1',url:d=>'https://cloudflare-dns.com/dns-query?name='+encodeURIComponent(d)+'&type=A'},{name:'Google DNS',url:d=>'https://dns.google/resolve?name='+encodeURIComponent(d)+'&type=A'}],rows=[];
  for(const d of domains){const pair=await Promise.all(providers.map(async p=>{const start=performance.now();try{const r=await req(p.url(d),{headers:{accept:'application/dns-json'},cache:'no-store',credentials:'omit'},7000);if(!r.ok)throw Error();const data=await r.json(),answers=(data.Answer||[]).filter(a=>a.type===1).map(a=>a.data);return{provider:p.name,domain:d,ms:performance.now()-start,answers,status:data.Status===0?'پاسخ موفق':'DNS status '+data.Status}}catch(e){return{provider:p.name,domain:d,ms:null,answers:[],status:'ناموفق'}}}));rows.push(...pair);networkState('بررسی '+d+'…')}
  networkContent.innerHTML='<div class="network-result"><table class="network-table"><thead><tr><th>دامنه / Resolver</th><th>پاسخ</th><th>زمان</th></tr></thead><tbody>'+rows.map(x=>'<tr><td>'+esc(x.domain)+'<br><small>'+esc(x.provider)+'</small></td><td>'+esc(x.answers.join(', ')||x.status)+'</td><td>'+(x.ms===null?'—':x.ms.toFixed(0)+' ms')+'</td></tr>').join('')+'</tbody></table></div><p class="network-note">این آزمون از DNS-over-HTTPS استفاده می‌کند و تنظیم DNS سیستم‌عامل یا وجود DNS leak را به‌تنهایی اثبات نمی‌کند.</p>';
  networkState(rows.some(x=>x.ms!==null)?'پرس‌وجوها تکمیل شد':'دریافت پاسخ DNS ناموفق بود',!rows.some(x=>x.ms!==null));
