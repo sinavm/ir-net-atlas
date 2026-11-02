@@ -102,7 +102,11 @@ def layer_summary(rows: list[dict]) -> dict:
 def main() -> None:
     DOCS.mkdir(exist_ok=True)
     targets = json.loads((ROOT / "observatory_targets.json").read_text(encoding="utf-8"))["targets"]
-    # Keep the browser-side user scan limited to international services only.\n    browser_targets = json.loads((ROOT / "targets.json").read_text(encoding="utf-8"))["targets"]\n    (DOCS / "targets.json").write_text(json.dumps({"targets": browser_targets}, ensure_ascii=False, indent=2), encoding="utf-8")\n    results = []\n    up = 0
+    # Keep the browser-side user scan limited to international services only.
+    browser_targets = json.loads((ROOT / "targets.json").read_text(encoding="utf-8"))["targets"]
+    (DOCS / "targets.json").write_text(json.dumps({"targets": browser_targets}, ensure_ascii=False, indent=2), encoding="utf-8")
+    results = []
+    up = 0
     latencies = []
     for item in targets:
         probe = check(item["url"])
@@ -124,7 +128,8 @@ def main() -> None:
             "ratio": ratio,
             "avg_ms": int(sum(latencies) / len(latencies)) if latencies else None,
         },
-        "layers": layer_summary(results),\n        "scope": "iranian-domestic-sites-and-apis",
+        "layers": layer_summary(results),
+        "scope": "iranian-domestic-sites-and-apis",
         "targets": results,
         "iran_reports": json.loads((ROOT / "reports" / "iran.json").read_text(encoding="utf-8"))
         if (ROOT / "reports" / "iran.json").exists()
@@ -142,7 +147,8 @@ def main() -> None:
     history_path.write_text(json.dumps(history[-72:], ensure_ascii=False, indent=2), encoding="utf-8")
     color = "22c55e" if ratio >= 85 else "eab308" if ratio >= 60 else "ef4444"
     (DOCS / "badge.svg").write_text(
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="176" height="20"><rect width="176" height="20" rx="4" fill="#0f172a"/><text x="8" y="14" fill="#94a3b8" font-size="11" font-family="Verdana">atlas</text><text x="52" y="14" fill="#{color}" font-size="11" font-family="Verdana">{up}/{total} · {snapshot["summary"]["avg_ms"] or "—"}ms</text></svg>\n',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="176" height="20"><rect width="176" height="20" rx="4" fill="#0f172a"/><text x="8" y="14" fill="#94a3b8" font-size="11" font-family="Verdana">atlas</text><text x="52" y="14" fill="#{color}" font-size="11" font-family="Verdana">{up}/{total} · {snapshot["summary"]["avg_ms"] or "—"}ms</text></svg>
+',
         encoding="utf-8",
     )
 
