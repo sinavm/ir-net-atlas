@@ -143,7 +143,7 @@ def main() -> None:
             history = json.loads(history_path.read_text(encoding="utf-8"))
         except Exception:
             history = []
-    history.append({"generated_at": snapshot["generated_at"], "ratio": ratio, "up": up, "avg_ms": snapshot["summary"]["avg_ms"]})
+    history.append({"generated_at": snapshot["generated_at"], "ratio": ratio, "up": up, "avg_ms": snapshot["summary"]["avg_ms"], "scope": snapshot["scope"]})
     history_path.write_text(json.dumps(history[-72:], ensure_ascii=False, indent=2), encoding="utf-8")
     color = "22c55e" if ratio >= 85 else "eab308" if ratio >= 60 else "ef4444"
     (DOCS / "badge.svg").write_text(
