@@ -4,18 +4,18 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101512">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="IR Net Atlas از SiNAVM؛ تست سرعت اینترنت، سنجش پینگ و دانلود و آپلود و بررسی دسترسی سرویس‌های ایرانی و جهانی از اینترنت فعلی شما.">
+<meta name="description" content="IR Net Atlas از SiNAVM؛ ابزار رایگان تست سرعت اینترنت، پینگ، دانلود و آپلود، بررسی دسترسی سایت‌ها و رصد کیفیت اتصال. همراه با راهنماها و منابع VPN و اینترنت آزاد.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="googlebot" content="index,follow">
-<meta name="application-name" content="IR Net Atlas">
+<meta name="application-name" content="IR Net Atlas"><meta name="keywords" content="SiNAVM, تست سرعت اینترنت, تست اسپید, تست پینگ, تست آپلود, تست دانلود, رصدخانه اینترنت, VPN, اینترنت آزاد, بررسی دسترسی سایت‌ها"><link rel="icon" type="image/svg+xml" href="./assets/sinavm-icon.svg"><link rel="shortcut icon" href="./assets/sinavm-icon.svg"><link rel="apple-touch-icon" href="./assets/sinavm-icon.svg"><link rel="preload" as="image" href="./assets/sinavm-logo.svg" type="image/svg+xml">
 <link rel="canonical" href="https://sinavm.github.io/ir-net-atlas/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:site_name" content="IR Net Atlas">
 <meta property="og:title" content="IR Net Atlas از SiNAVM | تست سرعت و رادار اینترنت ایران">
 <meta property="og:description" content="تست سرعت اینترنت، بررسی پینگ و دسترسی سرویس‌های ایرانی و جهانی از اتصال فعلی شما.">
-<meta property="og:url" content="https://sinavm.github.io/ir-net-atlas/">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://sinavm.github.io/ir-net-atlas/"><meta property="og:image" content="https://sinavm.github.io/ir-net-atlas/assets/sinavm-logo.svg"><meta property="og:image:alt" content="لوگوی SiNAVM با نماد شبکه و وای‌فای">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sinavm.github.io/ir-net-atlas/assets/sinavm-logo.svg">
 <meta name="twitter:title" content="IR Net Atlas از SiNAVM | تست اینترنت">
 <meta name="twitter:description" content="وضعیت دسترسی سرویس‌ها و کیفیت اینترنت را از اتصال فعلی خود بررسی کنید.">
 <title>IR Net Atlas از SiNAVM | تست سرعت و رادار اینترنت ایران</title>
@@ -33,6 +33,14 @@
       "description": "رصدخانه کیفیت اینترنت ایران، تست سرعت و بررسی دسترسی سرویس‌های ایرانی و جهانی."
     },
     {
+      "@type": "Organization",
+      "@id": "https://sinavm.github.io/ir-net-atlas/#organization",
+      "name": "SiNAVM",
+      "url": "https://sinavm.github.io/sinavm/",
+      "logo": "https://sinavm.github.io/ir-net-atlas/assets/sinavm-logo.svg",
+      "sameAs": ["https://github.com/SiNAVM", "https://t.me/SiNAVM"]
+    },
+    {
       "@type": "WebApplication",
       "@id": "https://sinavm.github.io/ir-net-atlas/#application",
       "name": "IR Net Atlas",
@@ -42,7 +50,8 @@
       "browserRequirements": "مرورگر به‌روز با پشتیبانی از JavaScript",
       "inLanguage": "fa-IR",
       "isAccessibleForFree": true,
-      "description": "ابزار آنلاین تست سرعت اینترنت، سنجش تأخیر و بررسی دسترسی سرویس‌ها از مرورگر کاربر."
+      "description": "ابزار آنلاین رایگان تست سرعت اینترنت، سنجش پینگ، دانلود و آپلود و بررسی دسترسی سرویس‌ها از مرورگر کاربر.",
+      "featureList": ["تست سرعت اینترنت", "سنجش پینگ و تأخیر", "اندازه‌گیری دانلود و آپلود", "بررسی دسترسی سایت‌ها", "رصد تاریخچه کیفیت شبکه"]
     }
   ]
 }
@@ -199,12 +208,46 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
 #my-radar{padding-top:32px}#my-radar .sectionhead{margin-bottom:15px}#my-radar .surface{background:#1a211c;border-color:#303c32;color:#edf2e8}#my-radar .radar-items{max-height:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}#my-radar .radar-item{background:#202a23;border-color:#344136;padding:12px}#my-radar .radar-item b{font-size:11px;color:#f0f3ea}#my-radar .radar-item small{font-size:9px;color:#a3afa0}.radar-open{margin-right:auto;color:var(--lime);font-size:12px;flex:none}#my-radar .radar-foot,#my-radar .radar-progress,#my-radar .surfacehead,#my-radar .radar-summary,#my-radar #myScanState{display:none!important}.foot,.seo-section,.bottom-intro,.network-map-section{display:none!important}
 @media(max-width:760px){.compact-main{padding:0 14px 28px}#speedtest .split{grid-template-columns:1fr}.start-ring{width:170px;height:170px}#my-radar .radar-items{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}#my-radar .radar-item{padding:8px 6px;gap:6px}#my-radar .radar-item b{font-size:10px}#my-radar .radar-item small{font-size:8px;white-space:nowrap}}@media(prefers-reduced-motion:reduce){.start-ring{transition:none}}
 
+
+/* SiNAVM identity, tools and anchored footer */
+.compact-main{min-height:100vh;display:flex;flex-direction:column}
+.compact-main>.site-footer{margin-top:auto}
+.compact-top .brand{gap:9px}
+.compact-top .brand-logo{width:66px;height:56px;object-fit:contain;background:transparent;border:0;border-radius:0;flex:none;filter:drop-shadow(0 0 9px rgba(66,225,131,.24))}
+.tools-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tool-card{display:flex;align-items:center;gap:11px;min-width:0;padding:15px;background:linear-gradient(135deg,#202a23,#18211b);border:1px solid #354438;border-radius:14px;color:#edf2e8;transition:transform .2s,border-color .2s,box-shadow .2s}
+.tool-card:hover{transform:translateY(-3px);border-color:#82b75f;box-shadow:0 12px 30px #0003}
+.tool-icon{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:11px;background:#344632;color:var(--lime);font-size:21px}
+.tool-card span:nth-child(2){display:grid;gap:4px;min-width:0}
+.tool-card b{font-size:11px}.tool-card small{font-size:9px;color:#a5b0a2;line-height:1.7}.tool-card>i{font-style:normal;margin-right:auto;color:var(--lime)}
+.site-footer{display:block!important;margin-top:38px!important;padding:22px 0 12px!important;border-top:1px solid #344137!important;color:#b8c2b5!important}
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-brand{display:flex;align-items:center;gap:9px;flex:none}
+.footer-brand img{width:42px;height:42px;object-fit:contain}
+.footer-brand span{display:grid;gap:3px}.footer-brand b{font-size:15px;letter-spacing:1px;color:#eff8ec}.footer-brand small{font:7px 'DM Mono',monospace;letter-spacing:1px;color:#91a28d}
+.footer-social{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;flex:1}
+.footer-social a{display:grid;grid-template-columns:24px 1fr;grid-template-rows:auto auto;align-items:center;column-gap:7px;padding:10px 11px;border:1px solid #354438;border-radius:11px;background:#1a231d;transition:.2s;min-width:0}
+.footer-social a:hover{border-color:#83b95d;background:#202d23}
+.footer-social a>span{grid-row:1/3;display:grid;place-items:center;width:24px;height:24px;border-radius:8px;background:#344632;color:var(--lime);font-size:15px}
+.footer-social b{font-size:10px;color:#edf2e8}.footer-social small{font:8px 'DM Mono',monospace;color:#9daa99;direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid #2c382f;margin-top:18px;padding-top:14px}
+.legal-links{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+.legal-links a{font-size:9px;color:#c0cabe;padding:0 12px;border-left:1px solid #536052}
+.legal-links a:first-child{padding-right:0}.legal-links a:last-child{border:0}
+.legal-links a:hover,.designer-credit:hover{color:var(--lime)}
+.designer-credit{font:9px 'DM Mono',monospace;color:#b8c5b5;direction:ltr}
+.designer-credit b{color:var(--lime)}
+.visit-count{font-size:9px;color:#b8c5b5}.visit-count b{font:11px 'DM Mono',monospace;color:var(--lime);margin-right:5px}
+.footer-note{font-size:8px;color:#829080;margin:12px 0 0;text-align:center}
+@media(max-width:760px){.footer-top{align-items:flex-start;flex-direction:column}.footer-social{width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}.tools-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.compact-main{padding-left:14px;padding-right:14px}.compact-top .brand-logo{width:52px;height:48px}.footer-bottom{align-items:flex-start;flex-direction:column;gap:12px}.legal-links a{padding:0 8px;font-size:8px}.footer-social a{padding:9px}.footer-social small{font-size:7px}.site-footer{padding-bottom:10px!important}}
+
 </style>
 </head>
 <body>
 <div class="shell">
 <main class="main compact-main">
- <header class="top compact-top"><a class="brand" href="https://sinavm.github.io/sinavm/" aria-label="صفحه اصلی SiNAVM"><span class="brandmark">⌁</span><span class="brandname">IR NET ATLAS<small>INTERNET TEST</small></span></a><div class="top-actions"><a class="home-link" href="https://sinavm.github.io/sinavm/" aria-label="صفحه اصلی">صفحه اصلی</a><span class="time-box" id="clock">--:--</span><button class="refresh" id="refresh" aria-label="تازه‌سازی">↻</button></div></header>
+ <header class="top compact-top"><a class="brand" href="https://sinavm.github.io/sinavm/" aria-label="صفحه اصلی SiNAVM"><img class="brandmark brand-logo" src="./assets/sinavm-logo.svg" alt="لوگوی SiNAVM" width="124" height="78" fetchpriority="high" decoding="async"><span class="brandname">IR NET ATLAS<small>INTERNET TEST</small></span></a><div class="top-actions"><a class="home-link" href="https://sinavm.github.io/sinavm/" aria-label="صفحه اصلی">صفحه اصلی</a><span class="time-box" id="clock">--:--</span><button class="refresh" id="refresh" aria-label="تازه‌سازی">↻</button></div></header>
  <section class="section" id="speedtest"><div class="sectionhead"><div><h2>تست اینترنت</h2></div></div>
   <div class="split test-layout">
    <article class="surface test-surface">
@@ -260,10 +303,42 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
    <details><summary>آیا خطای دسترسی همیشه به معنی فیلتر بودن سایت است؟</summary><p>خیر. خطای اتصال می‌تواند از DNS، گواهی امنیتی، CDN، محدودیت‌های مرورگر یا اختلال مسیر ناشی شود. Atlas وضعیت قابل مشاهده را گزارش می‌کند و بدون شواهد کافی علت قطعی اعلام نمی‌کند.</p></details>
   </article>
  </section>
- <footer class="site-footer"><div><b>IR NET ATLAS</b> · یک رصدخانه مستقل برای دیدن کیفیت شبکه<p>داده‌ها ممکن است تحت‌تأثیر موقعیت جغرافیایی، CDN، DNS و محدودیت مسیر باشند.</p></div><a href="https://github.com/sinavm/ir-net-atlas" target="_blank" rel="noopener">مشاهده مخزن در GitHub ↗</a></footer>
+ <section class="section tools-section" id="sinavm-tools" aria-labelledby="tools-title">
+  <div class="sectionhead"><div><h2 id="tools-title">ابزارها و منابع SiNAVM</h2><p>تست شبکه، ابزارهای کاربردی و راهنماهای اینترنت آزاد</p></div><span class="sectionnum">TOOLS · VPN · COMMUNITY</span></div>
+  <div class="tools-grid">
+   <a class="tool-card" href="#speedtest"><span class="tool-icon">↯</span><span><b>تست سرعت اینترنت</b><small>پینگ، دانلود و آپلود اتصال فعلی</small></span><i>←</i></a>
+   <a class="tool-card" href="#my-radar"><span class="tool-icon">◎</span><span><b>رادار دسترسی سایت‌ها</b><small>بررسی پاسخ‌گویی سرویس‌ها با اینترنت شما</small></span><i>←</i></a>
+   <a class="tool-card" href="https://sinavm.github.io/sinavm/" target="_blank" rel="noopener noreferrer"><span class="tool-icon">⌘</span><span><b>راهنماها و منابع VPN</b><small>آموزش‌ها، ابزارها و کانفیگ‌های متن‌باز</small></span><i>↗</i></a>
+  </div>
+ </section>
+ <footer class="site-footer" aria-label="پیوندهای SiNAVM">
+  <div class="footer-top">
+   <a class="footer-brand" href="https://sinavm.github.io/sinavm/" aria-label="SiNAVM"><img src="./assets/sinavm-icon.svg" alt="" width="38" height="38"><span><b>SiNAVM</b><small>INTERNET · NETWORK · FREEDOM</small></span></a>
+   <div class="footer-social">
+    <a href="https://sinavm.github.io/sinavm/" target="_blank" rel="noopener noreferrer"><span>⌂</span><b>Site</b><small>sinavm.github.io/sinavm</small></a>
+    <a href="https://github.com/SiNAVM" target="_blank" rel="noopener noreferrer"><span>⌘</span><b>GitHub</b><small>github.com/SiNAVM</small></a>
+    <a href="https://t.me/SiNA_TEC" target="_blank" rel="noopener noreferrer"><span>✦</span><b>گپ و ایده‌ها</b><small>t.me/SiNA_TEC · 💡</small></a>
+    <a href="https://t.me/SiNAVM" target="_blank" rel="noopener noreferrer"><span>➤</span><b>کانال تلگرام</b><small>t.me/SiNAVM</small></a>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <nav class="legal-links" aria-label="قوانین و اطلاعات">
+    <a href="https://sinavm.github.io/sinavm/legal_pages/about.html">درباره ما</a>
+    <a href="https://sinavm.github.io/sinavm/legal_pages/privacy.html">سیاست حریم خصوصی</a>
+    <a href="https://sinavm.github.io/sinavm/legal_pages/terms.html">شرایط استفاده</a>
+   </nav>
+   <a class="designer-credit" href="https://t.me/sinavm" target="_blank" rel="noopener noreferrer">Design &amp; Config by <b>SiNAVM</b></a>
+   <span class="visit-count">بازدید کل: <b id="total-visit-count" dir="ltr">۲۹۷٬۳۵۱</b></span>
+  </div>
+  <p class="footer-note">داده‌های رصدخانه ممکن است تحت‌تأثیر موقعیت جغرافیایی، CDN، DNS و محدودیت مسیر باشند.</p>
+ </footer>
 </main>
 </div>
 <div class="toast" id="toast"></div>
+<script>
+fetch('https://page-views.count1.workers.dev',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('counter unavailable');return r.text()}).then(v=>{const n=Number(String(v).replace(/[^0-9.]/g,''));if(Number.isFinite(n)&&n>0){const el=document.getElementById('total-visit-count');if(el)el.textContent=new Intl.NumberFormat('fa-IR').format(n)}}).catch(()=>{});
+</script>
+
 <script>
 const $=id=>document.getElementById(id);let statusData=null,testing=false;const fa=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(n);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function notify(s){const t=$('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
