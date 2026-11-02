@@ -181,34 +181,6 @@
       "url": "https://www.microsoft.com",
       "group": "فناوری",
       "layer": "international"
-    },
-    {
-      "id": "ipify",
-      "name": "بررسی IP · ipify",
-      "url": "https://api.ipify.org?format=json",
-      "group": "بررسی IP",
-      "layer": "international"
-    },
-    {
-      "id": "ipinfo",
-      "name": "بررسی IP · ipinfo",
-      "url": "https://ipinfo.io/json",
-      "group": "بررسی IP",
-      "layer": "international"
-    },
-    {
-      "id": "icanhazip",
-      "name": "بررسی IP · icanhazip",
-      "url": "https://icanhazip.com",
-      "group": "بررسی IP",
-      "layer": "international"
-    },
-    {
-      "id": "browserleaks",
-      "name": "BrowserLeaks IP",
-      "url": "https://browserleaks.com/ip",
-      "group": "بررسی IP",
-      "layer": "international"
     }
   ]
 }
