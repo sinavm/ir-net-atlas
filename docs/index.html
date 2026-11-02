@@ -271,7 +271,22 @@ function progress(p,label){p=Math.max(0,Math.min(100,Math.round(Number(p)||0)));
 function gauge(v,unit='Mbps'){}
 async function req(url,opt={},ms=16000){const c=new AbortController(),t=setTimeout(()=>c.abort(),ms);try{return await fetch(url,{...opt,signal:c.signal})}finally{clearTimeout(t)}}
 async function latency(url){const samples=[];for(let i=0;i<4;i++){const st=performance.now();try{await req(url.replace(/\/$/,'')+'/favicon.ico?atlas='+Date.now()+i,{mode:'no-cors',cache:'no-store',credentials:'omit'},6000);samples.push(performance.now()-st)}catch(e){}}if(!samples.length)return null;samples.sort((a,b)=>a-b);return Math.round(samples[Math.floor(samples.length/2)])}
-async function download(){let best=0;for(const n of [1000000,5000000,10000000]){const st=performance.now(),r=await req('https://speed.cloudflare.com/__down?bytes='+n+'&atlas='+Date.now(),{mode:'cors',cache:'no-store',credentials:'omit'},18000);if(!r.ok)throw Error();const b=await r.arrayBuffer(),sec=(performance.now()-st)/1000;best=Math.max(best,b.byteLength*8/1e6/sec);if(sec>7)break}return best}
+async function download(){
+ let best=0,successes=0;
+ for(const n of [1000000,5000000,10000000]){
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),22000),started=performance.now();
+  try{
+   const r=await fetch('https://speed.cloudflare.com/__down?bytes='+n+'&atlas='+Date.now(),{mode:'cors',cache:'no-store',credentials:'omit',signal:controller.signal});
+   if(!r.ok)throw Error('download_http_'+r.status);
+   const bytes=(await r.arrayBuffer()).byteLength,seconds=(performance.now()-started)/1000;
+   if(bytes>0&&seconds>0){best=Math.max(best,bytes*8/1e6/seconds);successes++}
+   if(seconds>7)break;
+  }catch(e){if(!successes&&n===10000000)throw e}
+  finally{clearTimeout(timer)}
+ }
+ if(!successes||!best)throw Error('download_measurement_failed');
+ return best
+}
 async function upload(){
  let best=0,successes=0;
  for(const n of [1000000,3000000,5000000]){
