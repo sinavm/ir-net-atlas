@@ -271,6 +271,21 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
 .network-table{width:100%;border-collapse:collapse;font-size:10px;direction:rtl}.network-table th,.network-table td{padding:9px 7px;border-bottom:1px solid #344136;text-align:right;vertical-align:top}.network-table th{color:#9eab9c;font-weight:600}.network-table td{color:#eaf3e5;overflow-wrap:anywhere}.network-table td:last-child{direction:ltr;text-align:left;font-family:"DM Mono",monospace}.network-note{margin:13px 0 0;color:#849283;font-size:9px;line-height:1.9}
 @media(max-width:560px){.network-tools{gap:6px}.network-tool{min-height:48px;padding:8px 4px;gap:5px;font-size:9px}.network-tool .tool-glyph{font-size:14px}.network-dialog{padding:17px;border-radius:17px}.network-result-grid{gap:7px}.network-result{padding:10px}}
 
+
+.network-tools-secondary{margin-top:-10px;margin-bottom:18px}
+.network-tools-secondary .network-tool{min-height:48px;background:#1b241e;border-color:#303d32}
+.network-game-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #344136}
+.network-game-row:last-child{border-bottom:0}
+.network-game-row b{display:block;color:#eaf3e5;font-size:11px}
+.network-game-row small{display:block;color:#9eab9c;font-size:9px;margin-top:4px}
+.network-game-ms{direction:ltr;font:600 13px "DM Mono",monospace;color:#c7f36b}
+.network-game-ms.down{color:#f07869}
+.network-action{border:1px solid #78964e;border-radius:10px;background:#c7f36b;color:#172016;padding:9px 13px;font-size:10px;font-weight:900}
+.network-input{width:100%;min-width:0;border:1px solid #405043;border-radius:10px;background:#111a14;color:#edf2e8;padding:11px;direction:ltr;font:12px "DM Mono",monospace}
+.network-input:focus{outline:2px solid #83b75d;outline-offset:2px}
+.network-history-empty{padding:24px 10px;text-align:center;color:#9eab9c;font-size:10px;line-height:2}
+@media(max-width:560px){.network-tools-secondary{margin-top:-11px}.network-tools-secondary .network-tool{min-height:45px}}
+
 </style>
 </head>
 <body>
@@ -293,6 +308,11 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
     <button class="network-tool" id="openQuality" type="button"><span class="tool-glyph">⌁</span><span>Jitter / Packet Loss</span></button>
     <button class="network-tool" id="openDns" type="button"><span class="tool-glyph">⌘</span><span>تست DNS</span></button>
     <button class="network-tool ip-tool" id="openIp" type="button" aria-label="اطلاعات اتصال" title="اطلاعات اتصال"><span id="ipFlag">🌐</span></button>
+   </div>
+   <div class="network-tools network-tools-secondary" aria-label="ابزارهای تکمیلی">
+    <button class="network-tool" id="openHistory" type="button"><span class="tool-glyph">◷</span><span>تاریخچه</span></button>
+    <button class="network-tool" id="openTrace" type="button"><span class="tool-glyph">⇢</span><span>Traceroute</span></button>
+    <button class="network-tool" id="openGaming" type="button"><span class="tool-glyph">⌁</span><span>گیم (بازی)</span></button>
    </div>
   <div class="sectionhead"><div><h2>با اینترنت شما این سایت‌ها باز می‌شوند</h2></div></div>
   <div class="radar-panels">
@@ -483,7 +503,39 @@ async function scan(){
  await Promise.all(Array.from({length:5},async()=>{while(i<targets.length){const t=targets[i++];results.push(await probe(t));paintResults(results);progress(78+Math.round(results.length/targets.length*22),'بررسی سرویس‌های خارجی')}}));
  results.sort((a,b)=>targets.findIndex(t=>t.id===a.id)-targets.findIndex(t=>t.id===b.id));paintResults(results)
 }
-$('run').addEventListener('click',async()=>{if(testing)return;testing=true;const b=$('run');b.disabled=true;b.setAttribute('aria-busy','true');['latency','download','upload'].forEach(id=>{ $(id).textContent='—';$(id).title=''; });try{progress(2,'Starting');progress(7,'Latency');try{const n=await latency('https://www.google.com');$('latency').textContent=n==null?'—':fa(n); }catch(e){}progress(30,'Download');try{$('download').textContent=(await download()).toFixed(1);$('download').title='Measured in Mbps'}catch(e){console.warn('Download measurement failed',e);$('download').textContent='ERR';$('download').title='سرور اندازه‌گیری دانلود پاسخ نداد'}progress(52,'Upload');try{$('upload').textContent=(await upload()).toFixed(1);$('upload').title='Measured in Mbps'}catch(e){console.warn('Upload measurement failed',e);$('upload').textContent='ERR';$('upload').title='سرور اندازه‌گیری آپلود پاسخ نداد'}progress(76,'Checking sites');await scan();progress(100,'Complete');notify('تست تمام شد')}catch(e){notify('تست ناموفق بود')}finally{testing=false;b.disabled=false;b.removeAttribute('aria-busy');$('startNum').textContent='↻';$('startLabel').textContent='TEST AGAIN';b.style.background='conic-gradient(var(--lime) 360deg,#202a23 360deg)'}});
+$('run').addEventListener('click',async()=>{if(testing)return;testing=true;const b=$('run');b.disabled=true;b.setAttribute('aria-busy','true');['latency','download','upload'].forEach(id=>{ $(id).textContent='—';$(id).title=''; });try{progress(2,'Starting');progress(7,'Latency');try{const n=await latency('https://www.google.com');$('latency').textContent=n==null?'—':fa(n); }catch(e){}progress(30,'Download');try{$('download').textContent=(await download()).toFixed(1);$('download').title='Measured in Mbps'}catch(e){console.warn('Download measurement failed',e);$('download').textContent='ERR';$('download').title='سرور اندازه‌گیری دانلود پاسخ نداد'}progress(52,'Upload');try{$('upload').textContent=(await upload()).toFixed(1);$('upload').title='Measured in Mbps'}catch(e){console.warn('Upload measurement failed',e);$('upload').textContent='ERR';$('upload').title='سرور اندازه‌گیری آپلود پاسخ نداد'}progress(76,'Checking sites');await scan();progress(100,'Complete');savePersonalTest();notify('تست تمام شد')}catch(e){notify('تست ناموفق بود')}finally{testing=false;b.disabled=false;b.removeAttribute('aria-busy');$('startNum').textContent='↻';$('startLabel').textContent='TEST AGAIN';b.style.background='conic-gradient(var(--lime) 360deg,#202a23 360deg)'}});
+
+
+/* Personal history, route trace and gaming diagnostics */
+const PERSONAL_HISTORY_KEY='ir-net-atlas-personal-tests-v1';
+function readPersonalHistory(){try{const v=JSON.parse(localStorage.getItem(PERSONAL_HISTORY_KEY)||'[]');return Array.isArray(v)?v:[]}catch(e){return[]}}
+function savePersonalTest(){const entry={at:new Date().toISOString(),ping:$('latency').textContent,download:$('download').textContent,upload:$('upload').textContent};if(!['—','ERR'].includes(entry.download)||!['—','ERR'].includes(entry.upload)){const h=readPersonalHistory();h.unshift(entry);try{localStorage.setItem(PERSONAL_HISTORY_KEY,JSON.stringify(h.slice(0,50)))}catch(e){console.warn('Personal history storage unavailable',e)}}}
+function showPersonalHistory(){
+ openNetworkModal('تاریخچه تست‌های شخصی','نتایج تست سرعت این مرورگر روی همین دستگاه ذخیره می‌شود؛ داده‌ها به سرور ارسال نمی‌شوند.');
+ const h=readPersonalHistory();
+ if(!h.length){networkContent.innerHTML='<div class="network-history-empty">هنوز تست ذخیره‌شده‌ای وجود ندارد.<br>ابتدا تست سرعت اصلی سایت را اجرا کنید.</div>';networkState('تاریخچه روی همین مرورگر نگهداری می‌شود');return}
+ networkContent.innerHTML='<div class="network-result"><table class="network-table"><thead><tr><th>زمان</th><th>Ping</th><th>Download</th><th>Upload</th></tr></thead><tbody>'+h.map(x=>'<tr><td>'+esc(new Intl.DateTimeFormat('fa-IR',{dateStyle:'short',timeStyle:'short'}).format(new Date(x.at)))+'</td><td>'+esc(x.ping)+' ms</td><td>'+esc(x.download)+' Mbps</td><td>'+esc(x.upload)+' Mbps</td></tr>').join('')+'</tbody></table></div><button class="network-action" id="clearPersonalHistory" type="button">پاک‌کردن تاریخچه</button><p class="network-note">حداکثر ۵۰ تست اخیر در حافظه محلی مرورگر ذخیره می‌شود. با پاک‌کردن داده‌های مرورگر ممکن است تاریخچه حذف شود.</p>';
+ $('clearPersonalHistory').addEventListener('click',()=>{localStorage.removeItem(PERSONAL_HISTORY_KEY);showPersonalHistory()});networkState(h.length+' تست ذخیره‌شده');
+}
+async function runTrace(){
+ openNetworkModal('Traceroute','مسیر شبکه از طریق سرویس عمومی Hackertarget درخواست می‌شود. نتیجه از دید سرور واسط است و الزاماً مسیر دستگاه شما نیست.');
+ networkContent.innerHTML='<label class="network-result"><small>دامنه مقصد</small><input class="network-input" id="traceHost" value="github.com" maxlength="253" autocomplete="off" spellcheck="false"></label><button class="network-action" id="traceStart" type="button">شروع Traceroute</button><div id="traceOutput" class="network-result" hidden></div>';
+ $('traceStart').addEventListener('click',async()=>{const host=$('traceHost').value.trim().toLowerCase();if(!/^(?=.{1,253}$)([a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(host)){networkState('دامنه معتبر وارد کنید',true);return}
+ const btn=$('traceStart'),out=$('traceOutput');btn.disabled=true;btn.textContent='در حال دریافت مسیر…';out.hidden=false;out.textContent='درخواست به سرویس Traceroute ارسال شد…';networkState('در حال اجرا');
+ try{const r=await req('https://api.hackertarget.com/mtr/?q='+encodeURIComponent(host),{},25000);const body=(await r.text()).slice(0,14000);if(!r.ok||/error|invalid|API count exceeded/i.test(body.slice(0,250)))throw Error(body.slice(0,220)||'سرویس پاسخ مناسبی نداد');out.innerHTML='<pre style="white-space:pre-wrap;direction:ltr;text-align:left;color:#dce8d9;font:10px/1.9 monospace;overflow-wrap:anywhere;margin:0">'+esc(body)+'</pre>';networkState('پاسخ مسیر دریافت شد')}
+ catch(e){out.textContent='سرویس Traceroute در دسترس نیست یا مرورگر دسترسی بین‌مبدأ را مسدود کرده است. کمی بعد دوباره تلاش کنید.';networkState('Traceroute ناموفق بود',true)}
+ finally{btn.disabled=false;btn.textContent='اجرای دوباره'}
+ });
+}
+const GAME_TARGETS=[{name:'Valorant',host:'valorant-api.com'},{name:'Counter-Strike 2',host:'steamcommunity.com'},{name:'Fortnite',host:'www.epicgames.com'},{name:'League of Legends',host:'www.leagueoflegends.com'},{name:'Minecraft',host:'www.minecraft.net'},{name:'PlayStation Network',host:'www.playstation.com'},{name:'Xbox Network',host:'www.xbox.com'},{name:'Nintendo',host:'www.nintendo.com'}];
+async function runGaming(){
+ openNetworkModal('تست گیمینگ','زمان پاسخ HTTPS سرویس‌های مرتبط با بازی سنجیده می‌شود. این نتیجه پینگ UDP سرور مسابقه نیست و برای انتخاب سرور نهایی کافی نیست.');
+ networkContent.innerHTML='<div id="gameResults">'+GAME_TARGETS.map(g=>'<div class="network-game-row"><div><b>'+esc(g.name)+'</b><small>'+esc(g.host)+'</small></div><span class="network-game-ms">در انتظار</span></div>').join('')+'</div><p class="network-note">برای سنجش واقعی پینگ داخل بازی، باید سرور منطقه‌ای همان بازی و پروتکل شبکه آن قابل دسترسی باشد. این آزمون صرفاً دسترسی و تأخیر HTTP تا دامنه سرویس‌ها را مقایسه می‌کند.</p>';
+ const nodes=[...networkContent.querySelectorAll('.network-game-ms')];let done=0;
+ await Promise.all(GAME_TARGETS.map(async(g,i)=>{const result=await measuredProbe('https://'+g.host+'/favicon.ico?atlas='+Date.now()+'-'+i,5000);nodes[i].textContent=result.ok?Math.round(result.ms)+' ms':'بدون پاسخ';if(!result.ok)nodes[i].classList.add('down');done++;networkState('بررسی '+done+' از '+GAME_TARGETS.length)}));
+ networkState('بررسی سرویس‌های بازی تکمیل شد');
+}
+$('openHistory').addEventListener('click',showPersonalHistory);$('openTrace').addEventListener('click',runTrace);$('openGaming').addEventListener('click',runGaming);
 
 /* Interactive network diagnostics */
 const networkModal=$('networkModal'),networkTitle=$('networkModalTitle'),networkLead=$('networkModalLead'),networkContent=$('networkModalContent'),networkStatus=$('networkModalStatus');let lastNetworkFocus=null,ipDetails=null;
