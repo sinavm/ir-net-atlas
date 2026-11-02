@@ -258,6 +258,19 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
 .tool-card>i{display:none!important}
 @media(max-width:760px){.footer-top{align-items:center!important}.footer-social{width:100%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:560px){.compact-top .brand{gap:6px}.compact-top .brand-logo{width:94px;height:32px}.compact-top .brandname{font-size:9px}.footer-bottom{align-items:center!important}.legal-links{justify-content:center!important}.legal-links a{padding:0 8px!important}.footer-note{text-align:center!important}}
+
+.network-tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 18px}
+.network-tool{min-width:0;min-height:52px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 12px;border:1px solid #354438;border-radius:13px;background:linear-gradient(145deg,#202a23,#18201b);color:#edf2e8;font-size:11px;font-weight:800;transition:.2s}
+.network-tool:hover{border-color:#83b75d;background:#263329;transform:translateY(-1px)}.network-tool:focus-visible,.network-modal-close:focus-visible{outline:2px solid var(--lime);outline-offset:3px}.network-tool .tool-glyph{font-size:17px;color:var(--lime)}.network-tool.ip-tool{font-size:23px;padding:6px}
+.network-modal[hidden]{display:none}.network-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:18px;background:rgba(5,10,7,.64);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.network-dialog{width:min(560px,100%);max-height:min(82vh,720px);overflow:auto;border:1px solid #465447;border-radius:20px;background:linear-gradient(145deg,#202a23,#151c17);color:#edf2e8;box-shadow:0 28px 90px #0009;padding:22px;animation:networkPop .18s ease-out}
+@keyframes networkPop{from{opacity:0;transform:translateY(9px) scale(.985)}to{opacity:1;transform:none}}
+.network-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px}.network-modal-head h3{font-size:16px;margin:0;font-weight:900}.network-modal-close{width:34px;height:34px;border:1px solid #3a493d;border-radius:10px;background:#29352c;color:#eaf2e7;font-size:20px}
+.network-modal-lead{margin:0 0 17px;color:#9eab9c;font-size:10px;line-height:1.9}.network-modal-content{display:grid;gap:9px}.network-result{border:1px solid #364439;border-radius:12px;background:#1a241d;padding:12px;min-width:0}.network-result small{display:block;color:#9eab9c;font-size:9px;margin-bottom:6px}.network-result b{display:block;color:#eaf3e5;font:600 16px "DM Mono",Vazirmatn,sans-serif;direction:ltr;overflow-wrap:anywhere}.network-result p{margin:6px 0 0;color:#9eab9c;font-size:9px;line-height:1.8}
+.network-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.network-status{display:flex;align-items:center;gap:8px;color:#c7f36b;font-size:10px;margin-top:12px;min-height:18px}.network-status:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}.network-status.error{color:#f07869}
+.network-table{width:100%;border-collapse:collapse;font-size:10px;direction:rtl}.network-table th,.network-table td{padding:9px 7px;border-bottom:1px solid #344136;text-align:right;vertical-align:top}.network-table th{color:#9eab9c;font-weight:600}.network-table td{color:#eaf3e5;overflow-wrap:anywhere}.network-table td:last-child{direction:ltr;text-align:left;font-family:"DM Mono",monospace}.network-note{margin:13px 0 0;color:#849283;font-size:9px;line-height:1.9}
+@media(max-width:560px){.network-tools{gap:6px}.network-tool{min-height:48px;padding:8px 4px;gap:5px;font-size:9px}.network-tool .tool-glyph{font-size:14px}.network-dialog{padding:17px;border-radius:17px}.network-result-grid{gap:7px}.network-result{padding:10px}}
+
 </style>
 </head>
 <body>
@@ -290,6 +303,11 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
   <div class="sectionhead"><div><h2>روند دسترسی در گذر زمان</h2><p>تغییرات availability در snapshotهای ذخیره‌شده</p></div><span class="sectionnum">06 / HISTORY</span></div>
   <article class="surface history-surface">
    <div class="surfacehead"><h3>درصد دسترسی سرویس‌ها</h3><span class="tag">LAST 72 SAMPLES</span></div>
+   <div class="network-tools" aria-label="ابزارهای پیشرفته شبکه">
+    <button class="network-tool" id="openQuality" type="button"><span class="tool-glyph">⌁</span><span>Jitter / Packet Loss</span></button>
+    <button class="network-tool" id="openDns" type="button"><span class="tool-glyph">⌘</span><span>تست DNS</span></button>
+    <button class="network-tool ip-tool" id="openIp" type="button" aria-label="اطلاعات اتصال" title="اطلاعات اتصال"><span id="ipFlag">🌐</span></button>
+   </div>
    <div class="history-chart"><canvas id="historyChart" aria-label="نمودار درصد دسترسی سرویس‌ها در گذر زمان"></canvas></div><div class="history-legend"><span><i class="legacy-dot"></i>تاریخچه قبلی</span><span><i class="domestic-dot"></i>رصدخانه ایرانی</span></div>
    <div class="history-dates"><span id="historyStart">—</span><span id="historyEnd">—</span></div>
    <div class="history-metrics"><div><small>آخرین availability</small><b id="historyLatest">—</b></div><div><small>کمترین مقدار در نمونه‌ها</small><b id="historyMin">—</b></div></div>
@@ -352,6 +370,7 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
 </main>
 </div>
 <div class="toast" id="toast"></div>
+<div class="network-modal" id="networkModal" hidden><section class="network-dialog" role="dialog" aria-modal="true" aria-labelledby="networkModalTitle"><div class="network-modal-head"><h3 id="networkModalTitle">ابزار شبکه</h3><button class="network-modal-close" id="closeNetworkModal" type="button" aria-label="بستن">×</button></div><p class="network-modal-lead" id="networkModalLead"></p><div class="network-modal-content" id="networkModalContent"></div><div class="network-status" id="networkModalStatus" aria-live="polite"></div></section></div>
 <script>
 fetch('https://page-views.count1.workers.dev',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('counter unavailable');return r.text()}).then(v=>{const n=Number(String(v).replace(/[^0-9.]/g,''));if(Number.isFinite(n)&&n>0){const el=document.getElementById('total-visit-count');if(el)el.textContent=new Intl.NumberFormat('fa-IR').format(n)}}).catch(()=>{});
 </script>
@@ -464,6 +483,44 @@ async function scan(){
  results.sort((a,b)=>targets.findIndex(t=>t.id===a.id)-targets.findIndex(t=>t.id===b.id));paintResults(results)
 }
 $('run').addEventListener('click',async()=>{if(testing)return;testing=true;const b=$('run');b.disabled=true;b.setAttribute('aria-busy','true');['latency','download','upload'].forEach(id=>{ $(id).textContent='—';$(id).title=''; });try{progress(2,'Starting');progress(7,'Latency');try{const n=await latency('https://www.google.com');$('latency').textContent=n==null?'—':fa(n); }catch(e){}progress(30,'Download');try{$('download').textContent=(await download()).toFixed(1);$('download').title='Measured in Mbps'}catch(e){console.warn('Download measurement failed',e);$('download').textContent='ERR';$('download').title='سرور اندازه‌گیری دانلود پاسخ نداد'}progress(52,'Upload');try{$('upload').textContent=(await upload()).toFixed(1);$('upload').title='Measured in Mbps'}catch(e){console.warn('Upload measurement failed',e);$('upload').textContent='ERR';$('upload').title='سرور اندازه‌گیری آپلود پاسخ نداد'}progress(76,'Checking sites');await scan();progress(100,'Complete');notify('تست تمام شد')}catch(e){notify('تست ناموفق بود')}finally{testing=false;b.disabled=false;b.removeAttribute('aria-busy');$('startNum').textContent='↻';$('startLabel').textContent='TEST AGAIN';b.style.background='conic-gradient(var(--lime) 360deg,#202a23 360deg)'}});
+
+/* Interactive network diagnostics */
+const networkModal=$('networkModal'),networkTitle=$('networkModalTitle'),networkLead=$('networkModalLead'),networkContent=$('networkModalContent'),networkStatus=$('networkModalStatus');let lastNetworkFocus=null,ipDetails=null;
+function openNetworkModal(title,lead){lastNetworkFocus=document.activeElement;networkTitle.textContent=title;networkLead.textContent=lead;networkContent.innerHTML='';networkStatus.textContent='';networkStatus.className='network-status';networkModal.hidden=false;document.body.style.overflow='hidden';$('closeNetworkModal').focus()}
+function closeNetworkModal(){networkModal.hidden=true;document.body.style.overflow='';if(lastNetworkFocus?.focus)lastNetworkFocus.focus()}
+$('closeNetworkModal').addEventListener('click',closeNetworkModal);networkModal.addEventListener('click',e=>{if(e.target===networkModal)closeNetworkModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!networkModal.hidden)closeNetworkModal()});
+function networkState(message,error=false){networkStatus.textContent=message;networkStatus.className='network-status'+(error?' error':'')}
+function flagFor(code){if(!/^[A-Z]{2}$/.test(String(code||'')))return'🌐';return [...code.toUpperCase()].map(ch=>String.fromCodePoint(127397+ch.charCodeAt(0))).join('')}
+function resultCard(label,value,detail=''){return '<div class="network-result"><small>'+esc(label)+'</small><b>'+esc(value??'—')+'</b>'+(detail?'<p>'+esc(detail)+'</p>':'')+'</div>'}
+async function measuredProbe(url,timeout=2200){const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),timeout),start=performance.now();try{await fetch(url,{method:'GET',mode:'no-cors',cache:'no-store',credentials:'omit',signal:ctl.signal});return{ok:true,ms:performance.now()-start}}catch(e){return{ok:false,ms:null}}finally{clearTimeout(timer)}}
+async function runQuality(){
+ openNetworkModal('کیفیت اتصال','۱۲ درخواست سبک به مقصد آزمایشی ارسال می‌شود. این سنجش در سطح HTTP مرورگر است، نه پینگ ICMP.');
+ networkContent.innerHTML='<div class="network-result"><small>وضعیت آزمون</small><b>در حال اندازه‌گیری…</b><p>لطفاً پنجره را باز نگه دارید.</p></div>';
+ const samples=[];for(let i=0;i<12;i++){samples.push(await measuredProbe('https://www.gstatic.com/generate_204?atlas='+Date.now()+'-'+i));networkState('نمونه '+(i+1)+' از ۱۲');}
+ const ok=samples.filter(x=>x.ok),times=ok.map(x=>x.ms),loss=(samples.length-ok.length)/samples.length*100,sorted=times.slice().sort((a,b)=>a-b),median=sorted.length?sorted[Math.floor(sorted.length/2)]:null,diffs=[];
+ for(let i=1;i<times.length;i++)diffs.push(Math.abs(times[i]-times[i-1]));
+ const jitter=diffs.length?diffs.reduce((a,b)=>a+b,0)/diffs.length:null;
+ networkContent.innerHTML='<div class="network-result-grid">'+resultCard('میانگین تأخیر HTTP',times.length?(times.reduce((a,b)=>a+b,0)/times.length).toFixed(1)+' ms':'نامشخص')+resultCard('میانه تأخیر',median!==null?median.toFixed(1)+' ms':'—')+resultCard('Jitter تقریبی',jitter!==null?jitter.toFixed(1)+' ms':'—','میانگین اختلاف زمانی نمونه‌های متوالی')+resultCard('Packet loss تخمینی',loss.toFixed(1)+'%',(samples.length-ok.length)+' درخواست ناموفق از ۱۲ نمونه')+'</div><p class="network-note">Packet Loss بر اساس ناموفق‌بودن درخواست‌های HTTP تخمین زده شده و معادل اندازه‌گیری ICMP در لایه شبکه نیست. VPN، فیلتر مرورگر و شلوغی مقصد می‌توانند روی نتیجه اثر بگذارند.</p>';
+ networkState('اندازه‌گیری تکمیل شد');
+}
+async function runDns(){
+ openNetworkModal('بررسی DNS','پاسخ دامنه‌ها از دو سرویس DNS-over-HTTPS مقایسه می‌شود؛ زمان‌ها مربوط به مسیر مرورگر تا Resolver هستند.');
+ networkContent.innerHTML='<div class="network-result"><small>وضعیت آزمون</small><b>در حال پرس‌وجو از Resolverها…</b></div>';
+ const domains=['google.com','cloudflare.com','github.com'],providers=[{name:'Cloudflare DNS',url:d=>'https://cloudflare-dns.com/dns-query?name='+encodeURIComponent(d)+'&type=A'},{name:'Google DNS',url:d=>'https://dns.google/resolve?name='+encodeURIComponent(d)+'&type=A'}],rows=[];
+ for(const d of domains){const pair=await Promise.all(providers.map(async p=>{const start=performance.now();try{const r=await req(p.url(d),{headers:{accept:'application/dns-json'},cache:'no-store',credentials:'omit'},7000);if(!r.ok)throw Error();const data=await r.json(),answers=(data.Answer||[]).filter(a=>a.type===1).map(a=>a.data);return{provider:p.name,domain:d,ms:performance.now()-start,answers,status:data.Status===0?'پاسخ موفق':'DNS status '+data.Status}}catch(e){return{provider:p.name,domain:d,ms:null,answers:[],status:'ناموفق'}}}));rows.push(...pair);networkState('بررسی '+d+'…')}
+ networkContent.innerHTML='<div class="network-result"><table class="network-table"><thead><tr><th>دامنه / Resolver</th><th>پاسخ</th><th>زمان</th></tr></thead><tbody>'+rows.map(x=>'<tr><td>'+esc(x.domain)+'<br><small>'+esc(x.provider)+'</small></td><td>'+esc(x.answers.join(', ')||x.status)+'</td><td>'+(x.ms===null?'—':x.ms.toFixed(0)+' ms')+'</td></tr>').join('')+'</tbody></table></div><p class="network-note">این آزمون از DNS-over-HTTPS استفاده می‌کند و تنظیم DNS سیستم‌عامل یا وجود DNS leak را به‌تنهایی اثبات نمی‌کند.</p>';
+ networkState(rows.some(x=>x.ms!==null)?'پرس‌وجوها تکمیل شد':'دریافت پاسخ DNS ناموفق بود',!rows.some(x=>x.ms!==null));
+}
+async function loadIpDetails(){ $('ipFlag').textContent='🌐';try{const r=await req('https://ipwho.is/',{cache:'no-store',credentials:'omit'},8000);if(!r.ok)throw Error();const d=await r.json();if(!d.success)throw Error(d.message||'lookup failed');ipDetails=d;$('ipFlag').textContent=flagFor(d.country_code);$('openIp').title='اطلاعات اتصال · '+(d.country||'')}catch(e){ipDetails=null;$('ipFlag').textContent='🌐'}}
+function showIpDetails(){
+ openNetworkModal('اطلاعات اتصال','اطلاعات IP عمومی که سرویس بیرونی تشخیص داده است. این داده‌ها فقط هنگام بازکردن این بخش دریافت می‌شوند.');
+ if(!ipDetails){networkContent.innerHTML='<div class="network-result"><small>وضعیت</small><b>اطلاعات در دسترس نیست</b><p>اتصال سرویس تشخیص IP ناموفق بود؛ دوباره تلاش کنید.</p></div><button class="network-run" id="retryIp" type="button">تلاش دوباره</button>';$('retryIp').addEventListener('click',async()=>{networkState('در حال دریافت اطلاعات…');await loadIpDetails();showIpDetails()});networkState('سرویس اطلاعات IP پاسخ نداد',true);return}
+ const d=ipDetails,c=d.connection||{},tz=d.timezone||{};
+ networkContent.innerHTML='<div class="network-result-grid">'+resultCard('IP عمومی',d.ip)+resultCard('کشور',d.country,d.country_code||'')+resultCard('شهر / منطقه',[d.city,d.region].filter(Boolean).join('، ')||'—')+resultCard('ارائه‌دهنده اینترنت',c.isp||c.org||'—')+resultCard('سازمان / شبکه',c.org||'—')+resultCard('ASN',c.asn||'—')+resultCard('منطقه زمانی',tz.id||'—')+'</div><p class="network-note">موقعیت جغرافیایی تقریبی و مبتنی بر پایگاه داده IP است؛ لزوماً مکان واقعی شما نیست. برای حفظ حریم خصوصی، مختصات جغرافیایی نمایش داده نمی‌شود.</p>';
+ networkState('اطلاعات اتصال دریافت شد');
+}
+$('openQuality').addEventListener('click',runQuality);$('openDns').addEventListener('click',runDns);$('openIp').addEventListener('click',showIpDetails);loadIpDetails();
+
 $('refresh').addEventListener('click',async()=>{await load();if(statusData)notify('به‌روز شد');else notify('خطا')});function updateClock(){const d=new Date();$('clock').textContent=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(d)}updateClock();setInterval(updateClock,1000);load();setInterval(load,60000);window.addEventListener('resize',()=>{clearTimeout(window.historyResizeTimer);window.historyResizeTimer=setTimeout(loadHistory,180)});
 </script>
 </body></html>
