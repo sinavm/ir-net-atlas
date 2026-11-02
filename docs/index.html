@@ -188,7 +188,7 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
 .obs-item{display:flex;align-items:center;gap:9px;min-width:0;background:#202a23;border:1px solid #303c32;border-radius:11px;padding:11px;color:#edf2e8;text-decoration:none}
 .obs-item:hover{border-color:#738d58}
 .obs-item .obs-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);flex:none}
-.obs-item.up .obs-dot{background:#80bc75}.obs-item.down .obs-dot{background:var(--red)}
+.obs-item.up .obs-dot{background:#80bc75}.obs-item.down .obs-dot{background:var(--red)}.obs-item.unknown .obs-dot{background:#7c897d}.obs-item.unknown{opacity:.72}
 .obs-name{min-width:0;flex:1}.obs-name b{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.obs-name small{display:block;color:#9aa596;font-size:8px;margin-top:4px}
 .obs-ms{font:11px 'DM Mono',monospace;direction:ltr;white-space:nowrap;color:#dce7d6}
 .obs-empty,.obs-note{font-size:9px;color:#9aa596;line-height:1.9}.obs-note{margin:13px 0 0}
@@ -306,17 +306,17 @@ async function loadHistory(){
 async function load(){try{const r=await fetch('./status.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();statusData=await r.json();renderObservatory(statusData);await loadHistory()}catch(e){statusData=null;const box=$('observatoryList');if(box)box.innerHTML='<p class="obs-empty">دریافت وضعیت عمومی ناموفق بود؛ کمی بعد دوباره تلاش می‌شود.</p>'}}
 function renderObservatory(data){
  const ts=(data?.targets||[]).slice().sort((a,b)=>{
-  const rank=t=>t.ok===true?0:1,ra=rank(a),rb=rank(b);if(ra!==rb)return ra-rb;
+  const rank=t=>t.ok===true?0:t.ok===false?1:2,ra=rank(a),rb=rank(b);if(ra!==rb)return ra-rb;
   if(a.ok===true&&b.ok===true)return (Number(a.ms)||0)-(Number(b.ms)||0);
   return String(a.name||'').localeCompare(String(b.name||''),'fa');
  });
  if(!ts.length)return;
- const good=ts.filter(t=>t.ok===true),bad=ts.filter(t=>t.ok!==true);
+ const good=ts.filter(t=>t.ok===true),bad=ts.filter(t=>t.ok===false);
  const valid=good.filter(t=>Number.isFinite(Number(t.ms))&&Number(t.ms)>=0);
  $('obsUp').textContent=fa(good.length);$('obsDown').textContent=fa(bad.length);
  $('obsLatency').textContent=valid.length?fa(Math.round(valid.reduce((s,t)=>s+Number(t.ms),0)/valid.length))+' ms':'—';
  $('obsUpdated').textContent=data.generated_at?new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'short',hour12:false}).format(new Date(data.generated_at)):'LIVE';
- $('observatoryList').innerHTML=ts.map(t=>{const state=t.ok===true?'up':'down';const label=t.ok===true?(Number(t.status)>=400?'ONLINE · HTTP '+t.status:'ONLINE'):(t.status?'HTTP '+t.status:'NO RESPONSE');const ms=t.ms!=null&&Number.isFinite(Number(t.ms))?fa(Math.round(Number(t.ms)))+' ms':'—';return '<a class="obs-item '+state+'" href="'+esc(t.url||'#')+'" target="_blank" rel="noopener noreferrer"><i class="obs-dot"></i><span class="obs-name"><b>'+esc(t.name)+'</b><small>'+esc(label)+' · '+esc(t.group||t.layer||'سرویس ایرانی')+'</small></span><span class="obs-ms">'+ms+'</span></a>'}).join('');
+ $('observatoryList').innerHTML=ts.map(t=>{const state=t.ok===true?'up':t.ok===false?'down':'unknown';const label=t.ok===true?(Number(t.status)>=400?'ONLINE · HTTP '+t.status:'ONLINE'):t.ok===false?(t.status?'HTTP '+t.status:'NO RESPONSE'):'PENDING · FIRST PROBE';const ms=t.ms!=null&&Number.isFinite(Number(t.ms))?fa(Math.round(Number(t.ms)))+' ms':'—';return '<a class="obs-item '+state+'" href="'+esc(t.url||'#')+'" target="_blank" rel="noopener noreferrer"><i class="obs-dot"></i><span class="obs-name"><b>'+esc(t.name)+'</b><small>'+esc(label)+' · '+esc(t.group||t.layer||'سرویس ایرانی')+'</small></span><span class="obs-ms">'+ms+'</span></a>'}).join('');
 }
 async function probe(t){const st=performance.now(),c=new AbortController(),timer=setTimeout(()=>c.abort(),6500);try{await fetch(t.url,{method:'GET',mode:'no-cors',cache:'no-store',credentials:'omit',redirect:'follow',signal:c.signal});return{id:t.id,name:t.name,state:'up',ms:Math.round(performance.now()-st)}}catch(e){return{id:t.id,name:t.name,state:'down',ms:null}}finally{clearTimeout(timer)}}
 function paintResults(rows){const urls={openai:'https://chatgpt.com/',snapp:'https://snapp.ir/',gemini:'https://gemini.google.com/',claude:'https://claude.ai/',copilot:'https://copilot.microsoft.com/',deepseek:'https://chat.deepseek.com/',perplexity:'https://www.perplexity.ai/',grok:'https://grok.com/',metaai:'https://www.meta.ai/'};$('myRadarList').innerHTML=rows.map(x=>'<a class="radar-item" href="'+esc(urls[x.id]||x.url||'#')+'" target="_blank" rel="noopener noreferrer"><i class="radar-dot '+x.state+'"></i><div><b>'+esc(x.name)+'</b><small>'+(x.state==='up'?'پاسخ‌گو / قابل دسترسی':'پاسخ دریافت نشد · برای بازکردن بزنید')+'</small></div><span class="radar-open">↗</span></a>').join('')}
