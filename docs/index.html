@@ -90,7 +90,7 @@
 .dark .radar-summary .kpi small{color:#a4afa1}
 .dark .radar-summary .kpi strong{color:#f3f4ec}
 @media(max-width:900px){.radar-panels{grid-template-columns:1fr}}
-@media(max-width:560px){.radar-items{grid-template-columns:1fr}.radar-summary{gap:5px}.radar-summary .kpi{padding:9px}.radar-summary .kpi strong{font-size:17px}}
+@media(max-width:560px){.radar-items{grid-template-columns:repeat(3,minmax(0,1fr))}.radar-summary{gap:5px}.radar-summary .kpi{padding:9px}.radar-summary .kpi strong{font-size:17px}}
 /* BOTTOM INTRO + NETWORK MAP POLISH */
 .bottom-intro{padding:28px;border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse at 12% 15%,rgba(199,243,107,.09),transparent 44%),linear-gradient(135deg,#1a211c,#111713);overflow:hidden}
 .bottom-intro .hero-copy{max-width:760px;margin:auto;padding:14px 0 18px}
@@ -175,10 +175,10 @@ body{background:var(--paper);color:var(--ink)}
 .site-footer b{color:#edf2e8;letter-spacing:.6px}
 .site-footer p{margin:5px 0 0}
 .site-footer>a{color:var(--lime);white-space:nowrap}
-@media(max-width:560px){.home-link{font-size:9px;padding:8px}.top-actions{gap:5px}.time-box{padding:8px 6px;font-size:10px}.history-surface{padding:14px}.history-chart{height:180px}.history-metrics b{font-size:18px}.source-card{padding:15px}.guide-card{padding:16px}.site-footer{flex-direction:column}}
+@media(max-width:560px){.home-link{font-size:9px;padding:8px;white-space:nowrap}.top-actions{gap:5px}.time-box{padding:8px 6px;font-size:10px}.history-surface{padding:14px}.history-chart{height:180px}.history-metrics b{font-size:18px}.source-card{padding:15px}.guide-card{padding:16px}.site-footer{flex-direction:column}}
 
 /* MINIMAL SPEEDTEST UI */
-body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-height:100vh}.compact-main{padding:0 28px 36px}.compact-top{height:76px;border-color:#2a352c}.compact-top .brand{display:flex;align-items:center;gap:11px}.compact-top .brandmark{width:40px;height:40px;background:var(--lime);border-radius:50%;display:grid;place-items:center}.compact-top .brandname{color:#edf2e8}.compact-top .brandname small{color:#a6b0a2}.compact-top .refresh{background:#202a23;border-color:#39463b;color:#dfe8d8}
+body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-height:100vh}.compact-main{padding:0 28px 36px}.compact-top{height:76px;border-color:#2a352c;position:relative}.compact-top .brand{display:flex;align-items:center;gap:11px}.compact-top .brandmark{width:40px;height:40px;background:var(--lime);border-radius:50%;display:grid;place-items:center}.compact-top .brandname{color:#edf2e8}.compact-top .brandname small{color:#a6b0a2}.compact-top .refresh{background:#202a23;border-color:#39463b;color:#dfe8d8}
 .observatory-surface{background:#1a211c;border-color:#303c32;color:#edf2e8}
 .obs-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
 .obs-summary>div{background:#202a23;border:1px solid #303c32;border-radius:12px;padding:12px}
@@ -193,11 +193,11 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
 .obs-ms{font:11px 'DM Mono',monospace;direction:ltr;white-space:nowrap;color:#dce7d6}
 .obs-empty,.obs-note{font-size:9px;color:#9aa596;line-height:1.9}.obs-note{margin:13px 0 0}
 @media(max-width:760px){.obs-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:480px){.obs-list{grid-template-columns:1fr}.obs-summary{gap:5px}.obs-summary>div{padding:9px}.obs-summary b{font-size:18px}}.top-actions{display:flex;align-items:center;gap:10px}.home-link{font-size:10px;color:#f1f5ed;border:1px solid rgba(220,240,218,.22);border-radius:12px;padding:9px 14px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.035));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 20px rgba(0,0,0,.12);transition:background .2s,border-color .2s,transform .2s}.home-link:hover{background:linear-gradient(135deg,rgba(199,243,107,.18),rgba(255,255,255,.06));border-color:rgba(199,243,107,.45);transform:translateY(-1px)}.time-box{font:11px 'DM Mono',monospace;direction:ltr;color:#a6b0a2;border:1px solid #303c32;border-radius:10px;padding:9px 11px}.radar-item{color:inherit;text-decoration:none}
+@media(max-width:480px){.obs-list{grid-template-columns:1fr}.obs-summary{gap:5px}.obs-summary>div{padding:9px}.obs-summary b{font-size:18px}}.top-actions{display:flex;align-items:center;gap:10px}.home-link{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:10px;color:#f1f5ed;border:1px solid rgba(220,240,218,.22);border-radius:12px;padding:9px 14px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.035));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 20px rgba(0,0,0,.12);transition:background .2s,border-color .2s,transform .2s}.home-link:hover{background:linear-gradient(135deg,rgba(199,243,107,.18),rgba(255,255,255,.06));border-color:rgba(199,243,107,.45);transform:translate(-50%,-50%)}.time-box{font:11px 'DM Mono',monospace;direction:ltr;color:#a6b0a2;border:1px solid #303c32;border-radius:10px;padding:9px 11px}.radar-item{color:inherit;text-decoration:none}
 .sectionhead h2{color:#f0f3ea;font-size:clamp(20px,3vw,28px)}.sectionhead p,.sectionnum,.caption,.disclaimer{display:none!important}#speedtest{padding-top:34px}#speedtest .split{grid-template-columns:1fr;gap:16px;align-items:stretch}#speedtest .surface{background:#1a211c;border-color:#303c32;color:#edf2e8;padding:22px}#speedtest .surface.dark{background:#1a211c}#speedtest .surfacehead{display:none}#speedtest .surfacehead h3{font-size:13px}#speedtest .speedvalues{gap:14px;margin-top:24px}#speedtest .speedvalue{border-color:#303c32}#speedtest .speedvalue small,#speedtest .speedvalue em{color:#8f9b8c}#speedtest .speedvalue b{color:#f3f6ed;font-size:24px}
 .start-wrap{display:grid;place-items:center;padding:8px 0 18px}.start-ring{width:190px;height:190px;max-width:70vw;border-radius:50%;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:8px solid #354235;background:conic-gradient(var(--lime) 0deg,#202a23 0deg);color:#eaf4df;box-shadow:0 0 0 1px #53634b,0 0 55px #c7f36b12;transition:background .18s,transform .2s}.start-ring{position:relative;isolation:isolate}.start-ring:before{content:"";position:absolute;inset:8px;border-radius:50%;background:#1a211c;z-index:-1}.start-ring span{font:700 32px "DM Mono",Vazirmatn,sans-serif;direction:ltr}.start-ring small{font-size:12px;font-weight:700}.start-ring:hover{transform:scale(1.025);box-shadow:0 0 0 1px #78945a,0 0 60px #c7f36b22}.start-ring:disabled{opacity:1;cursor:progress}#testState,#phaseTitle,#phaseDesc{display:none!important}.test-layout{grid-template-columns:1fr!important}.test-surface{max-width:760px;width:100%;margin:0 auto}.test-details{max-width:520px;margin:18px auto 0;color:#9aa596;font-size:10px}.test-details>span:first-child{display:inline-flex;align-items:center;gap:7px}.test-details #pct{float:left;direction:ltr;font-family:'DM Mono',monospace}.test-dot{width:7px;height:7px;border-radius:50%;background:var(--lime);display:inline-block}.progressline{height:4px;background:#303c32;margin-top:10px}.test-details #phase{font-family:'DM Mono',monospace;direction:ltr}.progresscaption{color:#8f9b8c;font-size:10px}
 #my-radar{padding-top:32px}#my-radar .sectionhead{margin-bottom:15px}#my-radar .surface{background:#1a211c;border-color:#303c32;color:#edf2e8}#my-radar .radar-items{max-height:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}#my-radar .radar-item{background:#202a23;border-color:#344136;padding:12px}#my-radar .radar-item b{font-size:11px;color:#f0f3ea}#my-radar .radar-item small{font-size:9px;color:#a3afa0}.radar-open{margin-right:auto;color:var(--lime);font-size:12px;flex:none}#my-radar .radar-foot,#my-radar .radar-progress,#my-radar .surfacehead,#my-radar .radar-summary,#my-radar #myScanState{display:none!important}.foot,.seo-section,.bottom-intro,.network-map-section{display:none!important}
-@media(max-width:760px){.compact-main{padding:0 14px 28px}#speedtest .split{grid-template-columns:1fr}.start-ring{width:170px;height:170px}#my-radar .radar-items{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(prefers-reduced-motion:reduce){.start-ring{transition:none}}
+@media(max-width:760px){.compact-main{padding:0 14px 28px}#speedtest .split{grid-template-columns:1fr}.start-ring{width:170px;height:170px}#my-radar .radar-items{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}#my-radar .radar-item{padding:8px 6px;gap:6px}#my-radar .radar-item b{font-size:10px}#my-radar .radar-item small{font-size:8px;white-space:nowrap}}@media(prefers-reduced-motion:reduce){.start-ring{transition:none}}
 
 </style>
 </head>
@@ -272,7 +272,22 @@ function gauge(v,unit='Mbps'){}
 async function req(url,opt={},ms=16000){const c=new AbortController(),t=setTimeout(()=>c.abort(),ms);try{return await fetch(url,{...opt,signal:c.signal})}finally{clearTimeout(t)}}
 async function latency(url){const samples=[];for(let i=0;i<4;i++){const st=performance.now();try{await req(url.replace(/\/$/,'')+'/favicon.ico?atlas='+Date.now()+i,{mode:'no-cors',cache:'no-store',credentials:'omit'},6000);samples.push(performance.now()-st)}catch(e){}}if(!samples.length)return null;samples.sort((a,b)=>a-b);return Math.round(samples[Math.floor(samples.length/2)])}
 async function download(){let best=0;for(const n of [1000000,5000000,10000000]){const st=performance.now(),r=await req('https://speed.cloudflare.com/__down?bytes='+n+'&atlas='+Date.now(),{mode:'cors',cache:'no-store',credentials:'omit'},18000);if(!r.ok)throw Error();const b=await r.arrayBuffer(),sec=(performance.now()-st)/1000;best=Math.max(best,b.byteLength*8/1e6/sec);if(sec>7)break}return best}
-async function upload(){let best=0;for(const n of [1000000,3000000,5000000]){const body=new Uint8Array(n),st=performance.now(),r=await req('https://speed.cloudflare.com/__up?atlas='+Date.now(),{method:'POST',body,mode:'cors',cache:'no-store',credentials:'omit'},18000);if(!r.ok)throw Error();await r.arrayBuffer();const sec=(performance.now()-st)/1000;best=Math.max(best,n*8/1e6/sec);if(sec>7)break}return best}
+async function upload(){
+ let best=0,successes=0;
+ for(const n of [1000000,3000000,5000000]){
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),22000),body=new Uint8Array(n),started=performance.now();
+  try{
+   const r=await fetch('https://speed.cloudflare.com/__up?atlas='+Date.now(),{method:'POST',body,mode:'cors',cache:'no-store',credentials:'omit',signal:controller.signal});
+   if(!r.ok)throw Error('upload_http_'+r.status);
+   await r.arrayBuffer();
+   const seconds=(performance.now()-started)/1000;if(seconds>0){best=Math.max(best,n*8/1e6/seconds);successes++}
+   if(seconds>7)break;
+  }catch(e){if(!successes&&n===5000000)throw e}
+  finally{clearTimeout(timer)}
+ }
+ if(!successes||!best)throw Error('upload_measurement_failed');
+ return best
+}
 
 const dateFa=iso=>{try{return new Intl.DateTimeFormat('fa-IR-u-ca-persian',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Tehran',numberingSystem:'latn'}).format(new Date(iso))}catch(e){return iso}};
 async function loadHistory(){
@@ -319,7 +334,11 @@ function renderObservatory(data){
  $('observatoryList').innerHTML=ts.map(t=>{const state=t.ok===true?'up':t.ok===false?'down':'unknown';const label=t.ok===true?(Number(t.status)>=400?'ONLINE · HTTP '+t.status:'ONLINE'):t.ok===false?(t.status?'HTTP '+t.status:'NO RESPONSE'):'PENDING · FIRST PROBE';const ms=t.ms!=null&&Number.isFinite(Number(t.ms))?fa(Math.round(Number(t.ms)))+' ms':'—';return '<a class="obs-item '+state+'" href="'+esc(t.url||'#')+'" target="_blank" rel="noopener noreferrer"><i class="obs-dot"></i><span class="obs-name"><b>'+esc(t.name)+'</b><small>'+esc(label)+' · '+esc(t.group||t.layer||'سرویس ایرانی')+'</small></span><span class="obs-ms">'+ms+'</span></a>'}).join('');
 }
 async function probe(t){const st=performance.now(),c=new AbortController(),timer=setTimeout(()=>c.abort(),6500);try{await fetch(t.url,{method:'GET',mode:'no-cors',cache:'no-store',credentials:'omit',redirect:'follow',signal:c.signal});return{id:t.id,name:t.name,url:t.url,state:'up',ms:Math.round(performance.now()-st)}}catch(e){return{id:t.id,name:t.name,url:t.url,state:'down',ms:null}}finally{clearTimeout(timer)}}
-function paintResults(rows){const urls={openai:'https://chatgpt.com/',snapp:'https://snapp.ir/',gemini:'https://gemini.google.com/',claude:'https://claude.ai/',copilot:'https://copilot.microsoft.com/',deepseek:'https://chat.deepseek.com/',perplexity:'https://www.perplexity.ai/',grok:'https://grok.com/',metaai:'https://www.meta.ai/'};$('myRadarList').innerHTML=rows.map(x=>'<a class="radar-item" href="'+esc(urls[x.id]||x.url||'#')+'" target="_blank" rel="noopener noreferrer"><i class="radar-dot '+x.state+'"></i><div><b>'+esc(x.name)+'</b><small>'+(x.state==='up'?'پاسخ‌گو / قابل دسترسی':'پاسخ دریافت نشد · برای بازکردن بزنید')+'</small></div><span class="radar-open">↗</span></a>').join('')}
+function paintResults(rows){
+ const sorted=rows.slice().sort((a,b)=>{const ra=a.state==='up'?0:1,rb=b.state==='up'?0:1;if(ra!==rb)return ra-rb;if(ra===0&&Number.isFinite(a.ms)&&Number.isFinite(b.ms))return a.ms-b.ms;return String(a.name||'').localeCompare(String(b.name||''),'fa')});
+ const urls={openai:'https://chatgpt.com/',snapp:'https://snapp.ir/',gemini:'https://gemini.google.com/',claude:'https://claude.ai/',copilot:'https://copilot.microsoft.com/',deepseek:'https://chat.deepseek.com/',perplexity:'https://www.perplexity.ai/',grok:'https://grok.com/',metaai:'https://www.meta.ai/'};
+ $('myRadarList').innerHTML=sorted.map(x=>'<a class="radar-item" href="'+esc(urls[x.id]||x.url||'#')+'" target="_blank" rel="noopener noreferrer"><i class="radar-dot '+x.state+'"></i><div class="radar-copy"><b>'+esc(x.name)+'</b><small>'+(x.state==='up'?'پاسخ‌گو · '+(x.ms!=null?fa(x.ms)+' ms':'زمان نامشخص'):'بی‌پاسخ')+'</small></div></a>').join('')
+}
 async function scan(){
  let targets=[];
  try{const r=await fetch('./targets.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();const d=await r.json();targets=Array.isArray(d.targets)?d.targets:[]}catch(e){notify('فهرست سایت‌های خارجی دریافت نشد');throw e}
