@@ -91,6 +91,20 @@
 .dark .radar-summary .kpi strong{color:#f3f4ec}
 @media(max-width:900px){.radar-panels{grid-template-columns:1fr}}
 @media(max-width:560px){.radar-items{grid-template-columns:1fr}.radar-summary{gap:5px}.radar-summary .kpi{padding:9px}.radar-summary .kpi strong{font-size:17px}}
+/* BOTTOM INTRO + NETWORK MAP POLISH */
+.bottom-intro{padding:28px;border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse at 12% 15%,rgba(199,243,107,.09),transparent 44%),linear-gradient(135deg,#1a211c,#111713);overflow:hidden}
+.bottom-intro .hero-copy{max-width:760px;margin:auto;padding:14px 0 18px}
+.bottom-intro .hero h1{font-size:clamp(34px,4.5vw,58px)}
+.bottom-intro .hero p{max-width:620px}
+.network-map-section .mapcard{min-height:390px;border:1px solid #3b493d;background:radial-gradient(ellipse at 50% 52%,#2a382d 0%,#202a24 52%,#151c17 100%);box-shadow:0 22px 70px rgba(0,0,0,.28)}
+.network-map-section .mapcard:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 15%,rgba(199,243,107,.045) 48%,transparent 75%);mix-blend-mode:screen}
+.network-map-section .mapart{inset:48px 4% 12px;width:92%;height:calc(100% - 60px)}
+.network-map-section .maphead,.network-map-section .mapfoot{z-index:2}
+.network-map-section .maptag{box-shadow:0 0 20px rgba(199,243,107,.08)}
+.testbutton#run{min-height:54px;box-shadow:0 10px 28px rgba(199,243,107,.12);transition:transform .2s,box-shadow .2s,filter .2s}
+.testbutton#run:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(199,243,107,.18)}
+.testbutton#run:focus-visible{outline:3px solid #c7f36b;outline-offset:4px}
+@media(max-width:700px){.bottom-intro{padding:18px}.network-map-section .mapcard{min-height:310px}}
 /* DEEP DARK THEME */
 
 :root{color-scheme:dark;--paper:#101512;--white:#1a211c;--ink:#edf2e8;--muted:#9aa596;--line:#303b32;--lime:#c7f36b;--green:#8fcf91;--red:#f07869;--amber:#e2b45f;--blue:#80a9d2;--shadow:0 18px 55px rgba(0,0,0,.22)}
@@ -148,23 +162,10 @@ body{background:var(--paper);color:var(--ink)}
 </aside>
 <main class="main">
  <header class="top"><div class="crumb">رصدخانه <span style="padding:0 7px;color:#c4c7bc">/</span> <b>نمای کلی شبکه</b></div><div class="topright"><span class="updated" id="updated">در حال دریافت داده…</span><button class="refresh" id="refresh" aria-label="تازه‌سازی">↻</button></div></header>
- <section class="hero">
-  <div class="hero-copy"><div class="eyebrow"><i></i> رصد زنده زیرساخت اینترنت ایران</div><h1>نبض شبکه را<br><span>واضح‌تر ببین.</span></h1><p>یک تصویر دقیق‌تر از دسترسی، کیفیت مسیر و سلامت سرویس‌ها. داده‌های پایش جهانی و گزارش‌های داخل ایران، جدا از هم و با منبع مشخص.</p><div class="hero-actions"><button class="primary" id="run" type="button">شروع تست کامل اینترنت ←</button><a class="textlink" href="https://sinavm.github.io/sinavm/" aria-label="رفتن به صفحه اصلی SiNAVM">صفحه اصلی ←</a><a class="textlink" href="#services">بررسی سرویس‌ها</a></div></div>
-  <div class="mapcard"><div class="maphead"><div><b>نمای شماتیک اتصال شبکه</b><small>GLOBAL ROUTES · CONCEPTUAL VIEW</small></div><span class="maptag">ATLAS / LIVE</span></div>
-   <svg class="mapart" viewBox="0 0 640 330" preserveAspectRatio="xMidYMid meet" aria-label="نمای شماتیک ارتباط شبکه">
-    <defs><linearGradient id="route" x1="0" x2="1"><stop stop-color="#c7f36b" stop-opacity=".12"/><stop offset=".5" stop-color="#c7f36b"/><stop offset="1" stop-color="#c7f36b" stop-opacity=".12"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-    <g fill="none" stroke="#a6b59f" stroke-opacity=".13" stroke-width="1"><path d="M15 68H625M15 133H625M15 198H625M15 263H625M90 15V310M180 15V310M270 15V310M360 15V310M450 15V310M540 15V310"/></g>
-    <g fill="#b8c5b2" fill-opacity=".11" stroke="#a9b9a2" stroke-opacity=".2"><path d="M246 35l45-10 28 13 15 22 34 7 9 26-18 15-2 27 22 19-8 27-25 12-6 34-25 14-9 27-29 3-13-23-22-11-13-34-28-12-8-31 17-23-8-25 19-22-8-23z"/><path d="M365 52l53-17 40 15 19 33-13 25 21 24-9 36-34 7-19 31-36-9-16-28 14-31-23-22z"/></g>
-    <g fill="none" stroke="url(#route)" stroke-width="1.8" stroke-dasharray="5 7"><path d="M318 168Q210 65 110 88"/><path d="M318 168Q410 55 528 75"/><path d="M318 168Q460 190 555 245"/><path d="M318 168Q215 260 125 266"/><path d="M318 168Q330 80 350 32"/><path d="M318 168Q400 270 430 300"/></g>
-    <g fill="#c7f36b" filter="url(#glow)"><circle cx="318" cy="168" r="5"/><circle cx="110" cy="88" r="3.5"/><circle cx="528" cy="75" r="3.5"/><circle cx="555" cy="245" r="3.5"/><circle cx="125" cy="266" r="3.5"/><circle cx="350" cy="32" r="3.5"/><circle cx="430" cy="300" r="3.5"/></g>
-    <circle cx="318" cy="168" r="17" fill="none" stroke="#c7f36b" stroke-opacity=".5"/>
-    <g fill="#dce8d3" font-family="Vazirmatn" font-size="10"><text x="334" y="159">IRAN / CORE</text><text x="84" y="74">EUROPE</text><text x="505" y="59">ASIA</text><text x="544" y="267">GULF</text><text x="92" y="286">AFRICA</text><text x="355" y="18">NORTH</text><text x="438" y="318">EAST</text></g>
-   </svg><div class="mapfoot"><span>نمایش مسیرها شماتیک است؛ نه نقشه جغرافیایی دیتاسنترها</span><b id="mapRatio">—%</b></div>
-  </div>
- </section>
  <section class="section" id="speedtest"><div class="sectionhead"><div><h2>آزمایشگاه سرعت</h2><p>یک کلیک؛ سنجش خودکار سرعت و دسترسی سرویس‌ها، با نمایش زندهٔ مراحل.</p></div><span class="sectionnum">01 / SPEED LAB</span></div>
   <div class="split">
    <article class="surface"><div class="speedtop"><div><div style="font-size:13px;font-weight:900">یک تست واقعی اجرا کن.</div><div class="caption">تست کامل اینترنت با یک کلیک؛ بدون تنظیمات دستی.</div></div><span class="tag">BROWSER TEST</span></div>
+    <button class="testbutton" id="run" type="button" style="margin-top:14px;padding:15px;font-size:13px">▶ شروع تست کامل اینترنت</button>
     <p class="disclaimer" style="margin-top:12px">یک کلیک کافی است؛ تأخیر، دانلود، آپلود و دسترسی سرویس‌ها به‌ترتیب خودکار بررسی می‌شوند.</p>
     <div class="speedvalues"><div class="speedvalue"><small>LATENCY</small><b id="latency">—</b><em>ms · مقصد انتخابی</em></div><div class="speedvalue"><small>DOWNLOAD</small><b id="download">—</b><em>Mbps · Cloudflare</em></div><div class="speedvalue"><small>UPLOAD</small><b id="upload">—</b><em>Mbps · Cloudflare</em></div></div>
     <p class="disclaimer">محدودیت فنی مهم: latency به مقصد انتخابی سنجیده می‌شود؛ throughput دانلود و آپلود از Cloudflare Edge است، نه سرور اختصاصی YouTube یا Instagram. اجرای تست کامل حداکثر حدود ۲۵ مگابایت داده جابه‌جا می‌کند.</p>
@@ -207,6 +208,18 @@ body{background:var(--paper);color:var(--ink)}
  <section class="section" id="history"><div class="sectionhead"><div><h2>روند دسترسی در گذر زمان</h2><p>تغییرات availability در snapshotهای ذخیره‌شده</p></div><span class="sectionnum">06 / HISTORY</span></div>
   <div class="surface history"><div class="chartwrap"><div class="surfacehead"><h3>درصد دسترسی سرویس‌ها</h3><span class="tag">LAST 72 SAMPLES</span></div><canvas class="chart" id="chart"></canvas><div class="caption" id="historyMeta">در حال دریافت تاریخچه…</div></div><div class="historyaside"><div><small>آخرین availability</small><b id="lastRatio">—</b></div><div><small>کمترین مقدار در نمونه‌ها</small><b id="minRatio">—</b></div><div><small>تعداد نمونه‌ها</small><b id="samples">—</b></div></div></div>
  </section>
+ <section class="section bottom-intro" id="atlas-intro"><div class="hero-copy"><div class="eyebrow"><i></i> رصد زنده زیرساخت اینترنت ایران</div><h1>نبض شبکه را<br><span>واضح‌تر ببین.</span></h1><p>یک تصویر دقیق‌تر از دسترسی، کیفیت مسیر و سلامت سرویس‌ها. داده‌های پایش جهانی و گزارش‌های داخل ایران، جدا از هم و با منبع مشخص.</p><div class="hero-actions" aria-label="پیوندهای مرتبط"><a class="textlink" href="https://sinavm.github.io/sinavm/" aria-label="رفتن به صفحه اصلی SiNAVM">صفحه اصلی ←</a><a class="textlink" href="#services">بررسی سرویس‌ها</a></div></div></section>
+ <section class="section network-map-section" id="network-map"><div class="sectionhead"><div><h2>نمای شماتیک اتصال شبکه</h2><p>مسیرهای مفهومی شبکه و ارتباطات بین‌المللی</p></div><span class="sectionnum">08 / GLOBAL ROUTES</span></div><div class="mapcard"><div class="maphead"><div><b>نمای شماتیک اتصال شبکه</b><small>GLOBAL ROUTES · CONCEPTUAL VIEW</small></div><span class="maptag">ATLAS / LIVE</span></div>
+   <svg class="mapart" viewBox="0 0 640 330" preserveAspectRatio="xMidYMid meet" aria-label="نمای شماتیک ارتباط شبکه">
+    <defs><linearGradient id="route" x1="0" x2="1"><stop stop-color="#c7f36b" stop-opacity=".12"/><stop offset=".5" stop-color="#c7f36b"/><stop offset="1" stop-color="#c7f36b" stop-opacity=".12"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <g fill="none" stroke="#a6b59f" stroke-opacity=".13" stroke-width="1"><path d="M15 68H625M15 133H625M15 198H625M15 263H625M90 15V310M180 15V310M270 15V310M360 15V310M450 15V310M540 15V310"/></g>
+    <g fill="#b8c5b2" fill-opacity=".11" stroke="#a9b9a2" stroke-opacity=".2"><path d="M246 35l45-10 28 13 15 22 34 7 9 26-18 15-2 27 22 19-8 27-25 12-6 34-25 14-9 27-29 3-13-23-22-11-13-34-28-12-8-31 17-23-8-25 19-22-8-23z"/><path d="M365 52l53-17 40 15 19 33-13 25 21 24-9 36-34 7-19 31-36-9-16-28 14-31-23-22z"/></g>
+    <g fill="none" stroke="url(#route)" stroke-width="1.8" stroke-dasharray="5 7"><path d="M318 168Q210 65 110 88"/><path d="M318 168Q410 55 528 75"/><path d="M318 168Q460 190 555 245"/><path d="M318 168Q215 260 125 266"/><path d="M318 168Q330 80 350 32"/><path d="M318 168Q400 270 430 300"/></g>
+    <g fill="#c7f36b" filter="url(#glow)"><circle cx="318" cy="168" r="5"/><circle cx="110" cy="88" r="3.5"/><circle cx="528" cy="75" r="3.5"/><circle cx="555" cy="245" r="3.5"/><circle cx="125" cy="266" r="3.5"/><circle cx="350" cy="32" r="3.5"/><circle cx="430" cy="300" r="3.5"/></g>
+    <circle cx="318" cy="168" r="17" fill="none" stroke="#c7f36b" stroke-opacity=".5"/>
+    <g fill="#dce8d3" font-family="Vazirmatn" font-size="10"><text x="334" y="159">IRAN / CORE</text><text x="84" y="74">EUROPE</text><text x="505" y="59">ASIA</text><text x="544" y="267">GULF</text><text x="92" y="286">AFRICA</text><text x="355" y="18">NORTH</text><text x="438" y="318">EAST</text></g>
+   </svg><div class="mapfoot"><span>نمایش مسیرها شماتیک است؛ نه نقشه جغرافیایی دیتاسنترها</span><b id="mapRatio">—%</b></div>
+  </div></section>
  <section class="section"><div class="sectionhead"><div><h2>داده از کجا می‌آید؟</h2><p>شفافیت منبع، بخشی از خود محصول است.</p></div><span class="sectionnum">07 / SOURCES</span></div>
   <div class="sourcegrid"><article class="source"><b>پروب اختصاصی Atlas</b><p>پایش دوره‌ای مقصدها از runner خارج ایران؛ برای مقایسه پاسخ‌گویی و latency همان مسیر.</p><a href="https://github.com/sinavm/ir-net-atlas" target="_blank" rel="noopener">کد و داده‌ها ↗</a></article></div>
  </section>
