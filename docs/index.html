@@ -292,7 +292,7 @@ async function loadHistory(){
   canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));ctx.setTransform(dpr,0,0,dpr,0,0);
   const w=rect.width,h=rect.height,pad={l:34,r:10,t:12,b:22},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
   const vals=rows.map(x=>Math.max(0,Math.min(100,Number(x.ratio)||0))),min=Math.max(0,Math.floor(Math.min(...vals)-5)),max=Math.min(100,Math.ceil(Math.max(...vals)+2));
-  const x=i=>pad.l+(rows.length<2?1:i/(rows.length-1))*cw,y=v=>pad.t+(max-v)/(max-min||1)*ch;
+  const x=i=>pad.l+(rows.length<2?0.5:i/(rows.length-1))*cw,y=v=>pad.t+(max-v)/(max-min||1)*ch;
   ctx.clearRect(0,0,w,h);ctx.font='10px "DM Mono", monospace';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillStyle='#8f9b8c';
   [min,Math.round((min+max)/2),max].forEach(v=>{const yy=y(v);ctx.strokeStyle='#303c32';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke();ctx.fillText(v+'%',pad.l-7,yy)});
   const grad=ctx.createLinearGradient(0,pad.t,0,h-pad.b);grad.addColorStop(0,'rgba(199,243,107,.25)');grad.addColorStop(1,'rgba(199,243,107,0)');
