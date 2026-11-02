@@ -1,0 +1,214 @@
+{
+  "targets": [
+    {
+      "id": "google",
+      "name": "Google",
+      "url": "https://www.google.com/generate_204",
+      "group": "جست‌وجو",
+      "layer": "international"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "url": "https://www.youtube.com",
+      "group": "رسانه",
+      "layer": "international"
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "url": "https://www.instagram.com",
+      "group": "رسانه",
+      "layer": "international"
+    },
+    {
+      "id": "x",
+      "name": "X",
+      "url": "https://x.com",
+      "group": "رسانه",
+      "layer": "international"
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "url": "https://www.facebook.com",
+      "group": "رسانه",
+      "layer": "international"
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "url": "https://www.tiktok.com",
+      "group": "رسانه",
+      "layer": "international"
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "url": "https://telegram.org",
+      "group": "پیام‌رسان",
+      "layer": "international"
+    },
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp",
+      "url": "https://www.whatsapp.com",
+      "group": "پیام‌رسان",
+      "layer": "international"
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "url": "https://discord.com",
+      "group": "پیام‌رسان",
+      "layer": "international"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "url": "https://github.com",
+      "group": "توسعه",
+      "layer": "international"
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "url": "https://www.cloudflare.com",
+      "group": "زیرساخت",
+      "layer": "international"
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipedia",
+      "url": "https://www.wikipedia.org",
+      "group": "اطلاعات",
+      "layer": "international"
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "url": "https://www.reddit.com",
+      "group": "اجتماعی",
+      "layer": "international"
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com",
+      "group": "حرفه‌ای",
+      "layer": "international"
+    },
+    {
+      "id": "openai",
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com",
+      "group": "هوش مصنوعی",
+      "layer": "international"
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "url": "https://gemini.google.com",
+      "group": "هوش مصنوعی",
+      "layer": "international"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "url": "https://claude.ai",
+      "group": "هوش مصنوعی",
+      "layer": "international"
+    },
+    {
+      "id": "copilot",
+      "name": "Copilot",
+      "url": "https://copilot.microsoft.com",
+      "group": "هوش مصنوعی",
+      "layer": "international"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "url": "https://chat.deepseek.com",
+      "group": "هوش مصنوعی",
+      "layer": "international"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "url": "https://www.perplexity.ai",
+      "group": "هوش مصنوعی",
+      "layer": "international"
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "url": "https://grok.com",
+      "group": "هوش مصنوعی",
+      "layer": "international"
+    },
+    {
+      "id": "metaai",
+      "name": "Meta AI",
+      "url": "https://www.meta.ai",
+      "group": "هوش مصنوعی",
+      "layer": "international"
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "url": "https://open.spotify.com",
+      "group": "رسانه",
+      "layer": "international"
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "url": "https://www.netflix.com",
+      "group": "رسانه",
+      "layer": "international"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "url": "https://www.apple.com",
+      "group": "فناوری",
+      "layer": "international"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "url": "https://www.microsoft.com",
+      "group": "فناوری",
+      "layer": "international"
+    },
+    {
+      "id": "ipify",
+      "name": "بررسی IP · ipify",
+      "url": "https://api.ipify.org?format=json",
+      "group": "بررسی IP",
+      "layer": "international"
+    },
+    {
+      "id": "ipinfo",
+      "name": "بررسی IP · ipinfo",
+      "url": "https://ipinfo.io/json",
+      "group": "بررسی IP",
+      "layer": "international"
+    },
+    {
+      "id": "icanhazip",
+      "name": "بررسی IP · icanhazip",
+      "url": "https://icanhazip.com",
+      "group": "بررسی IP",
+      "layer": "international"
+    },
+    {
+      "id": "browserleaks",
+      "name": "BrowserLeaks IP",
+      "url": "https://browserleaks.com/ip",
+      "group": "بررسی IP",
+      "layer": "international"
+    }
+  ]
+}
