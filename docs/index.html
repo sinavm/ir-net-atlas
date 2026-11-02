@@ -47,7 +47,7 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{--paper:#f4f3ee;--white:#fffefa;--ink:#171b19;--muted:#858a81;--line:#e5e4dc;--lime:#c7f36b;--green:#3c7652;--red:#d45f4e;--amber:#b98232;--blue:#547eaa;--radius:19px;--shadow:0 18px 55px rgba(30,35,27,.055)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Vazirmatn,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.mono{font-family:"DM Mono",monospace;direction:ltr;unicode-bidi:embed}.shell{max-width:1510px;margin:auto;display:grid;grid-template-columns:238px minmax(0,1fr);min-height:100vh}
@@ -155,7 +155,7 @@ body{background:var(--paper);color:var(--ink)}
     <g fill="#b8c5b2" fill-opacity=".11" stroke="#a9b9a2" stroke-opacity=".2"><path d="M246 35l45-10 28 13 15 22 34 7 9 26-18 15-2 27 22 19-8 27-25 12-6 34-25 14-9 27-29 3-13-23-22-11-13-34-28-12-8-31 17-23-8-25 19-22-8-23z"/><path d="M365 52l53-17 40 15 19 33-13 25 21 24-9 36-34 7-19 31-36-9-16-28 14-31-23-22z"/></g>
     <g fill="none" stroke="url(#route)" stroke-width="1.8" stroke-dasharray="5 7"><path d="M318 168Q210 65 110 88"/><path d="M318 168Q410 55 528 75"/><path d="M318 168Q460 190 555 245"/><path d="M318 168Q215 260 125 266"/><path d="M318 168Q330 80 350 32"/><path d="M318 168Q400 270 430 300"/></g>
     <g fill="#c7f36b" filter="url(#glow)"><circle cx="318" cy="168" r="5"/><circle cx="110" cy="88" r="3.5"/><circle cx="528" cy="75" r="3.5"/><circle cx="555" cy="245" r="3.5"/><circle cx="125" cy="266" r="3.5"/><circle cx="350" cy="32" r="3.5"/><circle cx="430" cy="300" r="3.5"/></g>
-    <circle cx="318" cy="168" r="17" fill="none" stroke="#c7f36b" stroke-opacity=".5"><animate attributeName="r" values="13;25;13" dur="3.5s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".55;0;.55" dur="3.5s" repeatCount="indefinite"/></circle>
+    <circle cx="318" cy="168" r="17" fill="none" stroke="#c7f36b" stroke-opacity=".5"/>
     <g fill="#dce8d3" font-family="Vazirmatn" font-size="10"><text x="334" y="159">IRAN / CORE</text><text x="84" y="74">EUROPE</text><text x="505" y="59">ASIA</text><text x="544" y="267">GULF</text><text x="92" y="286">AFRICA</text><text x="355" y="18">NORTH</text><text x="438" y="318">EAST</text></g>
    </svg><div class="mapfoot"><span>نمایش مسیرها شماتیک است؛ نه نقشه جغرافیایی دیتاسنترها</span><b id="mapRatio">—%</b></div>
   </div>
