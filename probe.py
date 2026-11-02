@@ -58,7 +58,7 @@ def check(url: str) -> dict:
             }
     except urllib.error.HTTPError as exc:
         ms = int((time.perf_counter() - started) * 1000)
-        ok = exc.code in (401, 403, 429) or 200 <= exc.code < 400
+        ok = exc.code in (401, 403, 404, 405, 409, 410, 422, 429) or 200 <= exc.code < 400
         return {
             "ok": ok,
             "status": exc.code,
@@ -101,9 +101,8 @@ def layer_summary(rows: list[dict]) -> dict:
 
 def main() -> None:
     DOCS.mkdir(exist_ok=True)
-    targets = json.loads((ROOT / "targets.json").read_text(encoding="utf-8"))["targets"]
-    results = []
-    up = 0
+    targets = json.loads((ROOT / "observatory_targets.json").read_text(encoding="utf-8"))["targets"]
+    # Keep the browser-side user scan limited to international services only.\n    browser_targets = json.loads((ROOT / "targets.json").read_text(encoding="utf-8"))["targets"]\n    (DOCS / "targets.json").write_text(json.dumps({"targets": browser_targets}, ensure_ascii=False, indent=2), encoding="utf-8")\n    results = []\n    up = 0
     latencies = []
     for item in targets:
         probe = check(item["url"])
@@ -117,7 +116,7 @@ def main() -> None:
     snapshot = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "probe_from": "github-actions",
-        "disclaimer": "Probe runs outside Iran. Domestic reachability from inside Iran is collected separately.",
+        "disclaimer": "Iranian sites and API endpoints are probed from outside Iran. This does not represent reachability from inside Iran.",
         "summary": {
             "up": up,
             "down": total - up,
@@ -125,7 +124,7 @@ def main() -> None:
             "ratio": ratio,
             "avg_ms": int(sum(latencies) / len(latencies)) if latencies else None,
         },
-        "layers": layer_summary(results),
+        "layers": layer_summary(results),\n        "scope": "iranian-domestic-sites-and-apis",
         "targets": results,
         "iran_reports": json.loads((ROOT / "reports" / "iran.json").read_text(encoding="utf-8"))
         if (ROOT / "reports" / "iran.json").exists()
