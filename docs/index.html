@@ -151,6 +151,32 @@ body{background:var(--paper);color:var(--ink)}
 @media(prefers-color-scheme:light){:root{color-scheme:dark}}
 
 
+
+/* RESTORED HISTORY, SOURCES AND GUIDE */
+#history,#sources,#guide{padding-top:34px}
+.history-surface{padding:22px}
+.history-chart{height:210px;position:relative}
+#historyChart{width:100%;height:100%;display:block}
+.history-dates{display:flex;justify-content:space-between;gap:10px;color:#929e90;font-size:9px;margin-top:10px}
+.history-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;border-top:1px solid var(--line);margin-top:16px;padding-top:15px}
+.history-metrics small{display:block;color:#9aa596;font-size:10px}
+.history-metrics b{display:block;font:500 23px "DM Mono",monospace;margin-top:6px;color:var(--lime)}
+.source-card{display:flex;align-items:flex-start;gap:14px;padding:20px}
+.source-icon{width:42px;height:42px;flex:none;border-radius:13px;background:#2a362d;color:var(--lime);display:grid;place-items:center;font-size:24px}
+.source-copy h3{font-size:13px;margin:1px 0 7px}
+.source-copy p,.guide-card>p,.guide-card details p{font-size:10px;line-height:2.1;color:#a6b0a2;margin:0}
+.source-copy a,.guide-card a{display:inline-block;color:var(--lime);font-size:10px;margin-top:9px}
+.guide-card{padding:22px}
+.guide-card details{border-top:1px solid var(--line);padding:13px 0}
+.guide-card details:first-of-type{margin-top:12px}
+.guide-card summary{font-size:11px;font-weight:700;cursor:pointer;color:#edf2e8}
+.guide-card details p{padding-top:9px}
+.site-footer{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-top:1px solid var(--line);margin-top:32px;padding:20px 0;color:#a6b0a2;font-size:9px;line-height:1.9}
+.site-footer b{color:#edf2e8;letter-spacing:.6px}
+.site-footer p{margin:5px 0 0}
+.site-footer>a{color:var(--lime);white-space:nowrap}
+@media(max-width:560px){.history-surface{padding:14px}.history-chart{height:180px}.history-metrics b{font-size:18px}.source-card{padding:15px}.guide-card{padding:16px}.site-footer{flex-direction:column}}
+
 /* MINIMAL SPEEDTEST UI */
 body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-height:100vh}.compact-main{padding:0 28px 36px}.compact-top{height:76px;border-color:#2a352c}.compact-top .brand{display:flex;align-items:center;gap:11px}.compact-top .brandmark{width:40px;height:40px;background:var(--lime);border-radius:50%;display:grid;place-items:center}.compact-top .brandname{color:#edf2e8}.compact-top .brandname small{color:#a6b0a2}.compact-top .refresh{background:#202a23;border-color:#39463b;color:#dfe8d8}
 .sectionhead h2{color:#f0f3ea;font-size:clamp(20px,3vw,28px)}.sectionhead p,.sectionnum,.caption,.disclaimer{display:none!important}#speedtest{padding-top:34px}#speedtest .split{grid-template-columns:1fr .85fr;gap:16px;align-items:stretch}#speedtest .surface{background:#1a211c;border-color:#303c32;color:#edf2e8;padding:22px}#speedtest .surface.dark{background:#1a211c}#speedtest .surfacehead{display:none}#speedtest .surfacehead h3{font-size:13px}#speedtest .speedvalues{gap:14px;margin-top:24px}#speedtest .speedvalue{border-color:#303c32}#speedtest .speedvalue small,#speedtest .speedvalue em{color:#8f9b8c}#speedtest .speedvalue b{color:#f3f6ed;font-size:24px}
@@ -184,6 +210,33 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
    
   </div>
  </section>
+
+ <section class="section" id="history">
+  <div class="sectionhead"><div><h2>روند دسترسی در گذر زمان</h2><p>تغییرات availability در snapshotهای ذخیره‌شده</p></div><span class="sectionnum">06 / HISTORY</span></div>
+  <article class="surface history-surface">
+   <div class="surfacehead"><h3>درصد دسترسی سرویس‌ها</h3><span class="tag">LAST 72 SAMPLES</span></div>
+   <div class="history-chart"><canvas id="historyChart" aria-label="نمودار درصد دسترسی سرویس‌ها در گذر زمان"></canvas></div>
+   <div class="history-dates"><span id="historyStart">—</span><span id="historyEnd">—</span></div>
+   <div class="history-metrics"><div><small>آخرین availability</small><b id="historyLatest">—</b></div><div><small>کمترین مقدار در نمونه‌ها</small><b id="historyMin">—</b></div></div>
+  </article>
+ </section>
+
+ <section class="section" id="sources">
+  <div class="sectionhead"><div><h2>داده از کجا می‌آید؟</h2><p>شفافیت منبع، بخشی از خود محصول است.</p></div><span class="sectionnum">07 / SOURCES</span></div>
+  <article class="surface source-card"><div class="source-icon">⌁</div><div class="source-copy"><h3>پروب اختصاصی Atlas</h3><p>پایش دوره‌ای مقصدها از runner خارج ایران؛ برای مقایسه پاسخ‌گویی و latency همان مسیر.</p><a href="https://github.com/sinavm/ir-net-atlas" target="_blank" rel="noopener">کد و داده‌ها ↗</a></div></article>
+ </section>
+
+ <section class="section" id="guide">
+  <div class="sectionhead"><div><h2>راهنمای بررسی وضعیت اینترنت و دسترسی سرویس‌ها</h2></div></div>
+  <article class="surface guide-card">
+   <p>IR Net Atlas ابزار آنلاین بررسی کیفیت اینترنت از مجموعه SiNAVM است. با تست سرعت اینترنت می‌توانید زمان پاسخ، سرعت دانلود و آپلود را اندازه بگیرید و با رادار دسترسی، وضعیت باز شدن سرویس‌های ایرانی و خارجی را از اتصال فعلی خود بررسی کنید. داده‌های پایش عمومی و نتایج مرورگر شخصی جداگانه نمایش داده می‌شوند تا وضعیت یک نقطه شبکه به‌جای وضعیت همه کاربران برداشت نشود. برای راهنماها و ابزارهای اینترنت آزاد، به <a href="https://sinavm.github.io/sinavm/" target="_blank" rel="noopener">صفحه اصلی SiNAVM</a> بروید.</p>
+   <details><summary>چطور بفهمم کدام سایت‌ها با اینترنت من باز می‌شوند؟</summary><p>در بخش «رادار دسترسی اینترنت»، اسکن مرورگر را اجرا کنید. نتیجه هر مقصد از اتصال فعلی دستگاه شما ثبت می‌شود. محدودیت‌های مرورگر ممکن است برای بعضی مقصدها نتیجه نامشخص ایجاد کند.</p></details>
+   <details><summary>تست سرعت اینترنت چه چیزهایی را اندازه می‌گیرد؟</summary><p>آزمایشگاه سرعت، تأخیر مسیر انتخابی و سرعت دانلود و آپلود را اندازه می‌گیرد. نتیجه به اپراتور، شلوغی شبکه، دستگاه، وای‌فای و سرور مقصد وابسته است.</p></details>
+   <details><summary>تفاوت وضعیت عمومی اینترنت ایران با اینترنت من چیست؟</summary><p>پایش عمومی از نقاط و اپراتورهای گزارش‌شده انجام می‌شود؛ تست شخصی از مرورگر شما. ممکن است یک سرویس برای یک اپراتور در دسترس و برای اتصال دیگری مختل باشد.</p></details>
+   <details><summary>آیا خطای دسترسی همیشه به معنی فیلتر بودن سایت است؟</summary><p>خیر. خطای اتصال می‌تواند از DNS، گواهی امنیتی، CDN، محدودیت‌های مرورگر یا اختلال مسیر ناشی شود. Atlas وضعیت قابل مشاهده را گزارش می‌کند و بدون شواهد کافی علت قطعی اعلام نمی‌کند.</p></details>
+  </article>
+ </section>
+ <footer class="site-footer"><div><b>IR NET ATLAS</b> · یک رصدخانه مستقل برای دیدن کیفیت شبکه<p>داده‌ها ممکن است تحت‌تأثیر موقعیت جغرافیایی، CDN، DNS و محدودیت مسیر باشند.</p></div><a href="https://github.com/sinavm/ir-net-atlas" target="_blank" rel="noopener">مشاهده مخزن در GitHub ↗</a></footer>
 </main>
 </div>
 <div class="toast" id="toast"></div>
@@ -196,11 +249,33 @@ async function req(url,opt={},ms=16000){const c=new AbortController(),t=setTimeo
 async function latency(url){const samples=[];for(let i=0;i<4;i++){const st=performance.now();try{await req(url.replace(/\/$/,'')+'/favicon.ico?atlas='+Date.now()+i,{mode:'no-cors',cache:'no-store',credentials:'omit'},6000);samples.push(performance.now()-st)}catch(e){}}if(!samples.length)return null;samples.sort((a,b)=>a-b);return Math.round(samples[Math.floor(samples.length/2)])}
 async function download(){let best=0;for(const n of [1000000,5000000,10000000]){const st=performance.now(),r=await req('https://speed.cloudflare.com/__down?bytes='+n+'&atlas='+Date.now(),{mode:'cors',cache:'no-store',credentials:'omit'},18000);if(!r.ok)throw Error();const b=await r.arrayBuffer(),sec=(performance.now()-st)/1000;best=Math.max(best,b.byteLength*8/1e6/sec);if(sec>7)break}return best}
 async function upload(){let best=0;for(const n of [1000000,3000000,5000000]){const body=new Uint8Array(n),st=performance.now(),r=await req('https://speed.cloudflare.com/__up?atlas='+Date.now(),{method:'POST',body,mode:'cors',cache:'no-store',credentials:'omit'},18000);if(!r.ok)throw Error();await r.arrayBuffer();const sec=(performance.now()-st)/1000;best=Math.max(best,n*8/1e6/sec);if(sec>7)break}return best}
+
+const dateFa=iso=>{try{return new Intl.DateTimeFormat('fa-IR-u-ca-persian',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Tehran'}).format(new Date(iso))}catch(e){return iso}};
+async function loadHistory(){
+ try{
+  const r=await fetch('./history.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();
+  const all=await r.json(),rows=all.slice(-72);if(!rows.length)return;
+  const canvas=$('historyChart'),ctx=canvas.getContext('2d'),rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;
+  canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));ctx.scale(dpr,dpr);
+  const w=rect.width,h=rect.height,pad={l:34,r:10,t:12,b:22},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+  const vals=rows.map(x=>Number(x.ratio)||0),min=Math.max(0,Math.floor(Math.min(...vals)-5)),max=Math.min(100,Math.ceil(Math.max(...vals)+2));
+  const x=i=>pad.l+(rows.length<2?0:i/(rows.length-1))*cw,y=v=>pad.t+(max-v)/(max-min||1)*ch;
+  ctx.font='10px "DM Mono", monospace';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillStyle='#8f9b8c';
+  [min,Math.round((min+max)/2),max].forEach(v=>{const yy=y(v);ctx.strokeStyle='#303c32';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke();ctx.fillText(v+'%',pad.l-7,yy)});
+  const grad=ctx.createLinearGradient(0,pad.t,0,h-pad.b);grad.addColorStop(0,'rgba(199,243,107,.25)');grad.addColorStop(1,'rgba(199,243,107,0)');
+  ctx.beginPath();rows.forEach((v,i)=>i?ctx.lineTo(x(i),y(v.ratio)):ctx.moveTo(x(i),y(v.ratio)));ctx.lineTo(x(rows.length-1),h-pad.b);ctx.lineTo(x(0),h-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+  ctx.beginPath();rows.forEach((v,i)=>i?ctx.lineTo(x(i),y(v.ratio)):ctx.moveTo(x(i),y(v.ratio)));ctx.strokeStyle='#c7f36b';ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+  const last=rows[rows.length-1];ctx.beginPath();ctx.arc(x(rows.length-1),y(last.ratio),3.5,0,Math.PI*2);ctx.fillStyle='#c7f36b';ctx.fill();
+  $('historyStart').textContent=dateFa(rows[0].generated_at);$('historyEnd').textContent=dateFa(last.generated_at);
+  $('historyLatest').textContent=Number(last.ratio).toFixed(1)+'%';$('historyMin').textContent=Math.min(...vals).toFixed(1)+'%';
+ }catch(e){const c=$('historyChart');if(c)c.closest('.history-surface').innerHTML='<p style="color:#a6b0a2;font-size:10px">داده‌های تاریخچه در دسترس نیست.</p>'}
+}
+
 async function load(){try{const r=await fetch('./status.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();statusData=await r.json()}catch(e){statusData=null}}
 async function probe(t){const st=performance.now(),c=new AbortController(),timer=setTimeout(()=>c.abort(),6500);try{await fetch(t.url,{method:'GET',mode:'no-cors',cache:'no-store',credentials:'omit',redirect:'follow',signal:c.signal});return{id:t.id,name:t.name,state:'up',ms:Math.round(performance.now()-st)}}catch(e){return{id:t.id,name:t.name,state:'down',ms:null}}finally{clearTimeout(timer)}}
 function paintResults(rows){$('myRadarList').innerHTML=rows.map(x=>'<div class="radar-item"><i class="radar-dot '+x.state+'"></i><div><b>'+esc(x.name)+'</b><small>'+(x.state==='up'?'باز می‌شود':'باز نشد')+'</small></div></div>').join('')}
-async function scan(){if(!statusData?.targets?.length)await load();if(!statusData?.targets?.length)throw Error();const extra=[{id:'gemini',name:'Gemini',url:'https://gemini.google.com'},{id:'claude',name:'Claude',url:'https://claude.ai'},{id:'copilot',name:'Copilot',url:'https://copilot.microsoft.com'},{id:'deepseek',name:'DeepSeek',url:'https://chat.deepseek.com'},{id:'perplexity',name:'Perplexity',url:'https://www.perplexity.ai'},{id:'grok',name:'Grok',url:'https://grok.com'},{id:'metaai',name:'Meta AI',url:'https://www.meta.ai'}];const targets=[...statusData.targets,...extra.filter(a=>!statusData.targets.some(t=>t.id===a.id))];const results=[];let i=0;await Promise.all(Array.from({length:5},async()=>{while(i<targets.length){const t=targets[i++];results.push(await probe(t));paintResults(results);progress(78+Math.round(results.length/targets.length*22),'بررسی سایت‌ها')}}));results.sort((a,b)=>targets.findIndex(t=>t.id===a.id)-targets.findIndex(t=>t.id===b.id));paintResults(results)}
+async function scan(){if(!statusData?.targets?.length)await load();if(!statusData?.targets?.length)throw Error();const extra=[{id:'snapp',name:'اسنپ',url:'https://snapp.ir/'},{id:'gemini',name:'Gemini',url:'https://gemini.google.com'},{id:'claude',name:'Claude',url:'https://claude.ai'},{id:'copilot',name:'Copilot',url:'https://copilot.microsoft.com'},{id:'deepseek',name:'DeepSeek',url:'https://chat.deepseek.com'},{id:'perplexity',name:'Perplexity',url:'https://www.perplexity.ai'},{id:'grok',name:'Grok',url:'https://grok.com'},{id:'metaai',name:'Meta AI',url:'https://www.meta.ai'}];const targets=[...statusData.targets,...extra.filter(a=>!statusData.targets.some(t=>t.id===a.id))];const results=[];let i=0;await Promise.all(Array.from({length:5},async()=>{while(i<targets.length){const t=targets[i++];results.push(await probe(t));paintResults(results);progress(78+Math.round(results.length/targets.length*22),'بررسی سایت‌ها')}}));results.sort((a,b)=>targets.findIndex(t=>t.id===a.id)-targets.findIndex(t=>t.id===b.id));paintResults(results)}
 $('run').addEventListener('click',async()=>{if(testing)return;testing=true;const b=$('run');b.disabled=true;b.setAttribute('aria-busy','true');['latency','download','upload'].forEach(id=>$(id).textContent='—');gauge(null);try{progress(2,'شروع');progress(7,'پینگ');try{const n=await latency('https://www.google.com');$('latency').textContent=n==null?'—':fa(n);if(n!=null)gauge(n,'ms')}catch(e){}progress(30,'دانلود');try{$('download').textContent=(await download()).toFixed(1)}catch(e){$('download').textContent='—'}progress(52,'آپلود');try{$('upload').textContent=(await upload()).toFixed(1)}catch(e){$('upload').textContent='—'}progress(76,'بررسی سایت‌ها');await scan();progress(100,'تمام شد');notify('تست تمام شد')}catch(e){notify('تست ناموفق بود')}finally{testing=false;b.disabled=false;b.removeAttribute('aria-busy');$('startNum').textContent='↻';$('startLabel').textContent='تست دوباره';b.style.background='conic-gradient(var(--lime) 360deg,#202a23 360deg)'}});
-$('refresh').addEventListener('click',async()=>{await load();if(statusData)notify('به‌روز شد');else notify('خطا')});load();
+$('refresh').addEventListener('click',async()=>{await load();if(statusData)notify('به‌روز شد');else notify('خطا')});load();loadHistory();window.addEventListener('resize',()=>{clearTimeout(window.historyResizeTimer);window.historyResizeTimer=setTimeout(loadHistory,180)});
 </script>
 </body></html>
