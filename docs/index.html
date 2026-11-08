@@ -465,7 +465,8 @@ async function loadHistory(){
    $('historyLatest').textContent='—';$('historyMin').textContent='—';
    setState('بدون داده');return;
   }
-  const W=900,H=240,pad={l:58,r:24,t:18,b:42},plotW=W-pad.l-pad.r,plotH=H-pad.t-pad.b;
+  const rect=chart.getBoundingClientRect();
+  const W=chart.clientWidth||rect.width||900,H=chart.clientHeight||rect.height||210,pad={l:44,r:12,t:12,b:32},plotW=W-pad.l-pad.r,plotH=H-pad.t-pad.b;
   const minTime=points[0].time,maxTime=points[points.length-1].time;
   const x=time=>pad.l+(maxTime===minTime?0.5:(time-minTime)/(maxTime-minTime))*plotW;
   const y=value=>pad.t+(100-value)/100*plotH;
@@ -473,7 +474,7 @@ async function loadHistory(){
   const domestic=points.filter(point=>point.scope==='iranian-domestic-sites-and-apis'||point.scope==='current');
   const other=points.filter(point=>point.scope!=='legacy'&&point.scope!=='iranian-domestic-sites-and-apis'&&point.scope!=='current');
   const series=[{items:legacy,color:'#849184',width:2},{items:domestic,color:'#c7f36b',width:3},{items:other,color:'#79a9d8',width:2}];
-  const grid=[0,25,50,75,100].map(value=>'<g><line x1="'+pad.l+'" y1="'+y(value)+'" x2="'+(W-pad.r)+'" y2="'+y(value)+'" stroke="#303c32" stroke-width="1"/><text x="'+(pad.l-12)+'" y="'+(y(value)+4)+'" text-anchor="end" fill="#9aa596" font-size="12">'+value+'%</text></g>').join('');
+  const grid=[0,25,50,75,100].map(value=>'<g><line x1="'+pad.l+'" y1="'+y(value)+'" x2="'+(W-pad.r)+'" y2="'+y(value)+'" stroke="#303c32" stroke-width="1"/><text x="'+(pad.l-12)+'" y="'+(y(value)+4)+'" text-anchor="end" fill="#9aa596" font-size="10">'+value+'%</text></g>').join('');
   const paths=series.map(item=>{
    if(!item.items.length)return '';
    const d=item.items.map((point,index)=>(index?'L':'M')+x(point.time).toFixed(2)+','+y(point.ratio).toFixed(2)).join(' ');
@@ -482,7 +483,7 @@ async function loadHistory(){
   }).join('');
   const dateAt=time=>dateFa(new Date(time).toISOString());
   const middleTime=minTime+(maxTime-minTime)/2;
-  const labels=[{time:minTime,anchor:'start'},{time:middleTime,anchor:'middle'},{time:maxTime,anchor:'end'}].map(item=>'<text x="'+x(item.time)+'" y="'+(H-12)+'" text-anchor="'+item.anchor+'" fill="#9aa596" font-size="11">'+dateAt(item.time)+'</text>').join('');
+  const labels=[{time:minTime,anchor:'start'},{time:middleTime,anchor:'middle'},{time:maxTime,anchor:'end'}].map(item=>'<text x="'+x(item.time)+'" y="'+(H-12)+'" text-anchor="'+item.anchor+'" fill="#9aa596" font-size="9">'+dateAt(item.time)+'</text>').join('');
   chart.setAttribute('viewBox','0 0 '+W+' '+H);
   chart.innerHTML='<title>تغییرات درصد دسترسی در طول زمان</title><desc>محور عمودی درصد دسترسی از صفر تا صد و محور افقی زمان واقعی نمونه‌برداری است.</desc>'+grid+paths+labels;
   const currentSeries=domestic.length?domestic:(legacy.length?legacy:points);
