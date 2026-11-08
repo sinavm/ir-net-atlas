@@ -329,8 +329,8 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
  <section class="section" id="history">
   <div class="sectionhead"><div><h2>روند دسترسی در گذر زمان</h2><p>تغییرات availability در snapshotهای ذخیره‌شده</p></div><span class="sectionnum">06 / HISTORY</span></div>
   <article class="surface history-surface">
-   <div class="surfacehead"><h3>درصد دسترسی سرویس‌ها</h3><span class="tag">LAST 72 SAMPLES</span></div>
-   <div class="history-chart"><canvas id="historyChart" aria-label="نمودار درصد دسترسی سرویس‌ها در گذر زمان"></canvas></div><div class="history-legend"><span><i class="legacy-dot"></i>تاریخچه قبلی</span><span><i class="domestic-dot"></i>رصدخانه ایرانی</span></div>
+   <div class="surfacehead"><h3>درصد دسترسی سرویس‌ها</h3><span class="tag" id="historyState">در حال دریافت داده…</span></div>
+   <div class="history-chart"><svg id="historyChart" viewBox="0 0 900 240" role="img" aria-label="نمودار درصد دسترسی سرویس‌ها در گذر زمان" preserveAspectRatio="none"></svg></div><div class="history-legend"><span><i class="legacy-dot"></i>تاریخچه قبلی</span><span><i class="domestic-dot"></i>رصدخانه ایرانی</span></div>
    <div class="history-dates"><span id="historyStart">—</span><span id="historyEnd">—</span></div>
    <div class="history-metrics"><div><small>آخرین availability</small><b id="historyLatest">—</b></div><div><small>کمترین مقدار در نمونه‌ها</small><b id="historyMin">—</b></div></div>
   </article>
@@ -439,41 +439,66 @@ async function upload(){
 
 const dateFa=iso=>{try{return new Intl.DateTimeFormat('fa-IR-u-ca-persian',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Tehran',numberingSystem:'latn'}).format(new Date(iso))}catch(e){return iso}};
 async function loadHistory(){
+ const chart=$('historyChart');
+ const state=$('historyState');
+ const setState=message=>{if(state)state.textContent=message};
  try{
-  const r=await fetch('./history.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('history fetch');
-  let all=await r.json();if(!Array.isArray(all))all=[];
+  const response=await fetch('./history.json?t='+Date.now(),{cache:'no-store'});
+  if(!response.ok)throw Error('history_http_'+response.status);
+  const raw=await response.json();
+  let rows=Array.isArray(raw)?raw:[];
   let live=null;
-  try{const sr=await fetch('./status.json?t='+Date.now(),{cache:'no-store'});if(sr.ok)live=await sr.json()}catch(e){}
-  // Keep legacy history intact while plotting current domestic observatory data as a separate series.
-  if(live?.generated_at&&Number.isFinite(Number(live?.summary?.ratio))&&!all.some(x=>x.generated_at===live.generated_at&&x.scope===live.scope)){
-   all=[...all,{generated_at:live.generated_at,ratio:Number(live.summary.ratio),up:Number(live.summary.up)||0,avg_ms:live.summary.avg_ms??null,scope:live.scope||'current'}];
+  try{
+   const statusResponse=await fetch('./status.json?t='+Date.now(),{cache:'no-store'});
+   if(statusResponse.ok)live=await statusResponse.json();
+  }catch(error){console.warn('status snapshot unavailable:',error)}
+  if(live?.generated_at&&Number.isFinite(Number(live?.summary?.ratio))){
+   rows=[...rows,{generated_at:live.generated_at,ratio:Number(live.summary.ratio),up:Number(live.summary.up)||0,avg_ms:live.summary.avg_ms??null,scope:live.scope||'current'}];
   }
-  all=all.slice().sort((x,y)=>new Date(x.generated_at)-new Date(y.generated_at)).slice(-100);
-  if(!all.length){$('historyLatest').textContent='—';$('historyMin').textContent='—';return}
-  const canvas=$('historyChart'),ctx=canvas?.getContext('2d');if(!canvas||!ctx)return;
-  const rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;if(rect.width<2||rect.height<2)return;
-  canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));ctx.setTransform(dpr,0,0,dpr,0,0);
-  const w=rect.width,h=rect.height,pad={l:34,r:10,t:12,b:22},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
-  const domestic=all.filter(x=>x.scope==='iranian-domestic-sites-and-apis'||x.scope==='current');
-  const legacy=all.filter(x=>!x.scope);
-  const plotted=[...legacy,...domestic],vals=plotted.map(x=>Math.max(0,Math.min(100,Number(x.ratio)||0)));
-  const min=Math.max(0,Math.floor(Math.min(...vals)-5)),max=Math.min(100,Math.ceil(Math.max(...vals)+2));
-  const x=i=>pad.l+(all.length<2?0.5:i/(all.length-1))*cw,y=v=>pad.t+(max-v)/(max-min||1)*ch;
-  ctx.clearRect(0,0,w,h);ctx.font='10px "DM Mono", monospace';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillStyle='#8f9b8c';
-  [min,Math.round((min+max)/2),max].forEach(v=>{const yy=y(v);ctx.strokeStyle='#303c32';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke();ctx.fillText(v+'%',pad.l-7,yy)});
-  const drawSeries=(series,color,fillColor)=>{
-   if(!series.length)return;
-   const points=series.map(row=>({i:all.indexOf(row),v:Math.max(0,Math.min(100,Number(row.ratio)||0))}));
-   if(fillColor&&points.length>1){const grad=ctx.createLinearGradient(0,pad.t,0,h-pad.b);grad.addColorStop(0,fillColor);grad.addColorStop(1,'rgba(199,243,107,0)');ctx.beginPath();points.forEach((q,j)=>j?ctx.lineTo(x(q.i),y(q.v)):ctx.moveTo(x(q.i),y(q.v)));ctx.lineTo(x(points[points.length-1].i),h-pad.b);ctx.lineTo(x(points[0].i),h-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill()}
-   ctx.beginPath();points.forEach((q,j)=>j?ctx.lineTo(x(q.i),y(q.v)):ctx.moveTo(x(q.i),y(q.v)));ctx.strokeStyle=color;ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
-   const last=points[points.length-1];ctx.beginPath();ctx.arc(x(last.i),y(last.v),3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();
-  };
-  drawSeries(legacy,'#849184',null);drawSeries(domestic,'#c7f36b','rgba(199,243,107,.2)');
-  const first=all[0],last=all[all.length-1],current=domestic.length?domestic[domestic.length-1]:last,metricRows=domestic.length?domestic:legacy;
-  $('historyStart').textContent=dateFa(first.generated_at);$('historyEnd').textContent=dateFa(last.generated_at);
-  $('historyLatest').textContent=Math.max(0,Math.min(100,Number(current.ratio)||0)).toFixed(1)+'%';
-  $('historyMin').textContent=Math.min(...metricRows.map(x=>Math.max(0,Math.min(100,Number(x.ratio)||0)))).toFixed(1)+'%';
- }catch(e){console.error('history chart:',e);const c=$('historyChart');if(c)c.closest('.history-surface').innerHTML='<p style="color:#a6b0a2;font-size:10px">داده‌های تاریخچه در دسترس نیست؛ پس از دریافت اولین پایش به‌روزرسانی می‌شود.</p>'}
+  const points=rows.map(row=>({time:Date.parse(row.generated_at),ratio:Number(row.ratio),scope:row.scope||'legacy',row}))
+   .filter(point=>Number.isFinite(point.time)&&Number.isFinite(point.ratio))
+   .map(point=>({...point,ratio:Math.max(0,Math.min(100,point.ratio))}))
+   .sort((a,b)=>a.time-b.time).slice(-100);
+  if(!chart)throw Error('history_chart_element_missing');
+  if(!points.length){
+   chart.innerHTML='<text x="450" y="120" text-anchor="middle" fill="#9aa596" font-size="15">هنوز داده‌ای برای رسم نمودار وجود ندارد</text>';
+   $('historyLatest').textContent='—';$('historyMin').textContent='—';
+   setState('بدون داده');return;
+  }
+  const W=900,H=240,pad={l:58,r:24,t:18,b:42},plotW=W-pad.l-pad.r,plotH=H-pad.t-pad.b;
+  const minTime=points[0].time,maxTime=points[points.length-1].time;
+  const x=time=>pad.l+(maxTime===minTime?0.5:(time-minTime)/(maxTime-minTime))*plotW;
+  const y=value=>pad.t+(100-value)/100*plotH;
+  const legacy=points.filter(point=>point.scope==='legacy');
+  const domestic=points.filter(point=>point.scope==='iranian-domestic-sites-and-apis'||point.scope==='current');
+  const other=points.filter(point=>point.scope!=='legacy'&&point.scope!=='iranian-domestic-sites-and-apis'&&point.scope!=='current');
+  const series=[{items:legacy,color:'#849184',width:2},{items:domestic,color:'#c7f36b',width:3},{items:other,color:'#79a9d8',width:2}];
+  const grid=[0,25,50,75,100].map(value=>'<g><line x1="'+pad.l+'" y1="'+y(value)+'" x2="'+(W-pad.r)+'" y2="'+y(value)+'" stroke="#303c32" stroke-width="1"/><text x="'+(pad.l-12)+'" y="'+(y(value)+4)+'" text-anchor="end" fill="#9aa596" font-size="12">'+value+'%</text></g>').join('');
+  const paths=series.map(item=>{
+   if(!item.items.length)return '';
+   const d=item.items.map((point,index)=>(index?'L':'M')+x(point.time).toFixed(2)+','+y(point.ratio).toFixed(2)).join(' ');
+   const circles=item.items.map(point=>'<circle cx="'+x(point.time).toFixed(2)+'" cy="'+y(point.ratio).toFixed(2)+'" r="3.5" fill="'+item.color+'"><title>'+point.ratio.toFixed(1)+'% · '+dateFa(point.row.generated_at)+'</title></circle>').join('');
+   return '<path d="'+d+'" fill="none" stroke="'+item.color+'" stroke-width="'+item.width+'" stroke-linecap="round" stroke-linejoin="round"/>'+circles;
+  }).join('');
+  const dateAt=time=>dateFa(new Date(time).toISOString());
+  const middleTime=minTime+(maxTime-minTime)/2;
+  const labels=[{time:minTime,anchor:'start'},{time:middleTime,anchor:'middle'},{time:maxTime,anchor:'end'}].map(item=>'<text x="'+x(item.time)+'" y="'+(H-12)+'" text-anchor="'+item.anchor+'" fill="#9aa596" font-size="11">'+dateAt(item.time)+'</text>').join('');
+  chart.setAttribute('viewBox','0 0 '+W+' '+H);
+  chart.innerHTML='<title>تغییرات درصد دسترسی در طول زمان</title><desc>محور عمودی درصد دسترسی از صفر تا صد و محور افقی زمان واقعی نمونه‌برداری است.</desc>'+grid+paths+labels;
+  const currentSeries=domestic.length?domestic:(legacy.length?legacy:points);
+  const values=currentSeries.map(point=>point.ratio);
+  const latest=points[points.length-1];
+  $('historyStart').textContent=dateAt(minTime);
+  $('historyEnd').textContent=dateAt(maxTime);
+  $('historyLatest').textContent=latest.ratio.toFixed(1)+'%';
+  $('historyMin').textContent=Math.min(...values).toFixed(1)+'%';
+  const ageHours=(Date.now()-latest.time)/3600000;
+  setState(ageHours>3?'داده قدیمی · '+Math.floor(ageHours)+' ساعت قبل':'آخرین نمونه · '+dateFa(latest.row.generated_at));
+ }catch(error){
+  console.error('history chart:',error);
+  if(chart)chart.innerHTML='<text x="450" y="120" text-anchor="middle" fill="#e6a16b" font-size="14">بارگذاری تاریخچه ناموفق بود؛ دوباره تلاش کنید</text>';
+  setState('خطا در دریافت داده');
+ }
 }
 async function load(){try{const r=await fetch('./status.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();statusData=await r.json();renderObservatory(statusData);await loadHistory()}catch(e){statusData=null;const box=$('observatoryList');if(box)box.innerHTML='<p class="obs-empty">دریافت وضعیت عمومی ناموفق بود؛ کمی بعد دوباره تلاش می‌شود.</p>'}}
 function renderObservatory(data){
