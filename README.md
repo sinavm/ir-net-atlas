@@ -1,163 +1,72 @@
 <div align="center">
 
-# IR Net Atlas
-
-### Iran Internet Reachability Observatory
-
-An open, continuously updated observatory for tracking the reachability of public websites and services related to Iran's internet ecosystem.
+# SVM و SiNAVM
 
 <p>
-  <a href="https://github.com/sinavm/ir-net-atlas/stargazers"><img src="https://img.shields.io/github/stars/sinavm/ir-net-atlas?style=for-the-badge&logo=github&color=f59e0b&label=Star%20on%20GitHub" alt="Star on GitHub"></a>
-  <a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://img.shields.io/badge/OPEN-LIVE%20ATLAS-0891b2?style=for-the-badge&logo=githubpages&logoColor=white" alt="Open Live Atlas"></a>
+  <a href="https://github.com/sinavm/ir-net-atlas/stargazers"><img src="https://img.shields.io/github/stars/sinavm/ir-net-atlas?style=for-the-badge&logo=github&color=f59e0b&label=Stars" alt="ستاره‌های مخزن"></a>
+  <a href="https://github.com/sinavm/ir-net-atlas/blob/main/LICENSE"><img src="https://img.shields.io/github/license/sinavm/ir-net-atlas?style=for-the-badge&color=10b981" alt="مجوز MIT"></a>
+  <a href="https://github.com/sinavm/ir-net-atlas/commits/main"><img src="https://img.shields.io/github/last-commit/sinavm/ir-net-atlas?style=for-the-badge&color=64748b" alt="آخرین به‌روزرسانی"></a>
+  <a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://img.shields.io/badge/Live-Dashboard-0891b2?style=for-the-badge&logo=githubpages&logoColor=white" alt="داشبورد زنده"></a>
 </p>
 
-<p>
-  <a href="https://github.com/sinavm/ir-net-atlas/actions/workflows/probe.yml"><img src="https://img.shields.io/github/actions/workflow/status/sinavm/ir-net-atlas/probe.yml?branch=main&style=flat-square&label=Probe%20workflow" alt="Probe workflow"></a>
-  <a href="https://github.com/sinavm/ir-net-atlas/commits/main"><img src="https://img.shields.io/github/last-commit/sinavm/ir-net-atlas?style=flat-square&color=64748b" alt="Last commit"></a>
-  <a href="https://github.com/sinavm/ir-net-atlas/blob/main/LICENSE"><img src="https://img.shields.io/github/license/sinavm/ir-net-atlas?style=flat-square&color=10b981" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/status-open%20data-0d9488?style=flat-square" alt="Open data">
-</p>
+<h2>SiNAVM | Iran Internet Reachability Observatory</h2>
+
+<a href="https://github.com/sinavm/ir-net-atlas"><img src="https://img.shields.io/badge/Star-IR%20Net%20Atlas-f59e0b?style=for-the-badge&logo=github&logoColor=white" alt="Star IR Net Atlas on GitHub"></a><br>
+<a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://img.shields.io/badge/Open-Live%20Atlas-0891b2?style=for-the-badge&logo=githubpages&logoColor=white" alt="Open Live Atlas"></a><br>
+<a href="https://t.me/sinavm"><img src="https://img.shields.io/badge/Join-SVM%20on%20Telegram-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Join SVM on Telegram"></a>
 
 <p>
-  <a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/docs/badge.svg" alt="Current Atlas status"></a>
+  <a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/docs/badge.svg" alt="وضعیت فعلی اطلس"></a>
 </p>
 
 </div>
 
 ---
 
-## Overview
+**IR Net Atlas** رصدخانه‌ای عمومی برای سنجش دسترسی‌پذیری وب‌سایت‌ها و سرویس‌های اینترنتی مرتبط با ایران است.
 
-**IR Net Atlas** collects and publishes network reachability measurements to make internet disruptions and service availability easier to observe over time.
+## داده‌های زنده
 
-The project keeps measurement perspectives separate instead of treating a single probe as a complete picture:
+- **۲۳ مقصد داخلی** شامل وب‌سایت‌ها، APIها، سرویس‌های پرداخت، اپراتورها و پیام‌رسان‌ها
+- **۲۶ مقصد بین‌المللی** برای بررسی از طریق مرورگر کاربر
+- **پایش بیرونی** با GitHub Actions و ثبت وضعیت HTTP، زمان پاسخ و زمان DNS
+- **داده‌های داخل ایران** با اولویت ArvanCloud Radar و استفاده از OONI در صورت در دسترس بودن
+- **تاریخچه و نمودار** برای مشاهده تغییرات دسترسی و زمان پاسخ
 
-- **External probes** — GitHub Actions checks a curated set of Iranian websites and public API endpoints from GitHub-hosted runners outside Iran.
-- **In-country observations** — the collector attempts to retrieve public measurements from ArvanCloud Radar, with OONI measurements as a fallback when available.
-- **International service targets** — a separate curated target list is published for the Atlas dashboard's browser-side checks.
+## منابع داده
 
-> **Important:** A successful or failed check from GitHub Actions does not prove whether a service is reachable from inside Iran. External probes, in-country observations, and browser-side checks are distinct measurement sources and should be interpreted separately.
-
-## Live dashboard
-
-Explore the current measurements, historical availability, latency, service groups, and available in-country observations:
-
-<div align="center">
-
-[**Open the IR Net Atlas dashboard →**](https://sinavm.github.io/ir-net-atlas/)
-
-</div>
-
-## Published data
-
-The dashboard is backed by static JSON and SVG files published through GitHub Pages. They can also be consumed directly by scripts and other projects.
-
-| Resource | Description |
+| منبع | کاربرد |
 |:--|:--|
-| [Live status](https://sinavm.github.io/ir-net-atlas/status.json) | Latest external probe results, summary, and service-level measurements |
-| [History](https://sinavm.github.io/ir-net-atlas/history.json) | Recent availability snapshots for timeline and trend analysis |
-| [In-country observations](https://sinavm.github.io/ir-net-atlas/inside.json) | Latest available Radar or OONI-derived observations |
-| [International targets](https://sinavm.github.io/ir-net-atlas/targets.json) | Curated targets used by browser-side checks |
-| [Status badge](https://sinavm.github.io/ir-net-atlas/badge.svg) | Compact SVG summary for README files and other projects |
+| [وضعیت فعلی](https://sinavm.github.io/ir-net-atlas/status.json) | آخرین نتیجه پروب بیرونی و وضعیت هر مقصد |
+| [تاریخچه](https://sinavm.github.io/ir-net-atlas/history.json) | snapshotهای ثبت‌شده برای بررسی روند |
+| [مشاهدات داخل ایران](https://sinavm.github.io/ir-net-atlas/inside.json) | داده‌های دریافت‌شده از Radar یا OONI |
+| [فهرست مقصدها](https://sinavm.github.io/ir-net-atlas/targets.json) | مقصدهای بین‌المللی مورد استفاده در بررسی مرورگر |
+| [نشان وضعیت](https://sinavm.github.io/ir-net-atlas/badge.svg) | نشان SVG قابل استفاده در پروژه‌های دیگر |
 
-### Embed the status badge
+## روش اندازه‌گیری
 
-Use the live badge in your own README:
+پروب بیرونی به‌صورت زمان‌بندی‌شده اجرا می‌شود و نتیجه هر مقصد را همراه با کد HTTP، زمان پاسخ، زمان DNS و سطح کیفیت ثبت می‌کند.
 
-```markdown
-[![IR Net Atlas](https://sinavm.github.io/ir-net-atlas/badge.svg)](https://sinavm.github.io/ir-net-atlas/)
-```
-
-## How it works
-
-1. **Collect targets** — the project loads its curated target definitions from the repository.
-2. **Run external probes** — a scheduled GitHub Actions workflow checks the configured Iranian websites and APIs, recording HTTP status, response time, DNS timing, and a simple quality classification.
-3. **Collect in-country observations** — a separate step queries public Radar data and falls back to OONI measurements when possible. If no fresh source is available, the last saved observation is retained and marked stale.
-4. **Publish snapshots** — generated JSON, history, and badge files are committed to the repository and served by GitHub Pages.
-5. **Explore the data** — the dashboard presents the available measurements and their timelines.
-
-The workflow is scheduled to run hourly, with an additional run every three hours. Runs can also be started manually from [GitHub Actions](https://github.com/sinavm/ir-net-atlas/actions/workflows/probe.yml).
-
-## Measurement details
-
-Each external target may include:
-
-- HTTP reachability and response status
-- Request latency in milliseconds
-- DNS resolution timing
-- A coarse quality label: `fast`, `ok`, `slow`, or `down`
-- A service group and measurement layer
-
-Latency thresholds used by the current probe:
-
-| Classification | Response time |
+| سطح | زمان پاسخ |
 |:--|--:|
-| Fast | Under 200 ms |
-| OK | 200–799 ms |
-| Slow | 800 ms or more |
-| Down | Request failed or target was unreachable |
+| Fast | کمتر از ۲۰۰ میلی‌ثانیه |
+| OK | از ۲۰۰ تا ۷۹۹ میلی‌ثانیه |
+| Slow | ۸۰۰ میلی‌ثانیه یا بیشتر |
+| Down | درخواست ناموفق یا مقصد غیرقابل دسترس |
 
-These labels are intentionally simple indicators, not service-level guarantees. A single request can be affected by transient routing, DNS, TLS, rate limiting, or server-side behavior.
+**نکته مهم:** پروب GitHub Actions خارج از ایران اجرا می‌شود و به‌تنهایی وضعیت دسترسی کاربران داخل ایران را نشان نمی‌دهد. داده‌های بیرونی، مشاهدات داخل ایران و بررسی مرورگر منابع اندازه‌گیری جداگانه‌اند.
 
-## Repository layout
+## به‌روزرسانی
 
-```text
-.
-├── .github/
-│   └── workflows/
-│       └── probe.yml          # Scheduled data collection workflow
-├── docs/
-│   ├── index.html              # GitHub Pages dashboard
-│   ├── status.json             # Latest external probe snapshot
-│   ├── history.json            # Recent historical snapshots
-│   ├── inside.json             # In-country observations
-│   ├── targets.json            # Browser-side target list
-│   └── badge.svg               # Generated status badge
-├── reports/
-│   └── iran.json               # Local report data
-├── fetch_inside.py             # Radar / OONI observation collector
-├── observatory_targets.json    # External probe targets
-├── targets.json                # International browser-side targets
-└── probe.py                    # External reachability probe
-```
+گردآوری داده‌ها طبق زمان‌بندی ساعتی و یک اجرای تکمیلی هر سه ساعت انجام می‌شود. اجرای دستی نیز از [GitHub Actions](https://github.com/sinavm/ir-net-atlas/actions/workflows/probe.yml) در دسترس است.
 
-## Run locally
+## مشارکت
 
-Requirements: **Python 3.10+**. The collectors use the Python standard library and do not require third-party packages.
+برای افزودن مقصد یا گزارش اختلال، [راهنمای مشارکت](CONTRIBUTING.md) و [فرم گزارش از داخل ایران](https://github.com/sinavm/ir-net-atlas/issues/new?template=iran-report.yml) را ببینید.
 
-Run the external probe:
+## مجوز
 
-```bash
-python3 probe.py
-```
-
-Fetch the latest available in-country observations:
-
-```bash
-python3 fetch_inside.py
-```
-
-The scripts write generated files to `docs/`. Running them locally does not publish the results; publication is handled by the GitHub Actions workflow.
-
-## Contributing
-
-Contributions that improve measurement quality, transparency, and data reliability are welcome.
-
-- Add targets only when they are public, relevant, and reasonably stable.
-- Keep external probes free of private credentials, personal data, and secret tokens.
-- Preserve the distinction between measurements made outside Iran and observations collected inside Iran.
-- Document the source and limitations of any new measurement.
-- Avoid interpreting one failed request as proof of a nationwide outage.
-
-For changes or questions, please open a [GitHub issue](https://github.com/sinavm/ir-net-atlas/issues) or submit a pull request.
-
-## Disclaimer
-
-IR Net Atlas is an independent measurement and research project. Results are snapshots from specific sources and vantage points; they may be incomplete, delayed, or affected by temporary network conditions. They should not be treated as a guarantee of availability or as a definitive measurement of every user's experience.
-
-## License
-
-This project is released under the [MIT License](LICENSE).
+[MIT License](LICENSE)
 
 ---
 
@@ -165,6 +74,6 @@ This project is released under the [MIT License](LICENSE).
 
 **Built by [SiNAVM](https://github.com/sinavm)**
 
-[Live Atlas](https://sinavm.github.io/ir-net-atlas/) · [Source code](https://github.com/sinavm/ir-net-atlas) · [Report an issue](https://github.com/sinavm/ir-net-atlas/issues)
+[Live Atlas](https://sinavm.github.io/ir-net-atlas/) · [GitHub](https://github.com/sinavm/ir-net-atlas) · [Telegram](https://t.me/sinavm)
 
 </div>
