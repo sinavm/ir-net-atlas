@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths:
+      - 'probe.py'
+      - 'fetch_inside.py'
+      - '.github/workflows/probe.yml'
   schedule:
     - cron: '7 * * * *'
     - cron: '18 */3 * * *'
@@ -11,11 +15,18 @@ on:
 permissions:
   contents: write
 
+# Prevent overlapping probe runs from racing to update the same snapshot files.
+concurrency:
+  group: atlas-probe-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
@@ -25,8 +36,28 @@ jobs:
         run: python probe.py
       - name: Inside-Iran ingest
         run: python fetch_inside.py || true
-      - name: Commit snapshots
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: refresh atlas snapshot"
-          file_pattern: docs/status.json docs/history.json docs/badge.svg docs/inside.json docs/targets.json
+      - name: Commit and push snapshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/status.json docs/history.json docs/badge.svg docs/inside.json docs/targets.json
+
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: refresh atlas snapshot"
+
+          # Rebase on the latest main before pushing; retry if another writer wins the race.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; retrying after fetching main."
+          done
+
+          echo "Could not push snapshots after 3 attempts."
+          exit 1
