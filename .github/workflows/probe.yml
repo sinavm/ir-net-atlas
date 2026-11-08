@@ -24,9 +24,7 @@ jobs:
       - name: Inside-Iran ingest
         run: python fetch_inside.py || true
       - name: Commit snapshots
-        run: |
-          git config user.name ir-net-atlas-bot
-          git config user.email sina.bb2006@gmail.com
-          git add docs/status.json docs/history.json docs/badge.svg docs/inside.json docs/targets.json
-          git commit -m "chore: refresh atlas snapshot" || echo nochange
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: refresh atlas snapshot"
+          file_pattern: docs/status.json docs/history.json docs/badge.svg docs/inside.json docs/targets.json
