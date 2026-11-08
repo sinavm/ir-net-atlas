@@ -19,7 +19,7 @@
 
 <a href="https://github.com/sinavm/ir-net-atlas"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/assets/cta-star.svg" alt="Star IR Net Atlas on GitHub" width="70%"></a><br>
 <a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/assets/cta-atlas.svg" alt="Open IR Net Atlas" width="70%"></a><br>
-<a href="https://t.me/sinavm"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/assets/cta-telegram.svg" alt="Join SVM on Telegram" width="70%"></a>
+<a href="https://t.me/sinavm"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/assets/cta-telegram.svg" alt="Join SiNAVM on Telegram" width="70%"></a>
 
 </div>
 
