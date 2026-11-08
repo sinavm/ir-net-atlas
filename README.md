@@ -1,23 +1,25 @@
 <div align="center">
 
-# SVM و SiNAVM
+<a href="https://sinavm.github.io/ir-net-atlas/">
+<img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/docs/assets/sinavm-logo.svg" alt="SVM و SiNAVM" width="100%">
+</a>
 
 <p>
-  <a href="https://github.com/sinavm/ir-net-atlas/stargazers"><img src="https://img.shields.io/github/stars/sinavm/ir-net-atlas?style=for-the-badge&logo=github&color=f59e0b&label=Stars" alt="ستاره‌های مخزن"></a>
-  <a href="https://github.com/sinavm/ir-net-atlas/blob/main/LICENSE"><img src="https://img.shields.io/github/license/sinavm/ir-net-atlas?style=for-the-badge&color=10b981" alt="مجوز MIT"></a>
-  <a href="https://github.com/sinavm/ir-net-atlas/commits/main"><img src="https://img.shields.io/github/last-commit/sinavm/ir-net-atlas?style=for-the-badge&color=64748b" alt="آخرین به‌روزرسانی"></a>
-  <a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://img.shields.io/badge/Live-Dashboard-0891b2?style=for-the-badge&logo=githubpages&logoColor=white" alt="داشبورد زنده"></a>
+<a href="https://github.com/sinavm/ir-net-atlas/stargazers"><img src="https://img.shields.io/github/stars/sinavm/ir-net-atlas?style=for-the-badge&logo=github&color=f59e0b" alt="ستاره‌های مخزن"></a>
+<a href="https://github.com/sinavm/ir-net-atlas/blob/main/LICENSE"><img src="https://img.shields.io/github/license/sinavm/ir-net-atlas?style=for-the-badge&color=10b981" alt="مجوز پروژه"></a>
+<a href="https://github.com/sinavm/ir-net-atlas/commits/main"><img src="https://img.shields.io/github/last-commit/sinavm/ir-net-atlas/main?style=for-the-badge&color=64748b" alt="آخرین به‌روزرسانی"></a>
+<a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://img.shields.io/badge/Live-Dashboard-0891b2?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live Dashboard"></a>
 </p>
 
 <h2>SiNAVM | Iran Internet Reachability Observatory</h2>
 
-<a href="https://github.com/sinavm/ir-net-atlas"><img src="https://img.shields.io/badge/Star-IR%20Net%20Atlas-f59e0b?style=for-the-badge&logo=github&logoColor=white" alt="Star IR Net Atlas on GitHub"></a><br>
-<a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://img.shields.io/badge/Open-Live%20Atlas-0891b2?style=for-the-badge&logo=githubpages&logoColor=white" alt="Open Live Atlas"></a><br>
-<a href="https://t.me/sinavm"><img src="https://img.shields.io/badge/Join-SVM%20on%20Telegram-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Join SVM on Telegram"></a>
+</div>
 
-<p>
-  <a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/docs/badge.svg" alt="وضعیت فعلی اطلس"></a>
-</p>
+<div align="center">
+
+<a href="https://github.com/sinavm/ir-net-atlas"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/assets/cta-star.svg" alt="Star IR Net Atlas on GitHub" width="70%"></a><br>
+<a href="https://sinavm.github.io/ir-net-atlas/"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/assets/cta-atlas.svg" alt="Open IR Net Atlas" width="70%"></a><br>
+<a href="https://t.me/sinavm"><img src="https://raw.githubusercontent.com/sinavm/ir-net-atlas/main/assets/cta-telegram.svg" alt="Join SVM on Telegram" width="70%"></a>
 
 </div>
 
