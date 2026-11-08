@@ -147,8 +147,7 @@ def main() -> None:
     history_path.write_text(json.dumps(history[-72:], ensure_ascii=False, indent=2), encoding="utf-8")
     color = "22c55e" if ratio >= 85 else "eab308" if ratio >= 60 else "ef4444"
     (DOCS / "badge.svg").write_text(
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="176" height="20"><rect width="176" height="20" rx="4" fill="#0f172a"/><text x="8" y="14" fill="#94a3b8" font-size="11" font-family="Verdana">atlas</text><text x="52" y="14" fill="#{color}" font-size="11" font-family="Verdana">{up}/{total} · {snapshot["summary"]["avg_ms"] or "—"}ms</text></svg>
-',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="176" height="20"><rect width="176" height="20" rx="4" fill="#0f172a"/><text x="8" y="14" fill="#94a3b8" font-size="11" font-family="Verdana">atlas</text><text x="52" y="14" fill="#{color}" font-size="11" font-family="Verdana">{up}/{total} · {snapshot["summary"]["avg_ms"] or "—"}ms</text></svg>',
         encoding="utf-8",
     )
 
