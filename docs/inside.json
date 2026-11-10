@@ -49,12 +49,12 @@
       "services": [
         {
           "id": "playstation",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
           "id": "wikipedia",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
@@ -81,10 +81,15 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
+        },
+        {
+          "id": "digikala",
+          "score": 0.0,
+          "ok": true
         }
       ]
     }
   ],
-  "generated_at": "2026-11-10T09:42:34Z",
+  "generated_at": "2026-11-10T14:50:19Z",
   "label": "پروب از داخل ایران"
 }
