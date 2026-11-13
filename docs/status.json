@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T01:49:07Z",
+  "generated_at": "2026-11-13T07:53:29Z",
   "probe_from": "github-actions",
   "disclaimer": "Iranian sites and API endpoints are probed from outside Iran. This does not represent reachability from inside Iran.",
   "summary": {
@@ -7,13 +7,13 @@
     "down": 3,
     "total": 23,
     "ratio": 87.0,
-    "avg_ms": 1337
+    "avg_ms": 1350
   },
   "layers": {
     "domestic": {
       "up": 20,
       "down": 3,
-      "avg_ms": 1337,
+      "avg_ms": 1350,
       "ratio": 87.0
     }
   },
@@ -27,9 +27,9 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 1064,
-      "dns_ms": 359,
-      "quality": "slow",
+      "ms": 426,
+      "dns_ms": 380,
+      "quality": "ok",
       "error": null,
       "bytes": 256
     },
@@ -41,8 +41,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 307,
-      "ms": 2768,
-      "dns_ms": 369,
+      "ms": 1849,
+      "dns_ms": 341,
       "quality": "slow",
       "error": "http_307",
       "bytes": 0
@@ -55,8 +55,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 1552,
-      "dns_ms": 846,
+      "ms": 1218,
+      "dns_ms": 445,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -69,8 +69,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 688,
-      "dns_ms": 421,
+      "ms": 660,
+      "dns_ms": 306,
       "quality": "ok",
       "error": null,
       "bytes": 256
@@ -83,8 +83,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 404,
-      "ms": 577,
-      "dns_ms": 284,
+      "ms": 375,
+      "dns_ms": 301,
       "quality": "ok",
       "error": "http_404",
       "bytes": 0
@@ -97,8 +97,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 307,
-      "ms": 3270,
-      "dns_ms": 239,
+      "ms": 4025,
+      "dns_ms": 248,
       "quality": "slow",
       "error": "http_307",
       "bytes": 0
@@ -111,8 +111,8 @@
       "layer": "domestic",
       "ok": false,
       "status": 0,
-      "ms": 10607,
-      "dns_ms": 791,
+      "ms": 10485,
+      "dns_ms": 350,
       "quality": "down",
       "error": "TimeoutError",
       "bytes": 0
@@ -125,8 +125,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 845,
-      "dns_ms": 265,
+      "ms": 828,
+      "dns_ms": 356,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -139,8 +139,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 403,
-      "ms": 559,
-      "dns_ms": 289,
+      "ms": 656,
+      "dns_ms": 303,
       "quality": "ok",
       "error": "http_403",
       "bytes": 0
@@ -153,8 +153,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 1103,
-      "dns_ms": 53,
+      "ms": 1280,
+      "dns_ms": 66,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -167,8 +167,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 800,
-      "dns_ms": 49,
+      "ms": 855,
+      "dns_ms": 84,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -181,8 +181,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 839,
-      "dns_ms": 77,
+      "ms": 805,
+      "dns_ms": 75,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -195,8 +195,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 2698,
-      "dns_ms": 468,
+      "ms": 2978,
+      "dns_ms": 958,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -209,9 +209,9 @@
       "layer": "domestic",
       "ok": true,
       "status": 403,
-      "ms": 784,
-      "dns_ms": 439,
-      "quality": "ok",
+      "ms": 886,
+      "dns_ms": 397,
+      "quality": "slow",
       "error": "http_403",
       "bytes": 0
     },
@@ -223,8 +223,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 967,
-      "dns_ms": 56,
+      "ms": 1112,
+      "dns_ms": 64,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -237,7 +237,7 @@
       "layer": "domestic",
       "ok": false,
       "status": 0,
-      "ms": 47,
+      "ms": 60,
       "dns_ms": null,
       "quality": "down",
       "error": "URLError",
@@ -251,8 +251,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 1320,
-      "dns_ms": 222,
+      "ms": 1380,
+      "dns_ms": 361,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -265,8 +265,8 @@
       "layer": "domestic",
       "ok": false,
       "status": 0,
-      "ms": 10393,
-      "dns_ms": 2936,
+      "ms": 10030,
+      "dns_ms": 2637,
       "quality": "down",
       "error": "URLError",
       "bytes": 0
@@ -279,8 +279,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 3184,
-      "dns_ms": 534,
+      "ms": 3383,
+      "dns_ms": 462,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -293,8 +293,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 1130,
-      "dns_ms": 678,
+      "ms": 1408,
+      "dns_ms": 700,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -307,8 +307,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 985,
-      "dns_ms": 223,
+      "ms": 987,
+      "dns_ms": 243,
       "quality": "slow",
       "error": null,
       "bytes": 256
@@ -321,8 +321,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 362,
-      "dns_ms": 448,
+      "ms": 521,
+      "dns_ms": 298,
       "quality": "ok",
       "error": null,
       "bytes": 256
@@ -335,8 +335,8 @@
       "layer": "domestic",
       "ok": true,
       "status": 200,
-      "ms": 1246,
-      "dns_ms": 357,
+      "ms": 1369,
+      "dns_ms": 368,
       "quality": "slow",
       "error": null,
       "bytes": 256
