@@ -5,7 +5,7 @@
 <script>if("scrollRestoration" in history)history.scrollRestoration="manual";const resetPageScroll=()=>window.scrollTo({top:0,left:0,behavior:"instant"});window.addEventListener("pageshow",resetPageScroll);window.addEventListener("load",resetPageScroll,{once:true});</script>
 <meta name="theme-color" content="#101512">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="IR Net Atlas از SiNAVM؛ ابزار رایگان تست سرعت اینترنت، پینگ، دانلود و آپلود، بررسی دسترسی سایت‌ها و رصد کیفیت اتصال. همراه با راهنماها و منابع VPN و اینترنت آزاد.">
+<meta name="description" content="IR Net Atlas؛ ابزار آنلاین تست سرعت اینترنت، پینگ، دانلود و آپلود و بررسی دسترسی سایت‌ها از اتصال فعلی شما، همراه با گزارش سنجش.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="googlebot" content="index,follow">
 <meta name="application-name" content="IR Net Atlas"><meta name="keywords" content="SiNAVM, تست سرعت اینترنت, تست اسپید, تست پینگ, تست آپلود, تست دانلود, رصدخانه اینترنت, VPN, اینترنت آزاد, بررسی دسترسی سایت‌ها"><link rel="icon" type="image/svg+xml" href="./assets/sinavm-icon.svg"><link rel="shortcut icon" href="./assets/sinavm-icon.svg"><link rel="apple-touch-icon" href="./assets/sinavm-icon.svg"><link rel="preload" as="image" href="./assets/sinavm-logo.svg" type="image/svg+xml">
@@ -13,13 +13,13 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:site_name" content="IR Net Atlas">
-<meta property="og:title" content="IR Net Atlas از SiNAVM | تست سرعت و رادار اینترنت ایران">
-<meta property="og:description" content="تست سرعت اینترنت، بررسی پینگ و دسترسی سرویس‌های ایرانی و جهانی از اتصال فعلی شما.">
+<meta property="og:title" content="IR Net Atlas | تست سرعت اینترنت و بررسی دسترسی">
+<meta property="og:description" content="تست سرعت، پینگ، دانلود، آپلود و بررسی دسترسی سرویس‌ها از اتصال فعلی شما.">
 <meta property="og:url" content="https://sinavm.github.io/ir-net-atlas/"><meta property="og:image" content="https://sinavm.github.io/ir-net-atlas/assets/sinavm-logo.svg"><meta property="og:image:alt" content="لوگوی SiNAVM با نماد شبکه و وای‌فای">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sinavm.github.io/ir-net-atlas/assets/sinavm-logo.svg">
-<meta name="twitter:title" content="IR Net Atlas از SiNAVM | تست اینترنت">
-<meta name="twitter:description" content="وضعیت دسترسی سرویس‌ها و کیفیت اینترنت را از اتصال فعلی خود بررسی کنید.">
-<title>IR Net Atlas از SiNAVM | تست سرعت و رادار اینترنت ایران</title>
+<meta name="twitter:title" content="IR Net Atlas | تست سرعت اینترنت و بررسی دسترسی">
+<meta name="twitter:description" content="تست سرعت، پینگ، دانلود، آپلود و بررسی دسترسی سرویس‌ها از اتصال فعلی شما.">
+<title>IR Net Atlas | تست سرعت اینترنت و بررسی دسترسی - SiNAVM</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -51,7 +51,7 @@
       "browserRequirements": "مرورگر به‌روز با پشتیبانی از JavaScript",
       "inLanguage": "fa-IR",
       "isAccessibleForFree": true,
-      "description": "ابزار آنلاین رایگان تست سرعت اینترنت، سنجش پینگ، دانلود و آپلود و بررسی دسترسی سرویس‌ها از مرورگر کاربر.",
+      "description": "ابزار آنلاین تست سرعت اینترنت، سنجش پینگ، دانلود و آپلود و بررسی دسترسی سرویس‌ها از اتصال فعلی کاربر.",
       "featureList": ["تست سرعت اینترنت", "سنجش پینگ و تأخیر", "اندازه‌گیری دانلود و آپلود", "بررسی دسترسی سایت‌ها", "رصد تاریخچه کیفیت شبکه"]
     }
   ]
@@ -293,6 +293,7 @@ body{background:#101512;color:#edf2e8}.shell{display:block;max-width:1080px;min-
 <div class="shell">
 <main class="main compact-main">
  <header class="top compact-top"><a class="brand" href="https://sinavm.github.io/sinavm/" aria-label="صفحه اصلی SiNAVM"><img class="brandmark brand-logo" src="./assets/sinavm-logo.svg" alt="لوگوی SiNAVM" width="760" height="190" fetchpriority="high" decoding="async"></a><div class="top-actions"><a class="home-link" href="https://sinavm.github.io/sinavm/" aria-label="صفحه اصلی">صفحه اصلی</a><span class="time-box" id="clock">--:--</span><button class="refresh" id="refresh" aria-label="تازه‌سازی">↻</button></div></header>
+  <h1 style="text-align:center;color:#edf2e8;font-size:clamp(19px,3vw,27px);line-height:1.6;margin:8px auto 14px">تست سرعت اینترنت و بررسی دسترسی با IR Net Atlas</h1>
   <div class="brand-subtitle" style="display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;text-align:center;margin:4px auto 14px;direction:ltr"><a href="https://sinavm.github.io/sinavm/" style="font-weight:800;color:var(--lime)">IR NET ATLAS</a><a href="https://sinavm.github.io/sinavm/" style="color:#b8c5b5">INTERNET TEST</a></div>
   <section class="section" id="speedtest"><div class="sectionhead"><div><h2>تست اینترنت</h2></div></div>
   <div class="split test-layout">
