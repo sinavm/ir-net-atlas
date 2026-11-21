@@ -1,100 +1,214 @@
 {
-  "source": "in-country-radar",
+  "source": "in-country-measurements",
   "ok": true,
   "isps": [
     {
-      "isp": "mci",
-      "title": "همراه اول",
+      "isp": "AS58224",
+      "title": "AS58224",
       "services": [
         {
-          "id": "playstation",
-          "score": 0.0,
-          "ok": true
+          "id": "freespeechdebate.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "wikipedia",
-          "score": 0.0,
-          "ok": true
+          "id": "freespeech.org",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "bing",
-          "score": 0.0,
-          "ok": true
+          "id": "freesocks.org",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "google",
-          "score": 0.0,
-          "ok": true
+          "id": "freenetproject.org",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "github",
-          "score": 0.0,
-          "ok": true
+          "id": "freemuse.org",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "aparat",
-          "score": 0.0,
-          "ok": true
+          "id": "freedomhouse.org",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "divar",
-          "score": 0.0,
-          "ok": true
+          "id": "fondfbr.ru",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "digikala",
-          "score": 0.0,
-          "ok": true
-        }
-      ]
-    },
-    {
-      "isp": "irancell",
-      "title": "ایرانسل",
-      "services": [
-        {
-          "id": "playstation",
-          "score": 0.0,
-          "ok": true
+          "id": "fitnets.net",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "wikipedia",
-          "score": 0.0,
-          "ok": true
+          "id": "finasterideblog.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "bing",
-          "score": 0.0,
-          "ok": true
+          "id": "filtershekanha.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "google",
-          "score": 0.0,
-          "ok": true
+          "id": "feministschool.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "github",
-          "score": 0.0,
-          "ok": true
+          "id": "feminists4jina.net",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "aparat",
-          "score": 0.0,
-          "ok": true
+          "id": "femena.net",
+          "ok": true,
+          "score": 5
         },
         {
-          "id": "divar",
-          "score": 0.0,
-          "ok": true
+          "id": "farsi.euronews.com",
+          "ok": false,
+          "score": 80
         },
         {
-          "id": "digikala",
-          "score": 0.0,
-          "ok": true
+          "id": "farsi.alarabiya.net",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "fararu.com",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "alhayat.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.tripod.lycos.com",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "www.instagram.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.facebook.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "twitter.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "www.youtube.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "equal-eyes.org",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "enghelabe-eslami.de",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "donya-e-eqtesad.com",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "docs.mvt.re",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "dn42.dev",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "divanesara2.blogspot.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "disclose.ngo",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "dialogt.de",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "ddosecrets.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "dalghakirani.blogspot.com",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "csid-online.org",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "cryptpad.org",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "cryptpad.fr",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "cryptome.org",
+          "ok": false,
+          "score": 80
+        },
+        {
+          "id": "bouncer.ooni.io",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "azadlo.ir",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "atlaspress.news",
+          "ok": true,
+          "score": 5
+        },
+        {
+          "id": "atlasofsurveillance.org",
+          "ok": true,
+          "score": 5
         }
       ]
     }
   ],
-  "generated_at": "2026-11-20T20:12:23Z",
+  "generated_at": "2026-11-21T01:30:05Z",
   "label": "پروب از داخل ایران"
 }
