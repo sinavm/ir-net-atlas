@@ -1,214 +1,90 @@
 {
-  "source": "in-country-measurements",
+  "source": "in-country-radar",
   "ok": true,
   "isps": [
     {
-      "isp": "AS58224",
-      "title": "AS58224",
+      "isp": "mci",
+      "title": "همراه اول",
       "services": [
         {
-          "id": "www.privacyguides.org",
-          "ok": true,
-          "score": 5
+          "id": "playstation",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.privacidade.digital",
-          "ok": true,
-          "score": 5
+          "id": "wikipedia",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.pridemedia.com",
-          "ok": true,
-          "score": 5
+          "id": "bing",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.pri.org",
-          "ok": false,
-          "score": 80
+          "id": "google",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.pravda.ru",
-          "ok": true,
-          "score": 5
+          "id": "github",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.planetromeo.com",
-          "ok": false,
-          "score": 80
+          "id": "aparat",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.plancpills.org",
-          "ok": true,
-          "score": 5
+          "id": "divar",
+          "score": 0.0,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "isp": "irancell",
+      "title": "ایرانسل",
+      "services": [
+        {
+          "id": "playstation",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.piratpartiet.se",
-          "ok": true,
-          "score": 5
+          "id": "wikipedia",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.ftchinese.com",
-          "ok": true,
-          "score": 5
+          "id": "bing",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.piratenpartei.ch",
-          "ok": true,
-          "score": 5
+          "id": "google",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.sbs.com.au",
-          "ok": true,
-          "score": 5
+          "id": "github",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "www.pinknews.co.uk",
-          "ok": true,
-          "score": 5
+          "id": "aparat",
+          "score": 0.0,
+          "ok": true
         },
         {
-          "id": "sputniknews.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.pinkcupid.com",
-          "ok": false,
-          "score": 80
-        },
-        {
-          "id": "www.phpmyadmin.net",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.reuters.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "foreignpolicy.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.pezhvakeiran.com",
-          "ok": false,
-          "score": 80
-        },
-        {
-          "id": "www.icij.org",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.spiegel.de",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.washingtonpost.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.mc-doualiya.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.france24.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.francemediasmonde.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.projectveritas.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "timcast.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.dailywire.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.peykeiran.com",
-          "ok": false,
-          "score": 80
-        },
-        {
-          "id": "www.peacefire.org",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.peace-mark.org",
-          "ok": false,
-          "score": 80
-        },
-        {
-          "id": "www.currenttime.tv",
-          "ok": false,
-          "score": 80
-        },
-        {
-          "id": "vgtrk.ru",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.rtarabic.com",
-          "ok": false,
-          "score": 80
-        },
-        {
-          "id": "www.ntv.ru",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "rtr-planeta.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "sputnikglobe.com",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.vesti.ru",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "www.1tv.ru",
-          "ok": false,
-          "score": 80
-        },
-        {
-          "id": "www.propublica.org",
-          "ok": true,
-          "score": 5
-        },
-        {
-          "id": "ourworldindata.org",
-          "ok": true,
-          "score": 5
+          "id": "divar",
+          "score": 0.0,
+          "ok": true
         }
       ]
     }
   ],
-  "generated_at": "2026-11-21T02:13:50Z",
+  "generated_at": "2026-11-21T09:41:26Z",
   "label": "پروب از داخل ایران"
 }
