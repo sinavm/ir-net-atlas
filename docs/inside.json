@@ -28,7 +28,7 @@
         },
         {
           "id": "github",
-          "score": 0.5,
+          "score": 0.0,
           "ok": true
         },
         {
@@ -81,15 +81,10 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
-        },
-        {
-          "id": "digikala",
-          "score": 0.0,
-          "ok": true
         }
       ]
     }
   ],
-  "generated_at": "2026-11-22T19:34:37Z",
+  "generated_at": "2026-11-22T21:44:15Z",
   "label": "پروب از داخل ایران"
 }
