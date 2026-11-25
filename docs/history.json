@@ -1,12 +1,5 @@
 [
   {
-    "generated_at": "2026-11-13T07:53:29Z",
-    "ratio": 87.0,
-    "up": 20,
-    "avg_ms": 1350,
-    "scope": "iranian-domestic-sites-and-apis"
-  },
-  {
     "generated_at": "2026-11-13T10:55:55Z",
     "ratio": 87.0,
     "up": 20,
@@ -501,6 +494,13 @@
     "ratio": 87.0,
     "up": 20,
     "avg_ms": 1115,
+    "scope": "iranian-domestic-sites-and-apis"
+  },
+  {
+    "generated_at": "2026-11-25T08:28:08Z",
+    "ratio": 87.0,
+    "up": 20,
+    "avg_ms": 1291,
     "scope": "iranian-domestic-sites-and-apis"
   }
 ]
