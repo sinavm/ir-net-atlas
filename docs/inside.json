@@ -81,10 +81,15 @@
           "id": "divar",
           "score": 0.0,
           "ok": true
+        },
+        {
+          "id": "digikala",
+          "score": 0.0,
+          "ok": true
         }
       ]
     }
   ],
-  "generated_at": "2026-11-27T12:05:14Z",
+  "generated_at": "2026-11-27T12:12:08Z",
   "label": "پروب از داخل ایران"
 }
